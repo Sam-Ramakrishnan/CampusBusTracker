@@ -1,0 +1,2 @@
+rootProject.name='Campus Bus Tracker'
+include ':app'
