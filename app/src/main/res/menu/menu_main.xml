@@ -15,12 +15,5 @@
 
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/btn_menu_account"
-        android:title="Account"
-        />
 
-    <item
-        android:id="@+id/btn_menu_signout"
-        android:title="Sign out" />
 </menu>

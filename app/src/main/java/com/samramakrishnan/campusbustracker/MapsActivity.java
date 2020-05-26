@@ -1,6 +1,7 @@
 package com.samramakrishnan.campusbustracker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatSpinner;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Spinner;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,11 +31,17 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
+import com.samramakrishnan.campusbustracker.models.Route;
 import com.samramakrishnan.campusbustracker.models.TripEntity;
 import com.samramakrishnan.campusbustracker.restapi.APICalls;
 import com.samramakrishnan.campusbustracker.restapi.RetrofitHelper;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -41,6 +49,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     private ArrayList<TripEntity> listTrips = new ArrayList<>();
+
+    private Spinner spinner;
+    private ArrayList<Route> listRoutes = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -159,6 +170,35 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.addMarker(new MarkerOptions().position(busPosition).title(listTrips.get(0).getVehicle().getTimestamp()+""));
     }
 
+    // Parse the csv file to map route ids to route names
+    private void parseCSV(){
+
+        InputStream is = getResources().openRawResource(
+                getResources().getIdentifier("routes",
+                        "raw", getPackageName()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        try {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] rowData = line.split(",");
+                listRoutes.add(new Route(rowData[0], rowData[3]));
+                //Route route = new Route(Integer.parseInt(rowData[0]), rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0]);
+
+
+            }
+        }
+        catch (IOException ex) {
+            // handle exception
+        }
+        finally {
+            try {
+                is.close();
+            }
+            catch (IOException e) {
+                // handle exception
+            }
+        }
+    }
 
     @Override
     public boolean onPrepareOptionsMenu (Menu menu) {
@@ -169,15 +209,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        parseCSV();
+
+        MenuItem item = menu.findItem(R.id.spinner);
+         spinner = (Spinner) item.getActionView();
+
+        RouteAdapter routeAdapter = new RouteAdapter(this, listRoutes);
+        routeAdapter.setDropDownViewResource(R.layout.dropdown);
+        spinner.setAdapter(routeAdapter);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
-            case R.id.btn_menu_account:
-//                finish();
-                return(true);
+//            case R.id.btn_menu_account:
+//////                finish();
+////                return(true);
+
+
         }
         return(super.onOptionsItemSelected(item));
     }
