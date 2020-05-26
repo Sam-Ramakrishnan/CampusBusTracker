@@ -8,6 +8,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding"
-        android:hint="Select Route" />
+        android:hint="Select Route"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        />
 
 </LinearLayout>

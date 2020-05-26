@@ -5,4 +5,5 @@
     android:singleLine="true"
     android:layout_width="@dimen/dropdown_width"
     android:layout_height="@dimen/dropdown_height"
+    android:background="@color/colorPrimary"
     android:ellipsize="marquee"/>
