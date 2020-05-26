@@ -4,19 +4,28 @@ import java.util.ArrayList;
 
 public class ResponseVehiclePosition {
     ArrayList< TripEntity > entity = new ArrayList < TripEntity >  ();
-    Header HeaderObject;
+    Header header;
 
 
     // Getter Methods
 
+    public ArrayList<TripEntity> getEntity() {
+        return entity;
+    }
+
     public Header getHeader() {
-        return HeaderObject;
+        return header;
     }
 
     // Setter Methods
 
+
+    public void setEntity(ArrayList<TripEntity> entity) {
+        this.entity = entity;
+    }
+
     public void setHeader(Header headerObject) {
-        this.HeaderObject = headerObject;
+        this.header = headerObject;
     }
 }
  class Header {

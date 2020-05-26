@@ -1,16 +1,16 @@
 package com.samramakrishnan.campusbustracker.models;
 
 public class Vehicle {
-    Position PositionObject;
+    Position position;
     private float timestamp;
-    Trip TripObject;
-    Vehicle VehicleObject;
+    Trip trip;
+    VehicleInfo vehicle;
 
 
     // Getter Methods
 
     public Position getPosition() {
-        return PositionObject;
+        return position;
     }
 
     public float getTimestamp() {
@@ -18,17 +18,17 @@ public class Vehicle {
     }
 
     public Trip getTrip() {
-        return TripObject;
+        return trip;
     }
 
-    public Vehicle getVehicle() {
-        return VehicleObject;
+    public VehicleInfo getVehicle() {
+        return vehicle;
     }
 
     // Setter Methods
 
     public void setPosition(Position positionObject) {
-        this.PositionObject = positionObject;
+        this.position = positionObject;
     }
 
     public void setTimestamp(float timestamp) {
@@ -36,11 +36,11 @@ public class Vehicle {
     }
 
     public void setTrip(Trip tripObject) {
-        this.TripObject = tripObject;
+        this.trip = tripObject;
     }
 
-    public void setVehicle(Vehicle vehicleObject) {
-        this.VehicleObject = vehicleObject;
+    public void setVehicle(VehicleInfo vehicleObject) {
+        this.vehicle = vehicleObject;
     }
 }
 
