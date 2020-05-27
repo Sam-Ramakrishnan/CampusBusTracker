@@ -55,6 +55,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Multimap<String, String> mapRouteNametiId = ArrayListMultimap.create();
     private TextView tvInform; // Textview which informs user if no route is selected or unable to fetch data
+    private ArrayList<String> listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -250,8 +251,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         MenuItem item = menu.findItem(R.id.spinner);
          spinner = (Spinner) item.getActionView();
-
-        RouteAdapter routeAdapter = new RouteAdapter(this, new ArrayList<String>(mapRouteNametiId.keySet()));
+        listAdapter = new ArrayList<String>(mapRouteNametiId.keySet());
+        RouteAdapter routeAdapter = new RouteAdapter(this, listAdapter);
         routeAdapter.setDropDownViewResource(R.layout.dropdown);
 
 //        routeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -260,6 +261,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerPosition = position;
+                spinnerSelection = listAdapter.get(position);
                 addVehicleMarkers();
             }
 
