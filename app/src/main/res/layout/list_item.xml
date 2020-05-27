@@ -5,11 +5,10 @@
 
     <TextView
         android:id="@+id/textView_name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right|center_horizontal"
-        android:padding="@dimen/padding"
-        android:hint="Select Route"
+        android:gravity="end"
+        android:hint="SELECT ROUTE"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:shadowColor="@android:color/white"

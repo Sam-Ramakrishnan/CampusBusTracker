@@ -12,7 +12,6 @@
         android:id="@+id/spinner"
         android:title="ActionBar Spinner"
         app:actionViewClass="android.widget.Spinner"
-
         app:showAsAction="always"
         />
 

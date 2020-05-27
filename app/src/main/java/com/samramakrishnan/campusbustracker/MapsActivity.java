@@ -1,16 +1,15 @@
 package com.samramakrishnan.campusbustracker;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -19,17 +18,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.schedulers.Schedulers;
-
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.Multiset;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
 import com.samramakrishnan.campusbustracker.models.Route;
 import com.samramakrishnan.campusbustracker.models.TripEntity;
@@ -42,10 +32,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.schedulers.Schedulers;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -181,7 +176,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             return;
         }
 
-        // Load the bus data pertaining to the selected route
+        // Load the route id pertaining to the selected route
         Collection<String> selectedRoute = mapRouteNametiId.get(spinnerSelection);
 
         if(Utils.IS_TEST_VERSION){
@@ -190,8 +185,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         listBus.clear();
         for(int i=0; i<listTrips.size(); i++){
-            if(selectedRoute.contains(listTrips.get(i).getVehicle().getTrip().getRoute_id())){
-                listBus.add(listTrips.get(i));
+            if(selectedRoute.contains(listTrips.get(i).getVehicle().getTrip().getRoute_id())){ // If bus's route and selected route matches, add bus
+                listBus.add(listTrips.get(i));                                                 //for display on map
             }
         }
 
@@ -221,7 +216,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] rowData = line.split(",");
-                mapRouteNametiId.put(rowData[3], rowData[0]);
+                mapRouteNametiId.put(rowData[3] + " - " + rowData[5], rowData[0]);
                 listRoutes.add(new Route(rowData[0], rowData[3], rowData[5]));
                 //Route route = new Route(Integer.parseInt(rowData[0]), rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0]);
 
