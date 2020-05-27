@@ -17,15 +17,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 // Adapter for a list of routes
-public class RouteAdapter extends ArrayAdapter<Route> {
+public class RouteAdapter extends ArrayAdapter<String> {
 
     private Context mContext;
-    private List<Route> routeList = new ArrayList<>();
+    private List<String> routeList = new ArrayList<>();
 
-    public RouteAdapter(@NonNull Context context, ArrayList<Route> list) {
+    public RouteAdapter(@NonNull Context context, ArrayList<String> list) {
         super(context, 0 , list);
         mContext = context;
         routeList = list;
+
+        routeList.add(0, "");
     }
 
     @Override
@@ -47,7 +49,7 @@ public class RouteAdapter extends ArrayAdapter<Route> {
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         TextView tv = (TextView) super.getDropDownView(position, convertView, parent);
-        tv.setText(routeList.get(position).getShortName());
+        tv.setText(routeList.get(position));
         return tv;
     }
 
@@ -58,11 +60,11 @@ public class RouteAdapter extends ArrayAdapter<Route> {
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.list_item,parent,false);
 
-        Route currentRoute = routeList.get(position);
+        String currentRoute = routeList.get(position);
 
 
         TextView name = (TextView) listItem.findViewById(R.id.textView_name);
-        name.setText(currentRoute.getShortName());
+        name.setText(currentRoute);
 
 
         return listItem;

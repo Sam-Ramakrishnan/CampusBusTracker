@@ -1,19 +1,16 @@
 package com.samramakrishnan.campusbustracker;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatSpinner;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,6 +27,9 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multiset;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
 import com.samramakrishnan.campusbustracker.models.Route;
 import com.samramakrishnan.campusbustracker.models.TripEntity;
@@ -41,6 +41,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -48,14 +51,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     private ArrayList<TripEntity> listTrips = new ArrayList<>();
+    private ArrayList<TripEntity> listBus = new ArrayList<>();
 
     private Spinner spinner;
     private ArrayList<Route> listRoutes = new ArrayList<>();
+    private int spinnerPosition;
+    private String spinnerSelection;
+
+    private Multimap<String, String> mapRouteNametiId = ArrayListMultimap.create();
+    private TextView tvInform; // Textview which informs user if no route is selected or unable to fetch data
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_main);
+
+        tvInform = findViewById(R.id.tv_inform);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -163,10 +175,39 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private void addVehicleMarkers() {
         mMap.clear();
-        double lat = listTrips.get(0).getVehicle().getPosition().getLatitude();
-        double longi = listTrips.get(0).getVehicle().getPosition().getLongitude();
-        LatLng busPosition = new LatLng(lat,longi);
-        mMap.addMarker(new MarkerOptions().position(busPosition).title(listTrips.get(0).getVehicle().getTimestamp()+""));
+        if(spinnerPosition==0){
+            tvInform.setElevation(getResources().getDimension(R.dimen.elevation));
+            tvInform.setText(getResources().getString(R.string.inform_no_route));
+            return;
+        }
+
+        // Load the bus data pertaining to the selected route
+        Collection<String> selectedRoute = mapRouteNametiId.get(spinnerSelection);
+
+        if(Utils.IS_TEST_VERSION){
+            Log.d("selectedroute",selectedRoute.toString());
+        }
+
+        listBus.clear();
+        for(int i=0; i<listTrips.size(); i++){
+            if(selectedRoute.contains(listTrips.get(i).getVehicle().getTrip().getRoute_id())){
+                listBus.add(listTrips.get(i));
+            }
+        }
+
+        if(listBus.size()==0){
+            tvInform.setText(getResources().getString(R.string.inform_no_bus));
+            return;
+        }
+
+
+        for(int i=0; i<listBus.size(); i++){
+            double lat = listBus.get(i).getVehicle().getPosition().getLatitude();
+            double longi = listBus.get(i).getVehicle().getPosition().getLongitude();
+            LatLng busPosition = new LatLng(lat,longi);
+            mMap.addMarker(new MarkerOptions().position(busPosition).title(listBus.get(i).getVehicle().getTimestamp()+""));
+        }
+
     }
 
     // Parse the csv file to map route ids to route names
@@ -180,7 +221,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] rowData = line.split(",");
-                listRoutes.add(new Route(rowData[0], rowData[3]));
+                mapRouteNametiId.put(rowData[3], rowData[0]);
+                listRoutes.add(new Route(rowData[0], rowData[3], rowData[5]));
                 //Route route = new Route(Integer.parseInt(rowData[0]), rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0]);
 
 
@@ -214,10 +256,23 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         MenuItem item = menu.findItem(R.id.spinner);
          spinner = (Spinner) item.getActionView();
 
-        RouteAdapter routeAdapter = new RouteAdapter(this, listRoutes);
+        RouteAdapter routeAdapter = new RouteAdapter(this, new ArrayList<String>(mapRouteNametiId.keySet()));
         routeAdapter.setDropDownViewResource(R.layout.dropdown);
+
 //        routeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(routeAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerPosition = position;
+                addVehicleMarkers();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         return true;
     }
 

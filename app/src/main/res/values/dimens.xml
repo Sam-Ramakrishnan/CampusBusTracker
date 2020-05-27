@@ -3,4 +3,5 @@
     <dimen name="padding">8dp</dimen>
     <dimen name="dropdown_width">100dp</dimen>
     <dimen name="dropdown_height">33dp</dimen>
+    <dimen name="elevation">2dp</dimen>
 </resources>

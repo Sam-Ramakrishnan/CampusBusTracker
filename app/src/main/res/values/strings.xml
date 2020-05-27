@@ -3,4 +3,6 @@
     <string name="title_activity_maps">Map</string>
     <string name="okay">Okay</string>
     <string name="server_down">We\'re currently experiencing technical difficulties. Please, try again later.</string>
+    <string name="inform_no_route">No Route Selected</string>
+    <string name="inform_no_bus">There are no buses on this route right now</string>
 </resources>

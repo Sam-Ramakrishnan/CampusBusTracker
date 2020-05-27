@@ -18,6 +18,12 @@ public class Route {
         this.routeColor = routeColor;
     }
 
+    public Route(String routeId, String shortName, String serviceName) {
+        this.routeId = routeId;
+        this.shortName = shortName;
+        this.serviceName = serviceName;
+    }
+
     public Route(String routeId, String shortName) {
         this.routeId = routeId;
         this.shortName = shortName;

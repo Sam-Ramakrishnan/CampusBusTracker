@@ -13,7 +13,8 @@
         android:title="ActionBar Spinner"
         app:actionViewClass="android.widget.Spinner"
 
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        />
 
 
 </menu>
