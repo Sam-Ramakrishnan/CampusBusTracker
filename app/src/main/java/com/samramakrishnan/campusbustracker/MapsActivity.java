@@ -15,11 +15,14 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.samramakrishnan.campusbustracker.models.Position;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
 import com.samramakrishnan.campusbustracker.models.Route;
 import com.samramakrishnan.campusbustracker.models.Stop;
@@ -33,6 +36,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -51,12 +55,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Spinner spinner;
     private ArrayList<Route> listRoutes = new ArrayList<>();
-    private ArrayList<Stop> listStops = new ArrayList<>();
+
     private int spinnerPosition;
     private String spinnerSelection;
 
-    private Multimap<String, String> mapRouteNametiId = ArrayListMultimap.create();
-    private TextView tvInform; // Textview which informs user if no route is selected or unable to fetch data
+    private Multimap<String, String> matchRouteNameToId = ArrayListMultimap.create();
+    private Multimap<String, Stop> matchBusToStops = ArrayListMultimap.create();
+    private HashMap<String, Stop> matchStopIdToStops = new HashMap<>();
+    private TextView tvInform; // Textview which informs user if no route is selected or u
+    // nable to fetch data
     private ArrayList<String> listAdapter;
 
     @Override
@@ -180,7 +187,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         // Load the route id pertaining to the selected route
-        Collection<String> selectedRoute = mapRouteNametiId.get(spinnerSelection);
+        Collection<String> selectedRoute = matchRouteNameToId.get(spinnerSelection);
 
         if(Utils.IS_TEST_VERSION){
             Log.d("selectedroute",selectedRoute.toString());
@@ -197,15 +204,89 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             tvInform.setText(getResources().getString(R.string.inform_no_bus));
             return;
         }
+        else{
+            tvInform.setText("");
+        }
 
-
+        //Unfinished. Plan is to check if the bus already mapped to stops. If not, then perform mapping
         for(int i=0; i<listBus.size(); i++){
+            Collection<Stop> busStopsCollection = matchBusToStops.get(listBus.get(i).getVehicle().getTrip().getTrip_id());
+            ArrayList<Stop> listBusStops = new ArrayList<>(busStopsCollection);
+             if(listBusStops.size()==0){
+                 assignStopsToBus(); // get all the stops of the bus
+             }
+
+             //Plot markers of the Bus Stops of this bus
+            busStopsCollection = matchBusToStops.get(listBus.get(i).getVehicle().getTrip().getTrip_id());
+            listBusStops = new ArrayList<>(busStopsCollection);
+            LatLng stopPosition;
+            for(int j=0; j<listBusStops.size(); j++){
+                stopPosition = new LatLng(listBusStops.get(j).getLat(),listBusStops.get(j).getLongi());
+
+                Marker stopMarker = mMap.addMarker(new MarkerOptions().position(stopPosition)
+                        .icon(BitmapDescriptorFactory
+                                .defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                stopMarker.setTag(listBusStops.get(j));
+
+
+
+                if(Utils.IS_TEST_VERSION){
+                    Log.d("stopp", j+" "+stopPosition);
+                }
+            }
+
+             //Plot markers of the bus
             double lat = listBus.get(i).getVehicle().getPosition().getLatitude();
             double longi = listBus.get(i).getVehicle().getPosition().getLongitude();
             LatLng busPosition = new LatLng(lat,longi);
             mMap.addMarker(new MarkerOptions().position(busPosition).title(listBus.get(i).getVehicle().getTimestamp()+""));
+
+
         }
 
+//
+//        for(int i=0; i<listBus.size(); i++){
+//            double lat = listBus.get(i).getVehicle().getPosition().getLatitude();
+//            double longi = listBus.get(i).getVehicle().getPosition().getLongitude();
+//            LatLng busPosition = new LatLng(lat,longi);
+//            mMap.addMarker(new MarkerOptions().position(busPosition).title(listBus.get(i).getVehicle().getTimestamp()+""));
+//        }
+
+    }
+
+    private void assignStopsToBus() {
+        InputStream is = getResources().openRawResource(
+                getResources().getIdentifier("stop_times",
+                        "raw", getPackageName()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        try {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] rowData = line.split(",");
+
+                // Find stops for all buses because if the first bus on a route doesen't have a stop, other buses don't as well
+                for(int i=0; i<listBus.size(); i++){
+                    if(listBus.get(i).getVehicle().getTrip().getTrip_id().equals(rowData[0])){
+                        Stop stop = matchStopIdToStops.get(rowData[2]);
+                       matchBusToStops.put(listBus.get(i).getVehicle().getTrip().getTrip_id(), stop);
+                    }
+                }
+
+
+
+            }
+        }
+        catch (IOException ex) {
+            // handle exception
+        }
+        finally {
+            try {
+                is.close();
+            }
+            catch (IOException e) {
+                // handle exception
+            }
+        }
     }
 
     // Parse the csv file to map route ids to route names
@@ -214,7 +295,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         parseRoutes();
 
         if(Utils.IS_TEST_VERSION){
-            Log.d("stopp", listStops.toString());
+            Log.d("stopp", matchStopIdToStops.toString());
         }
     }
 
@@ -228,7 +309,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             while ((line = reader.readLine()) != null) {
                 String[] rowData = line.split(",");
 
-                listStops.add(new Stop(rowData[0], rowData[2], Double.parseDouble(rowData[4]), Double.parseDouble(rowData[4] )));
+                matchStopIdToStops.put(rowData[0], new Stop(rowData[0], rowData[2], Double.parseDouble(rowData[4]), Double.parseDouble(rowData[5] )));
 
 
 
@@ -256,7 +337,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] rowData = line.split(",");
-                mapRouteNametiId.put(rowData[3] + " - " + rowData[5], rowData[0]);
+                matchRouteNameToId.put(rowData[3] + " - " + rowData[5], rowData[0]);
                 listRoutes.add(new Route(rowData[0], rowData[3], rowData[5]));
                 //Route route = new Route(Integer.parseInt(rowData[0]), rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0]);
 
@@ -290,7 +371,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         MenuItem item = menu.findItem(R.id.spinner);
          spinner = (Spinner) item.getActionView();
-        listAdapter = new ArrayList<String>(mapRouteNametiId.keySet());
+        listAdapter = new ArrayList<String>(matchRouteNameToId.keySet());
         RouteAdapter routeAdapter = new RouteAdapter(this, listAdapter);
         routeAdapter.setDropDownViewResource(R.layout.dropdown);
 
