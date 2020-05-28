@@ -22,6 +22,7 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
 import com.samramakrishnan.campusbustracker.models.Route;
+import com.samramakrishnan.campusbustracker.models.Stop;
 import com.samramakrishnan.campusbustracker.models.TripEntity;
 import com.samramakrishnan.campusbustracker.restapi.APICalls;
 import com.samramakrishnan.campusbustracker.restapi.RetrofitHelper;
@@ -50,6 +51,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private Spinner spinner;
     private ArrayList<Route> listRoutes = new ArrayList<>();
+    private ArrayList<Stop> listStops = new ArrayList<>();
     private int spinnerPosition;
     private String spinnerSelection;
 
@@ -208,7 +210,44 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     // Parse the csv file to map route ids to route names
     private void parseCSV(){
+        parseStops();
+        parseRoutes();
 
+        if(Utils.IS_TEST_VERSION){
+            Log.d("stopp", listStops.toString());
+        }
+    }
+
+    private void parseStops() {
+        InputStream is = getResources().openRawResource(
+                getResources().getIdentifier("stops",
+                        "raw", getPackageName()));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        try {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] rowData = line.split(",");
+
+                listStops.add(new Stop(rowData[0], rowData[2], Double.parseDouble(rowData[4]), Double.parseDouble(rowData[4] )));
+
+
+
+            }
+        }
+        catch (IOException ex) {
+            // handle exception
+        }
+        finally {
+            try {
+                is.close();
+            }
+            catch (IOException e) {
+                // handle exception
+            }
+        }
+    }
+
+    private void parseRoutes() {
         InputStream is = getResources().openRawResource(
                 getResources().getIdentifier("routes",
                         "raw", getPackageName()));
