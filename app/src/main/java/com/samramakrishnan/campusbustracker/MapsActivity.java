@@ -37,9 +37,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.Single;
+import io.reactivex.android.plugins.RxAndroidPlugins;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -77,6 +83,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
 
@@ -213,6 +221,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             Collection<Stop> busStopsCollection = matchBusToStops.get(listBus.get(i).getVehicle().getTrip().getTrip_id());
             ArrayList<Stop> listBusStops = new ArrayList<>(busStopsCollection);
              if(listBusStops.size()==0){
+
                  assignStopsToBus(); // get all the stops of the bus
              }
 
@@ -225,13 +234,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 Marker stopMarker = mMap.addMarker(new MarkerOptions().position(stopPosition)
                         .icon(BitmapDescriptorFactory
-                                .defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                                .fromResource(R.drawable.stopsmall)));
                 stopMarker.setTag(listBusStops.get(j));
 
 
 
                 if(Utils.IS_TEST_VERSION){
-                    Log.d("stopp", j+" "+stopPosition);
+                    Log.d("stopp" + i, j+" "+stopPosition);
                 }
             }
 
@@ -239,7 +248,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             double lat = listBus.get(i).getVehicle().getPosition().getLatitude();
             double longi = listBus.get(i).getVehicle().getPosition().getLongitude();
             LatLng busPosition = new LatLng(lat,longi);
-            mMap.addMarker(new MarkerOptions().position(busPosition).title(listBus.get(i).getVehicle().getTimestamp()+""));
+            mMap.addMarker(new MarkerOptions().position(busPosition).icon(BitmapDescriptorFactory
+                    .fromResource(R.drawable.bus3)).title(listBus.get(i).getVehicle().getTimestamp()+""));
 
 
         }
@@ -251,6 +261,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //            LatLng busPosition = new LatLng(lat,longi);
 //            mMap.addMarker(new MarkerOptions().position(busPosition).title(listBus.get(i).getVehicle().getTimestamp()+""));
 //        }
+
+    }
+
+    private void assignBusToStopsAsync() {
 
     }
 
