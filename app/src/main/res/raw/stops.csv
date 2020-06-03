@@ -1,259 +1,247 @@
-1110,1110,E Dayton & Wisconsin (WB),This EVENT/DETOUR ONLY stop (#1110) is westbound on the 2 block of Dayton St (E) nearside of Wisconsin Ave,43.076428,-89.385920,MMT,CMAD,0,,3,270,1,E Dayton,2,Wisconsin
-1111,1111,W Doty & M L K Junior (EB),This EVENT/DETOUR ONLY stop (#1111) is eastbound on the 1 block of Doty St (W) nearside of Martin Luther King Jr Blvd,43.072938,-89.382354,MMT,CMAD,0,,3,90,1,W Doty,1,M L K Junior
-1124,1124,S Fairchild & W Main (SB),This EVENT/DETOUR ONLY stop (#1124) is southbound on the 98 block of Fairchild St (S) nearside of Main St (W),43.072467,-89.385273,MMT,CMAD,0,,3,180,1,S Fairchild,98,W Main
-1135,1135,N Webster & E Mifflin (NB),This EVENT/DETOUR ONLY stop (#1135) is northbound on the 101 block of Webster St (N) farside of Mifflin St (E),43.077272,-89.383413,MMT,CMAD,0,,1,0,1,N Webster,101,E Mifflin
-1140,1140,E Washington & N Webster (WB),This EVENT/DETOUR ONLY stop (#1140) is westbound on the 200 block of E Washington Ave nearside of Webster St (N),43.076390,-89.381930,MMT,CMAD,0,,3,270,1,E Washington,200,N Webster
-1146,1146,N Fairchild & W Washington (SB),This EVENT/DETOUR ONLY stop (#1146) is southbound on the 50 block of Fairchild St (N) nearside of W Washington Ave,43.073504,-89.386724,MMT,CMAD,0,,3,180,1,N Fairchild,50,W Washington
-1155,1155,S Webster & E Main (NB),This EVENT/DETOUR ONLY stop (#1155) is northbound on the 99 block of Webster St (S) farside of Main St (E),43.075579,-89.381192,MMT,CMAD,0,,1,0,1,S Webster,99,E Main
-1174,1174,W Dayton & State (WB),This EVENT/DETOUR ONLY stop (#1174) is westbound on the 198 block of Dayton St (W) nearside of State St,43.075120,-89.387855,MMT,CMAD,0,,3,270,1,W Dayton,198,State
-1189,1189,E Doty & S Pinckney (EB),This EVENT/DETOUR ONLY stop (#1189) is eastbound on the 101 block of Doty St (E) nearside of Pinckney St (S),43.074111,-89.380724,MMT,CMAD,0,,3,90,1,E Doty,101,S Pinckney
-4000,SoTP,South Transfer Point,The South Transfer Point station is located at 2430 Park St (S) - just north of Badger Rd (W),43.038957,-89.394651,MMT,MTSM,1,,5,,1,South Transfer Point,2430,S Park
-4100,4100,South Transfer Point,This stop (#4100) is on the pedestrian island at the South Transfer Point station,43.038895,-89.394824,MMT,MTSM,0,4000,5,,1,South Transfer Point,2430,S Park
-5000,NoTP,North Transfer Point,The North Transfer Point station is located at 1213 Huxley St - just south of Aberg Av,43.112918,-89.358526,MMT,MTSM,1,,5,,1,North Transfer Point,1213,Huxley
-5100,5100,North Transfer Point,This stop (#5100) is on the pedestrian island at the North Transfer Point station,43.113253,-89.358540,MMT,MTSM,0,5000,5,,1,North Transfer Point,1213,Huxley
-6000,WeTP,West Transfer Point,The West Transfer Point station is located at 5700 Tokay Blvd - just west of Whitney Way,43.053863,-89.475454,MMT,MTSM,1,,5,,1,West Transfer Point,5700,Tokay
-6100,6100,West Transfer Point,This stop (#6100) is on the pedestrian island at the West Transfer Point station,43.053883,-89.475098,MMT,MTSM,0,6000,5,,1,West Transfer Point,5700,Tokay
-7000,EaTP,East Transfer Point,The East Transfer Point station is located at 102 Corporate Dr (W) - just north of Milwaukee St,43.098624,-89.322251,MMT,MTSM,1,,5,,1,East Transfer Point,102,W Corporate
-7100,7100,East Transfer Point,This stop (#7100) is on the pedestrian island at the East Transfer Point station,43.098619,-89.322148,MMT,MTSM,0,7000,5,,1,East Transfer Point,102,W Corporate
-9000,9800,East Towne Mall,The East Towne Mall station is located eastbound at 89 E Towne Mall - just southeast of E Towne Blvd and Independence Ln,43.126161,-89.307135,MMT,PRIV,1,,5,90,1,East Towne Mall,89,E Towne
-9800,9800,E Towne Mall & Shelter (EB),This stop (#9800) is eastbound on the pedestrian island at East Towne Mall,43.126576,-89.306961,MMT,PRIV,0,9000,5,90,1,East Towne Mall,89,E Towne
-5,0005,W Dayton & N Orchard (EB),This stop (#0005) is eastbound on the 1299 block of Dayton St (W) farside Orchard St (N),43.070947,-89.406982,MMT,CMAD,0,,1,90,1,W Dayton,1299,N Orchard
-10,0010,Langdon & N Park (WB),This stop (#0010) is westbound on the 898 block of Langdon St nearside Park St (N),43.075933,-89.400154,MMT,CMAD,0,,3,270,1,Langdon,898,N Park
-25,0025,Langdon & N Lake (EB),This stop (#0025) is eastbound on the 699 block of Langdon St farside Lake St (N),43.075691,-89.396944,MMT,CMAD,0,,1,90,1,Langdon,699,N Lake
-39,0039,N Lake & W Johnson (NB),This stop (#0039) is northbound on the 299 block of Lake St (N) nearside Johnson St (W),43.071895,-89.397341,MMT,CMAD,0,,3,0,1,N Lake,299,W Johnson
-45,0045,Langdon & Wisconsin (EB),This stop (#0045) is eastbound on the 1 block of Langdon St nearside Wisconsin Ave,43.078482,-89.38982,MMT,CMAD,0,,3,90,1,Langdon,1,Wisconsin
-47,0047,Babcock & Linden (NB),This stop (#0047) is northbound on the 499 block of Babcock Dr nearside Linden Dr,43.074636,-89.412598,MMT,UWIS,0,,3,0,1,Babcock,499,Linden
-49,0049,N Lake & Langdon (NB),This stop (#0049) is northbound on the 599 block of Lake St (N) nearside Langdon St,43.075529,-89.397191,MMT,CMAD,0,,3,0,1,N Lake,599,Langdon
-50,0050,Spring & N Brooks (WB),This stop (#0050) is westbound on the 998 block of Spring St nearside Brooks St (N),43.069442,-89.402267,MMT,CMAD,0,,3,270,1,Spring,998,N Brooks
-52,0052,Observatory & N Charter (WB),This stop (#0052) is westbound on the 1198 block of Observatory Dr nearside Charter St (N),43.076131,-89.40566,MMT,UWIS,0,,3,270,1,Observatory,1198,N Charter
-53,0053,Observatory & North Hall (EB),This stop (#0053) is eastbound on the 1099 block of Observatory Dr adjacent North Hall,43.075781,-89.403882,MMT,UWIS,0,,2,90,1,Observatory,1099,North Hall
-54,0054,Spring & N Mills (WB),This stop (#0054) is westbound on the 1098 block of Spring St nearside Mills St (N),43.06947,-89.403872,MMT,CMAD,0,,3,270,1,Spring,1098,N Mills
-56,0056,Observatory & Liz Waters (WB),This stop (#0056) is westbound on the 1300 block of Observatory Dr adjacent Elizabeth Waters Hall,43.07665,-89.407141,MMT,UWIS,0,,2,270,1,Observatory,1300,Liz Waters
-60,0060,Observatory & Bascom (WB),This stop (#0060) is westbound on the 1100 block of Observatory Dr adjacent Bascom Hall,43.075996,-89.40366,MMT,UWIS,0,,2,270,1,Observatory,1100,Bascom
-61,0061,W Dayton & N Mills (EB),This stop (#0061) is eastbound on the 1099 block of Dayton St (W) farside Mills St (N),43.070893,-89.403698,MMT,CMAD,0,,1,90,1,W Dayton,1099,N Mills
-68,0068,N Lake & W Johnson (SB),This stop (#0068) is southbound on the 300 block of Lake St (N) nearside Johnson St (W),43.072172,-89.397625,MMT,CMAD,0,,3,180,1,N Lake,300,W Johnson
-70,0070,N Park & Lathrop (SB),This stop (#0070) is southbound on the 500 block of Park St (N) nearside Lathrop Dr,43.07433,-89.400784,MMT,CMAD,0,,3,180,1,N Park,500,Lathrop
-75,0075,W Dayton & N Park (EB),This stop (#0075) is eastbound on the 899 block of Dayton St (W) farside Park St (N),43.070839,-89.40002,MMT,CMAD,0,,1,90,1,W Dayton,899,N Park
-87,0087,N Broom & W Gorham (NB),This stop (#0087) is northbound on the 399 block of Broom St (N) nearside Gorham St (W),43.07415,-89.392328,MMT,CMAD,0,,3,0,1,N Broom,399,W Gorham
-89,0089,Langdon & N Henry (EB),This stop (#0089) is eastbound on the 199 block of Langdon St farside Henry St (N),43.076844,-89.392142,MMT,CMAD,0,,1,90,1,Langdon,199,N Henry
-96,0096,Wisconsin & W Gorham (SB),This stop (#0096) is southbound on the 400 block of Wisconsin Ave nearside Gorham St (W),43.077515,-89.388055,MMT,CMAD,0,,3,180,0,Wisconsin,400,W Gorham
-99,0099,Langdon & N Park (EB),This stop (#0099) is eastbound on the 899 block of Langdon St farside Park St (N),43.075745,-89.400179,MMT,CMAD,0,,1,90,1,Langdon,899,N Park
-100,0100,University & N Park (WB),This stop (#0100) is westbound on the 900 block of University Ave farside Park St (N),43.073399,-89.401365,MMT,CMAD,0,,1,270,1,University,900,N Park
-104,0104,N Mills & W Dayton (SB),This stop (#0104) is southbound on the 200 block of Mills St (N) nearside Dayton St (W),43.071144,-89.404229,MMT,CMAD,0,,3,180,1,N Mills,200,W Dayton
-107,0107,S Park & W Olin (NB),This stop (#0107) is northbound on the 1117 block of Park St (S) farside Olin Ave (W),43.054383,-89.396533,MMT,CMAD,0,,1,0,1,S Park,1117,W Olin
-110,0110,Gilson & Beld (WB),This stop (#0110) is westbound on the 1698 block of Gilson St nearside Beld St,43.049924,-89.392561,MMT,CMAD,0,,3,270,0,Gilson,1698,Beld
-113,0113,W Washington & Brittingham (EB),This stop (#0113) is eastbound on the 801 block of W Washington Ave adjacent Brittingham Park,43.06501,-89.397603,MMT,CMAD,0,,2,90,1,W Washington,801,Brittingham
-115,0115,N Park & Regent (NB),This stop (#0115) is northbound on the 21 block of Park St (N) farside Regent St,43.067983,-89.400724,MMT,CMAD,0,,1,0,1,N Park,21,Regent
-121,0121,W Badger & Fiedler (EB),This stop (#0121) is eastbound on the 1099 block of Badger Rd (W) farside Fiedler Ln,43.038466,-89.401117,MMT,TMAD,0,,1,90,1,W Badger,1099,Fiedler
-124,0124,S Park & Wingra (SB),This stop (#0124) is southbound on the 1700 block of Park St (S) farside Wingra Dr (W),43.048957,-89.394289,MMT,CMAD,0,,1,180,1,S Park,1700,Wingra
-133,0133,University & N Breese (EB),This stop (#0133) is eastbound on the 1599 block of University Ave farside Breese Ter (N),43.073275,-89.413154,MMT,CMAD,0,,1,90,1,University,1599,N Breese
-146,0146,Fish Hatchery & Midland (SB),This stop (#0146) is southbound on the 1200 block of Fish Hatchery Rd farside Midland St,43.053981,-89.399186,MMT,CMAD,0,,1,180,1,Fish Hatchery,1200,Midland
-147,0147,W Olin & Hickory (EB),This stop (#0147) is eastbound on the 599 block of Olin Ave (W) farside Hickory St,43.053872,-89.391782,MMT,CMAD,0,,1,90,1,W Olin,599,Hickory
-150,0150,N Rusk & Nygard (SB),This stop (#0150) is southbound on the 2198 block of Rusk Ave (N) nearside Nygard St,43.041193,-89.384359,MMT,CMAD,0,,3,180,1,N Rusk,2198,Nygard
-153,0153,E Olin & Expo (EB),This stop (#0153) is eastbound on the 199 block of Olin Ave (E) farside Expo Pkwy,43.052132,-89.38075,MMT,TMAD,0,,1,90,1,E Olin,199,Expo
-158,0158,S Mills & Vilas (SB),This stop (#0158) is southbound on the 400 block of Mills St (S) farside Vilas Ave,43.062871,-89.404194,MMT,CMAD,0,,1,180,1,S Mills,400,Vilas
-160,0160,University & N Randall (WB),This stop (#0160) is westbound on the 1400 block of University Ave farside Randall Ave (N),43.073481,-89.409413,MMT,CMAD,0,,1,270,1,University,1400,N Randall
-161,0161,S Broom & W Doty (NB),This stop (#0161) is northbound on the 199 block of Broom St (S) farside Doty St (W),43.070146,-89.387071,MMT,CMAD,0,,1,0,1,S Broom,199,W Doty
-162,0162,S Park & Meriter (SB),This stop (#0162) is southbound on the 100 block of Park St (S) adjacent Meriter Hospital,43.065091,-89.400997,MMT,CMAD,0,,2,180,1,S Park,100,Meriter
-166,0166,Rimrock & John Nolen (WB),This stop (#0166) is westbound on the 2000 block of Rimrock Rd farside John Nolen Dr,43.045854,-89.375546,MMT,TMAD,0,,1,270,1,Rimrock,2000,John Nolen
-167,0167,S Mills & Mound (NB),This stop (#0167) is northbound on the 201 block of Mills St (S) nearside Mound St,43.065181,-89.403898,MMT,CMAD,0,,3,0,1,S Mills,201,Mound
-168,0168,W Washington & N Henry (WB),This stop (#0168) is westbound on the 298 block of W Washington Ave nearside Henry St (N),43.072787,-89.38707,MMT,CMAD,0,,3,270,1,W Washington,298,N Henry
-170,0170,Fish Hatchery & Catalpa (SB),This stop (#0170) is southbound on the 2198 block of Fish Hatchery Rd nearside Catalpa Rd,43.041645,-89.404114,MMT,CMAD,0,,3,180,1,Fish Hatchery,2198,Catalpa
-171,0171,Fisher & Dane (NB),This stop (#0171) is northbound on the 2101 block of Fisher St nearside Dane St,43.042923,-89.39175,MMT,CMAD,0,,3,0,1,Fisher,2101,Dane
-173,0173,W Badger & Cypress (EB),This stop (#0173) is eastbound on the 901 block of Badger Rd (W) nearside Cypress Way,43.03843,-89.397946,MMT,TMAD,0,,3,90,1,W Badger,901,Cypress
-174,0174,S Park & Fish Hatchery (SB),This stop (#0174) is southbound on the 1000 block of Park St (S) farside Fish Hatchery Rd,43.056451,-89.398716,MMT,CMAD,0,,1,180,1,S Park,1000,Fish Hatchery
-178,0178,University & N Orchard (WB),This stop (#0178) is westbound on the 1300 block of University Ave farside Orchard St (N),43.073427,-89.407056,MMT,CMAD,0,,1,270,1,University,1300,N Orchard
-180,0180,N Park & W Dayton (SB),This stop (#0180) is southbound on the 200 block of Park St (N) nearside Dayton St (W),43.071098,-89.401081,MMT,CMAD,0,,3,180,1,N Park,200,W Dayton
-181,0181,S Park & Beld (NB),This stop (#0181) is northbound on the 1399 block of Park St (S) farside Beld St,43.052252,-89.394806,MMT,CMAD,0,,1,0,1,S Park,1399,Beld
-184,0184,Linden & Henry (WB),This stop (#0184) is westbound on the 1498 block of Linden Dr nearside Henry Mall,43.075254,-89.410413,MMT,UWIS,0,,3,270,1,Linden,1498,Henry
-190,0190,N Mills & Regent (SB),This stop (#0190) is southbound on the 2 block of Mills St (N) nearside Regent St,43.067849,-89.404205,MMT,CMAD,0,,3,180,1,N Mills,2,Regent
-192,0192,W Olin & Hickory (WB),This stop (#0192) is westbound on the 598 block of Olin Ave (W) nearside Hickory St,43.054087,-89.391967,MMT,CMAD,0,,3,270,1,W Olin,598,Hickory
-195,0195,S Park & Park House (NB),This stop (#0195) is northbound on the 1801 block of Park St (S) adjacent Park House,43.04705,-89.393808,MMT,CMAD,0,,2,0,0,S Park,1801,Park House
-203,0203,Rimrock & E Rusk (NB),This stop (#0203) is northbound on the 2199 block of Rimrock Rd farside Rusk Ave (E),43.043214,-89.376979,MMT,TMAD,0,,1,0,1,Rimrock,2199,E Rusk
-208,0208,Regent & N Orchard (WB),This stop (#0208) is westbound on the 1298 block of Regent St nearside Orchard St (N),43.067849,-89.407131,MMT,CMAD,0,,3,270,1,Regent,1298,N Orchard
-217,0217,S Park & W Washington (NB),This stop (#0217) is northbound on the 399 block of Park St (S) farside W Washington Ave,43.063668,-89.400528,MMT,CMAD,0,,1,0,1,S Park,399,W Washington
-222,0222,Fisher & Bram (SB),This stop (#0222) is southbound on the 1900 block of Fisher St farside Bram St,43.045474,-89.391946,MMT,CMAD,0,,1,180,1,Fisher,1900,Bram
-225,0225,W Washington & Park View (EB),This stop (#0225) is eastbound on the 749 block of W Washington Ave adjacent Park View,43.066066,-89.396121,MMT,CMAD,0,,2,90,1,W Washington,749,Park View
-226,0226,Regent & E Campus (WB),This stop (#0226) is westbound on the 700 block of Regent St nearside East Campus Mall,43.067839,-89.397688,MMT,CMAD,0,,3,270,0,Regent,700,E Campus
-234,0234,University & N Mills (WB),This stop (#0234) is westbound on the 1098 block of University Ave nearside Mills St (N),43.073427,-89.403883,MMT,CMAD,0,,3,270,1,University,1098,N Mills
-235,0235,W Washington & S Henry (EB),This stop (#0235) is eastbound on the 301 block of W Washington Ave nearside Henry St (S),43.072456,-89.387144,MMT,CMAD,0,,3,90,1,W Washington,301,S Henry
-241,0241,Monroe & S Breese (EB),This stop (#0241) is eastbound on the 1615 block of Monroe St opposite Breese Ter (S),43.066919,-89.413883,MMT,CMAD,0,,4,90,1,Monroe,1615,S Breese
-243,0243,John Nolen & Rimrock (NB),This stop (#0243) is northbound on the 698 block of John Nolen Dr farside Rimrock Rd,43.047242,-89.374681,MMT,CMAD,0,,1,0,1,John Nolen,698,Rimrock
-245,0245,N Randall & Engineering (NB),This stop (#0245) is northbound on the 299 block of Randall Ave (N) nearside Engineering Dr,43.072093,-89.40887,MMT,CMAD,0,,3,0,1,N Randall,299,Engineering
-248,0248,W Wilson & S Carroll (WB),This stop (#0248) is westbound on the 98 block of Wilson St (W) nearside Carroll St (S),43.071891,-89.382453,MMT,CMAD,0,,3,270,1,W Wilson,98,S Carroll
-251,0251,S Park & Erin (NB),This stop (#0251) is northbound on the 699 block of Park St (S) farside Erin St,43.060167,-89.40053,MMT,CMAD,0,,1,0,1,S Park,699,Erin
-252,0252,State & W Gorham (WB),This stop (#0252) is westbound on the 398 block of State St nearside Gorham St (W),43.07491,-89.391303,MMT,CMAD,0,,3,270,1,State,398,W Gorham
-256,0256,N Mills & University (SB),This stop (#0256) is southbound on the 398 block of Mills St (N) farside University Ave,43.073051,-89.404241,MMT,CMAD,0,,1,180,1,N Mills,398,University
-265,0265,State & N Lake (EB),This stop (#0265) is eastbound on the 699 block of State St farside Lake St (N),43.074786,-89.396908,MMT,CMAD,0,,1,90,1,State,699,N Lake
-266,0266,Fish Hatchery & S Park (SB),This stop (#0266) is southbound on the 1000 block of Fish Hatchery Rd farside Park St (S),43.056496,-89.399124,MMT,CMAD,0,,1,180,1,Fish Hatchery,1000,S Park
-271,0271,Regent & S Park (EB),This stop (#0271) is eastbound on the 899 block of Regent St farside Park St (S),43.067544,-89.40049,MMT,CMAD,0,,1,90,0,Regent,899,S Park
-273,0273,Regent & E Campus (EB),This stop (#0273) is eastbound on the 701 block of Regent St farside East Campus Mall,43.067427,-89.397231,MMT,CMAD,0,,1,90,0,Regent,701,E Campus
-274,0274,W Washington & N Broom (WB),This stop (#0274) is westbound on the 400 block of W Washington Ave farside Broom St (N),43.071248,-89.389243,MMT,CMAD,0,,1,270,1,W Washington,400,N Broom
-288,0288,S Park & Erin (SB),This stop (#0288) is southbound on the 700 block of Park St (S) farside Erin St,43.059621,-89.400999,MMT,CMAD,0,,1,180,1,S Park,700,Erin
-289,0289,W Olin & Gilson (EB),This stop (#0289) is eastbound on the 499 block of Olin Ave (W) farside Gilson St,43.053844,-89.389869,MMT,CMAD,0,,1,90,0,W Olin,499,Gilson
-294,0294,N Rusk & E Rusk (SB),This stop (#0294) is southbound on the 2398 block of Rusk Ave (N) nearside Rusk Ave (E),43.039304,-89.38436,MMT,TMAD,0,,3,180,0,N Rusk,2398,E Rusk
-298,0298,Babcock & Linden (SB),This stop (#0298) is southbound on the 500 block of Babcock Dr nearside Linden Dr,43.07529,-89.412894,MMT,UWIS,0,,3,180,1,Babcock,500,Linden
-300,0300,Erin & S Mills (WB),This stop (#0300) is westbound on the 1098 block of Erin St nearside Mills St (S),43.059989,-89.40385,MMT,CMAD,0,,3,270,1,Erin,1098,S Mills
-313,0313,W Wilson & S Bassett (EB),This stop (#0313) is eastbound on the 451 block of Wilson St (W) farside Bassett St (S),43.068418,-89.386949,MMT,CMAD,0,,1,90,1,W Wilson,451,S Bassett
-320,0320,Fisher & Dane (SB),This stop (#0320) is southbound on the 2098 block of Fisher St nearside Dane St,43.04312,-89.392033,MMT,CMAD,0,,3,180,1,Fisher,2098,Dane
-327,0327,Regent & S Mills (EB),This stop (#0327) is eastbound on the 1099 block of Regent St farside Mills St (S),43.067598,-89.403675,MMT,CMAD,0,,1,90,1,Regent,1099,S Mills
-336,0336,N Randall & Engineering (SB),This stop (#0336) is southbound on the 298 block of Randall Ave (N) farside Engineering Dr,43.072028,-89.409136,MMT,CMAD,0,,1,180,1,N Randall,298,Engineering
-341,0341,N Park & University (NB),This stop (#0341) is northbound on the 399 block of Park St (N) nearside University Ave,43.07314,-89.400414,MMT,CMAD,0,,3,0,1,N Park,399,University
-346,0346,W Olin & Lake (WB),This stop (#0346) is westbound on the 300 block of Olin Ave (W) farside Lake Ct,43.053996,-89.387437,MMT,CMAD,0,,1,270,1,W Olin,300,Lake
-349,0349,N Breese & Regent (NB),This stop (#0349) is northbound on the 1 block of Breese Ter (N) farside Regent St,43.068092,-89.413759,MMT,CMAD,0,,1,0,1,N Breese,1,Regent
-353,0353,W Badger & Fish Hatchery (EB),This stop (#0353) is eastbound on the 1121 block of Badger Rd (W) farside Fish Hatchery Rd,43.038494,-89.403362,MMT,CMAD,0,,1,90,1,W Badger,1121,Fish Hatchery
-357,0357,Gilson & W Olin (NB),This stop (#0357) is northbound on the 1201 block of Gilson St nearside Olin Ave (W),43.053826,-89.390103,MMT,CMAD,0,,3,0,0,Gilson,1201,W Olin
-360,0360,S Park & W Olin (SB),This stop (#0360) is southbound on the 1116 block of Park St (S) nearside Olin Ave (W),43.054589,-89.397212,MMT,CMAD,0,,3,180,1,S Park,1116,W Olin
-367,0367,W Olin & Lake (EB),This stop (#0367) is eastbound on the 299 block of Olin Ave (W) farside Lake Ct,43.053682,-89.386709,MMT,CMAD,0,,1,90,1,W Olin,299,Lake
-375,0375,S Mills & Vilas (NB),This stop (#0375) is northbound on the 399 block of Mills St (S) farside Vilas Ave,43.063417,-89.403898,MMT,CMAD,0,,1,0,1,S Mills,399,Vilas
-379,0379,John Nolen & E Olin (NB),This stop (#0379) is northbound on the 499 block of John Nolen Dr farside Olin Ave (E),43.051603,-89.377887,MMT,CMAD,0,,1,0,1,John Nolen,499,E Olin
-388,0388,N Park & Spring (SB),This stop (#0388) is southbound on the 100 block of Park St (N) nearside Spring St,43.069451,-89.401168,MMT,CMAD,0,,3,180,1,N Park,100,Spring
-391,0391,Fish Hatchery & Carver (NB),This stop (#0391) is northbound on the 2001 block of Fish Hatchery Rd nearside Carver St,43.044438,-89.403805,MMT,CMAD,0,,3,0,1,Fish Hatchery,2001,Carver
-392,0392,N Mills & Spring (SB),This stop (#0392) is southbound on the 100 block of Mills St (N) nearside Spring St,43.069711,-89.40423,MMT,CMAD,0,,3,180,0,N Mills,100,Spring
-398,0398,Regent & N Randall (WB),This stop (#0398) is westbound on the 1400 block of Regent St farside Randall Ave (N),43.067877,-89.409353,MMT,CMAD,0,,1,270,1,Regent,1400,N Randall
-405,0405,Fish Hatchery & Catalpa (NB),This stop (#0405) is northbound on the 2199 block of Fish Hatchery Rd farside Catalpa Rd,43.041851,-89.403818,MMT,CMAD,0,,1,0,1,Fish Hatchery,2199,Catalpa
-406,0406,Regent & N Breese (WB),This stop (#0406) is westbound on the 1600 block of Regent St farside Breese Ter (N),43.067931,-89.414278,MMT,CMAD,0,,1,270,1,Regent,1600,N Breese
-410,0410,Rimrock & E Rusk (SB),This stop (#0410) is southbound on the 2198 block of Rimrock Rd nearside Rusk Ave (E),43.042874,-89.377547,MMT,TMAD,0,,3,180,0,Rimrock,2198,E Rusk
-418,0418,W Washington & N Bedford (WB),This stop (#0418) is westbound on the 598 block of W Washington Ave nearside Bedford St (N),43.069002,-89.392429,MMT,CMAD,0,,3,270,1,W Washington,598,N Bedford
-424,0424,E Olin & Colby (WB),This stop (#0424) is westbound on the 100 block of Olin Ave (E) nearside Colby St,43.053153,-89.38376,MMT,CMAD,0,,3,270,1,E Olin,100,Colby
-433,0433,Beld & Gilson (NB),This stop (#0433) is northbound on the 1601 block of Beld St nearside Gilson St,43.049727,-89.392573,MMT,CMAD,0,,3,0,0,Beld,1601,Gilson
-435,0435,W Johnson & N Lake (EB),This stop (#0435) is eastbound on the 699 block of Johnson St (W) farside Lake St (N),43.071921,-89.397094,MMT,CMAD,0,,1,90,1,W Johnson,699,N Lake
-438,0438,Linden & N Charter (EB),This stop (#0438) is eastbound on the 498 block of Linden Dr nearside Charter St (N),43.074985,-89.406401,MMT,UWIS,0,,3,90,1,Linden,498,N Charter
-441,0441,N Mills & W Johnson (NB),This stop (#0441) is northbound on the 299 block of Mills St (N) nearside Johnson St (W),43.072003,-89.403945,MMT,CMAD,0,,3,0,1,N Mills,299,W Johnson
-445,0445,N Mills & Spring (NB),This stop (#0445) is northbound on the 101 block of Mills St (N) farside Spring St,43.069899,-89.403921,MMT,CMAD,0,,1,0,1,N Mills,101,Spring
-454,0454,N Breese & Hoyt (SB),This stop (#0454) is southbound on the 124 block of Breese Ter (N) nearside Hoyt St,43.070438,-89.414055,MMT,CMAD,0,,3,180,1,N Breese,124,Hoyt
-455,0455,W Johnson & N Park (EB),This stop (#0455) is eastbound on the 899 block of Johnson St (W) farside Park St (N),43.071967,-89.400106,MMT,CMAD,0,,1,90,1,W Johnson,899,N Park
-456,0456,Fish Hatchery & Carver (SB),This stop (#0456) is southbound on the 2000 block of Fish Hatchery Rd farside Carver St,43.044304,-89.404113,MMT,TMAD,0,,1,180,1,Fish Hatchery,2000,Carver
-459,0459,Erin & S Mills (EB),This stop (#0459) is eastbound on the 1099 block of Erin St farside Mills St (S),43.059774,-89.403665,MMT,CMAD,0,,1,90,1,Erin,1099,S Mills
-465,0465,W Olin & Colby (EB),This stop (#0465) is eastbound on the 101 block of Olin Ave (W) nearside Colby St,43.053055,-89.384217,MMT,CMAD,0,,3,90,1,W Olin,101,Colby
-469,0469,W Washington & Southwest (EB),This stop (#0469) is eastbound on the 651 block of W Washington Ave adjacent Southwest Path,43.067543,-89.394121,MMT,CMAD,0,,2,90,1,W Washington,651,Southwest
-470,0470,N Bassett & W Dayton (SB),This stop (#0470) is southbound on the 200 block of Bassett St (N) nearside Dayton St (W),43.071625,-89.39286,MMT,CMAD,0,,3,180,1,N Bassett,200,W Dayton
-473,0473,W Washington & S Bassett (EB),This stop (#0473) is eastbound on the 499 block of W Washington Ave farside Bassett St (S),43.070228,-89.390293,MMT,CMAD,0,,1,90,1,W Washington,499,S Bassett
-475,0475,S Park & Buick (NB),This stop (#0475) is northbound on the 2201 block of Park St (S) nearside Buick St,43.041625,-89.393786,MMT,CMAD,0,,3,0,1,S Park,2201,Buick
-480,0480,W Gorham & N Henry (WB),This stop (#0480) is westbound on the 200 block of Gorham St (W) farside Henry St (N),43.075322,-89.391155,MMT,CMAD,0,,1,270,1,W Gorham,200,N Henry
-483,0483,N Park & Spring (NB),This stop (#0483) is northbound on the 99 block of Park St (N) nearside Spring St,43.069254,-89.400712,MMT,CMAD,0,,3,0,1,N Park,99,Spring
-488,0488,Linden & N Charter (WB),This stop (#0488) is westbound on the 1200 block of Linden Dr farside Charter St (N),43.0752,-89.407339,MMT,UWIS,0,,1,270,1,Linden,1200,N Charter
-490,0490,N Charter & W Johnson (SB),This stop (#0490) is southbound on the 300 block of Charter St (N) nearside Johnson St (W),43.072299,-89.405883,MMT,CMAD,0,,3,180,1,N Charter,300,W Johnson
-492,0492,John Nolen & Lakeside (SB),This stop (#0492) is southbound on the 300 block of John Nolen Dr farside Lakeside St (E),43.055713,-89.381932,MMT,CMAD,0,,1,180,1,John Nolen,300,Lakeside
-496,0496,Koster & Ardmore (WB),This stop (#0496) is westbound on the 198 block of Koster St nearside Ardmore Dr,43.044148,-89.385493,MMT,CMAD,0,,3,270,1,Koster,198,Ardmore
-499,0499,Fish Hatchery & W Badger (NB),This stop (#0499) is northbound on the 2499 block of Fish Hatchery Rd farside Badger Rd (W),43.038914,-89.403757,MMT,CMAD,0,,1,0,1,Fish Hatchery,2499,W Badger
-505,0505,State & W Gilman (EB),This stop (#0505) is eastbound on the 501 block of State St nearside Gilman St (W),43.074732,-89.393723,MMT,CMAD,0,,3,90,1,State,501,W Gilman
-506,0506,State & N Frances (WB),This stop (#0506) is westbound on the 600 block of State St farside Frances St (N),43.074974,-89.3955,MMT,CMAD,0,,1,270,1,State,600,N Frances
-512,0512,W Washington & N Bassett (WB),This stop (#0512) is westbound on the 500 block of W Washington Ave farside Bassett St (N),43.069986,-89.391021,MMT,CMAD,0,,1,270,1,W Washington,500,N Bassett
-516,0516,W Washington & Regent (WB),This stop (#0516) is westbound on the 700 block of W Washington Ave farside Regent St,43.066711,-89.395874,MMT,CMAD,0,,1,270,1,W Washington,700,Regent
-519,0519,S Park & Fish Hatchery (NB),This stop (#0519) is northbound on the 999 block of Park St (S) farside Fish Hatchery Rd,43.057212,-89.398803,MMT,CMAD,0,,1,0,1,S Park,999,Fish Hatchery
-520,0520,S Bassett & W Doty (SB),This stop (#0520) is southbound on the 198 block of Bassett St (S) nearside Doty St (W),43.068634,-89.388936,MMT,CMAD,0,,3,180,1,S Bassett,198,W Doty
-522,0522,E Olin & Expo (WB),This stop (#0522) is westbound on the 200 block of Olin Ave (E) farside Expo Pkwy,43.052562,-89.381527,MMT,CMAD,0,,1,270,1,E Olin,200,Expo
-530,0530,Fish Hatchery & Appleton (SB),This stop (#0530) is southbound on the 1336 block of Fish Hatchery Rd nearside Appleton Rd,43.051913,-89.399261,MMT,CMAD,0,,3,180,0,Fish Hatchery,1336,Appleton
-532,0532,Linden & Babcock (WB),This stop (#0532) is westbound on the 1598 block of Linden Dr nearside Babcock Dr,43.075254,-89.412549,MMT,UWIS,0,,3,270,1,Linden,1598,Babcock
-533,0533,Regent & N Breese (EB),This stop (#0533) is eastbound on the 1599 block of Regent St farside Breese Ter (N),43.067725,-89.413451,MMT,CMAD,0,,1,90,1,Regent,1599,N Breese
-536,0536,Fish Hatchery & Wingra (SB),This stop (#0536) is southbound on the 1398 block of Fish Hatchery Rd nearside Wingra Dr (N),43.05048,-89.399953,MMT,CMAD,0,,3,180,1,Fish Hatchery,1398,Wingra
-538,0538,N Park & University (SB),This stop (#0538) is southbound on the 398 block of Park St (N) farside University Ave,43.072701,-89.400846,MMT,CMAD,0,,1,180,1,N Park,398,University
-542,0542,N Breese & University (SB),This stop (#0542) is southbound on the 398 block of Breese Ter (N) farside University Ave,43.073132,-89.414055,MMT,CMAD,0,,1,180,1,N Breese,398,University
-544,0544,S Broom & W Wilson (SB),This stop (#0544) is southbound on the 298 block of Broom St (S) nearside Wilson St (W),43.069233,-89.386269,MMT,CMAD,0,,3,180,0,S Broom,298,W Wilson
-546,0546,S Park & Regent (SB),This stop (#0546) is southbound on the 2 block of Park St (S) farside Regent St,43.067392,-89.401194,MMT,CMAD,0,,1,180,1,S Park,2,Regent
-548,0548,Regent & N Mills (WB),This stop (#0548) is westbound on the 1100 block of Regent St farside Mills St (N),43.067822,-89.404428,MMT,CMAD,0,,1,270,1,Regent,1100,N Mills
-549,0549,State & W Gorham (EB),This stop (#0549) is eastbound on the 401 block of State St nearside Gorham St (W),43.074705,-89.392056,MMT,CMAD,0,,3,90,1,State,401,W Gorham
-558,0558,N Bedford & W Mifflin (SB),This stop (#0558) is southbound on the 100 block of Bedford St (N) nearside Mifflin St (W),43.0697,-89.393799,MMT,CMAD,0,,3,180,1,N Bedford,100,W Mifflin
-561,0561,N Park & W Dayton (NB),This stop (#0561) is northbound on the 199 block of Park St (N) nearside Dayton St (W),43.070821,-89.400637,MMT,CMAD,0,,3,0,1,N Park,199,W Dayton
-564,0564,W Wilson & S Hamilton (WB),This stop (#0564) is westbound on the 298 block of Wilson St (W) nearside Hamilton St (S),43.070692,-89.384195,MMT,CMAD,0,,3,270,1,W Wilson,298,S Hamilton
-565,0565,N Rusk & Nygard (NB),This stop (#0565) is northbound on the 2199 block of Rusk Ave (N) farside Nygard St,43.041336,-89.384063,MMT,TMAD,0,,1,0,1,N Rusk,2199,Nygard
-567,0567,W Johnson & N Carroll (EB),This stop (#0567) is eastbound on the 101 block of Johnson St (W) nearside Carroll St (N),43.075876,-89.388191,MMT,CMAD,0,,3,90,1,W Johnson,101,N Carroll
-568,0568,University & N Frances (WB),This stop (#0568) is westbound on the 600 block of University Ave farside Frances St (N),43.073309,-89.396192,MMT,CMAD,0,,1,270,1,University,600,N Frances
-570,0570,Gilson & Cedar (SB),This stop (#0570) is southbound on the 1398 block of Gilson St nearside Cedar St,43.052054,-89.390943,MMT,CMAD,0,,3,180,0,Gilson,1398,Cedar
-573,0573,Linden & Henry (EB),This stop (#0573) is eastbound on the 1499 block of Linden Dr nearside Henry Mall,43.07503,-89.410339,MMT,UWIS,0,,3,90,1,Linden,1499,Henry
-581,0581,W Johnson & N Charter (EB),This stop (#0581) is eastbound on the 1201 block of Johnson St (W) nearside Charter St (N),43.072057,-89.40592,MMT,CMAD,0,,3,90,1,W Johnson,1201,N Charter
-582,0582,S Park & Park House (SB),This stop (#0582) is southbound on the 1800 block of Park St (S) opposite Park House,43.046916,-89.394302,MMT,CMAD,0,,4,180,0,S Park,1800,Park House
-583,0583,Regent & S Orchard (EB),This stop (#0583) is eastbound on the 1301 block of Regent St nearside Orchard St (S),43.067644,-89.407514,MMT,CMAD,0,,3,90,0,Regent,1301,S Orchard
-590,0590,W Badger & Cypress (WB),This stop (#0590) is westbound on the 900 block of Badger Rd (W) farside Cypress Way,43.038645,-89.397699,MMT,CMAD,0,,1,270,1,W Badger,900,Cypress
-593,0593,N Broom & W Dayton (NB),This stop (#0593) is northbound on the 201 block of Broom St (N) farside Dayton St (W),43.073129,-89.391032,MMT,CMAD,0,,1,0,1,N Broom,201,W Dayton
-597,0597,E Johnson & N Pinckney (EB),This stop (#0597) is eastbound on the 99 block of Johnson St (E) nearside Pinckney St (N),43.077496,-89.38587,MMT,CMAD,0,,3,90,0,E Johnson,99,N Pinckney
-602,0602,W Olin & Gilson (WB),This stop (#0602) is westbound on the 500 block of Olin Ave (W) farside Gilson St,43.054059,-89.390177,MMT,CMAD,0,,1,270,0,W Olin,500,Gilson
-608,0608,Regent & N Park (WB),This stop (#0608) is westbound on the 898 block of Regent St nearside Park St (N),43.067759,-89.400675,MMT,CMAD,0,,3,270,1,Regent,898,N Park
-614,0614,W Olin & Lowell (WB),This stop (#0614) is westbound on the 800 block of Olin Ave (W) farside Lowell St,43.054141,-89.39562,MMT,CMAD,0,,1,270,1,W Olin,800,Lowell
-619,0619,E Rusk & Rimrock (EB),This stop (#0619) is eastbound on the 399 block of Rusk Ave (E) nearside Rimrock Rd,43.042614,-89.378263,MMT,TMAD,0,,3,90,0,E Rusk,399,Rimrock
-621,0621,John Nolen & Lakeside (NB),This stop (#0621) is northbound on the 299 block of John Nolen Dr farside Lakeside St (E),43.056322,-89.381932,MMT,CMAD,0,,1,0,1,John Nolen,299,Lakeside
-624,0624,S Mills & Mound (SB),This stop (#0624) is southbound on the 198 block of Mills St (S) nearside Mound St,43.065459,-89.404206,MMT,CMAD,0,,3,180,1,S Mills,198,Mound
-633,0633,W Washington & S Park (EB),This stop (#0633) is eastbound on the 899 block of W Washington Ave farside Park St (S),43.063327,-89.399985,MMT,CMAD,0,,1,90,1,W Washington,899,S Park
-643,0643,Fisher & Bram (NB),This stop (#0643) is northbound on the 1901 block of Fisher St nearside Bram St,43.045608,-89.39165,MMT,CMAD,0,,3,0,1,Fisher,1901,Bram
-650,0650,John Nolen & Rimrock (SB),This stop (#0650) is southbound on the 701 block of John Nolen Dr farside Rimrock Rd,43.046328,-89.373966,MMT,CMAD,0,,1,180,1,John Nolen,701,Rimrock
-668,0668,W Doty & S Henry (WB),This stop (#0668) is westbound on the 300 block of Doty St (W) farside Henry St (S),43.071005,-89.385503,MMT,CMAD,0,,1,270,0,W Doty,300,S Henry
-670,0670,University & N Lake (WB),This stop (#0670) is westbound on the 700 block of University Ave farside Lake St (N),43.073336,-89.397994,MMT,CMAD,0,,1,270,1,University,700,N Lake
-674,0674,E Olin & John Nolen (WB),This stop (#0674) is westbound on the 298 block of Olin Ave (E) farside John Nolen Dr,43.051836,-89.37959,MMT,CMAD,0,,1,270,1,E Olin,298,John Nolen
-688,0688,State & W Gilman (WB),This stop (#0688) is westbound on the 498 block of State St nearside Gilman St (W),43.074929,-89.392969,MMT,CMAD,0,,3,270,1,State,498,W Gilman
-692,0692,University & N Breese (WB),This stop (#0692) is westbound on the 1600 block of University Ave farside Breese Ter (N),43.073517,-89.414277,MMT,CMAD,0,,1,270,1,University,1600,N Breese
-694,0694,Gilson & W Olin (SB),This stop (#0694) is southbound on the 1200 block of Gilson St farside Olin Ave (W),43.053692,-89.390399,MMT,CMAD,0,,1,180,0,Gilson,1200,W Olin
-706,0706,N Charter & University (SB),This stop (#0706) is southbound on the 400 block of Charter St (N) nearside University Ave,43.073767,-89.406352,MMT,UWIS,0,,3,180,1,N Charter,400,University
-709,0709,S Park & Burr Oak (NB),This stop (#0709) is northbound on the 1999 block of Park St (S) farside Burr Oak Ln,43.044427,-89.39381,MMT,CMAD,0,,1,0,1,S Park,1999,Burr Oak
-710,0710,S Bassett & W Washington (SB),This stop (#0710) is southbound on the 2 block of Bassett St (S) farside W Washington Ave,43.069834,-89.390515,MMT,CMAD,0,,1,180,1,S Bassett,2,W Washington
-715,0715,S Park & Meriter (NB),This stop (#0715) is northbound on the 101 block of Park St (S) opposite Meriter Hospital,43.065378,-89.400515,MMT,CMAD,0,,4,0,1,S Park,101,Meriter
-730,0730,S Park & Burr Oak (SB),This stop (#0730) is southbound on the 1998 block of Park St (S) nearside Burr Oak Ln,43.044293,-89.394303,MMT,CMAD,0,,3,180,1,S Park,1998,Burr Oak
-739,0739,N Mills & College (NB),This stop (#0739) is northbound on the 17 block of Mills St (N) farside College Ct,43.068538,-89.403921,MMT,CMAD,0,,1,0,0,N Mills,17,College
-741,0741,W Johnson & N Mills (EB),This stop (#0741) is eastbound on the 1101 block of Johnson St (W) nearside Mills St (N),43.072039,-89.404278,MMT,CMAD,0,,3,90,1,W Johnson,1101,N Mills
-749,0749,S Park & Wingra (NB),This stop (#0749) is northbound on the 1701 block of Park St (S) nearside Wingra Dr (W),43.049074,-89.393808,MMT,CMAD,0,,3,0,1,S Park,1701,Wingra
-751,0751,N Breese & Hoyt (NB),This stop (#0751) is northbound on the 119 block of Breese Ter (N) nearside Hoyt St,43.070241,-89.413759,MMT,CMAD,0,,3,0,1,N Breese,119,Hoyt
-757,0757,N Charter & University (NB),This stop (#0757) is northbound on the 401 block of Charter St (N) farside University Ave,43.07417,-89.406055,MMT,UWIS,0,,1,0,1,N Charter,401,University
-758,0758,E Gorham & N Pinckney (WB),This stop (#0758) is westbound on the 100 block of Gorham St (E) nearside Pinckney St (N),43.078463,-89.386659,MMT,CMAD,0,,3,270,0,E Gorham,100,N Pinckney
-765,0765,N Lake & University (NB),This stop (#0765) is northbound on the 399 block of Lake St (N) nearside University Ave,43.073076,-89.397291,MMT,CMAD,0,,3,0,1,N Lake,399,University
-768,0768,W Washington & Southwest (WB),This stop (#0768) is westbound on the 650 block of W Washington Ave adjacent Southwest Path,43.067928,-89.393972,MMT,CMAD,0,,2,270,1,W Washington,650,Southwest
-770,0770,W Washington & Brittingham (WB),This stop (#0770) is westbound on the 750 block of W Washington Ave adjacent Brittingham Park,43.065055,-89.39822,MMT,CMAD,0,,2,270,1,W Washington,750,Brittingham
-773,0773,N Mills & University (NB),This stop (#0773) is northbound on the 399 block of Mills St (N) nearside University Ave,43.073185,-89.403945,MMT,CMAD,0,,3,0,1,N Mills,399,University
-782,0782,W Badger & Fiedler (WB),This stop (#0782) is westbound on the 1100 block of Badger Rd (W) farside Fiedler Ln,43.03869,-89.401869,MMT,CMAD,0,,1,270,1,W Badger,1100,Fiedler
-791,0791,W Wilson & S Hamilton (EB),This stop (#0791) is eastbound on the 301 block of Wilson St (W) nearside Hamilton St (S),43.070262,-89.384331,MMT,CMAD,0,,3,90,0,W Wilson,301,S Hamilton
-795,0795,N Park & State (NB),This stop (#0795) is northbound on the 499 block of Park St (N) adjacent State St Mall,43.074599,-89.400488,MMT,CMAD,0,,2,0,1,N Park,499,State
-803,0803,State & W Johnson (EB),This stop (#0803) is eastbound on the 301 block of State St nearside Johnson St (W),43.074677,-89.390328,MMT,CMAD,0,,3,90,1,State,301,W Johnson
-809,0809,Campus & Babcock (EB),This stop (#0809) is eastbound on the 1501 block of Campus Dr nearside Babcock Dr,43.073177,-89.410858,MMT,CMAD,0,,3,90,1,Campus,1501,Babcock
-816,0816,Fish Hatchery & W Badger (SB),This stop (#0816) is southbound on the 2500 block of Fish Hatchery Rd farside Badger Rd (W),43.038377,-89.404275,MMT,CMAD,0,,1,180,1,Fish Hatchery,2500,W Badger
-819,0819,Koster & Ardmore (EB),This stop (#0819) is eastbound on the 199 block of Koster St farside Ardmore Dr,43.043888,-89.385444,MMT,CMAD,0,,1,90,1,Koster,199,Ardmore
-821,0821,Gilson & Cedar (NB),This stop (#0821) is northbound on the 1401 block of Gilson St nearside Cedar St,43.051723,-89.390808,MMT,CMAD,0,,3,0,0,Gilson,1401,Cedar
-828,0828,E Rusk & Rimrock (WB),This stop (#0828) is westbound on the 398 block of Rusk Ave (E) farside Rimrock Rd,43.042838,-89.378645,MMT,TMAD,0,,1,270,1,E Rusk,398,Rimrock
-837,0837,N Mills & W Dayton (NB),This stop (#0837) is northbound on the 199 block of Mills St (N) nearside Dayton St (W),43.070866,-89.403933,MMT,CMAD,0,,3,0,1,N Mills,199,W Dayton
-839,0839,W Johnson & N Broom (EB),This stop (#0839) is eastbound on the 399 block of Johnson St (W) farside Broom St (N),43.073639,-89.391365,MMT,CMAD,0,,1,90,1,W Johnson,399,N Broom
-840,0840,S Park & W Washington (SB),This stop (#0840) is southbound on the 400 block of Park St (S) farside W Washington Ave,43.06288,-89.401022,MMT,CMAD,0,,1,180,1,S Park,400,W Washington
-841,0841,S Mills & Regent (NB),This stop (#0841) is northbound on the 1 block of Mills St (S) nearside Regent St,43.06758,-89.403909,MMT,CMAD,0,,3,0,1,S Mills,1,Regent
-843,0843,Fish Hatchery & Appleton (NB),This stop (#0843) is northbound on the 1347 block of Fish Hatchery Rd nearside Appleton Rd,43.051698,-89.399002,MMT,CMAD,0,,3,0,1,Fish Hatchery,1347,Appleton
-845,0845,Fish Hatchery & Plaenert (NB),This stop (#0845) is northbound on the 1701 block of Fish Hatchery Rd nearside Plaenert Dr,43.049317,-89.400521,MMT,CMAD,0,,3,0,1,Fish Hatchery,1701,Plaenert
-853,0853,W Dayton & Marion (EB),This stop (#0853) is eastbound on the 545 block of Dayton St (W) nearside Marion St,43.070748,-89.394922,MMT,CMAD,0,,3,90,1,W Dayton,545,Marion
-862,0862,John Nolen & E Olin (SB),This stop (#0862) is southbound on the 501 block of John Nolen Dr farside Olin Ave (E),43.05034,-89.3779,MMT,TMAD,0,,1,180,1,John Nolen,501,E Olin
-871,0871,Koster & Bram (EB),This stop (#0871) is eastbound on the 399 block of Koster St farside Bram St,43.045294,-89.388565,MMT,CMAD,0,,1,90,1,Koster,399,Bram
-877,0877,W Olin & Lowell (EB),This stop (#0877) is eastbound on the 801 block of Olin Ave (W) nearside Lowell St,43.053926,-89.395435,MMT,CMAD,0,,3,90,0,W Olin,801,Lowell
-883,0883,State & N Fairchild (EB),This stop (#0883) is eastbound on the 201 block of State St nearside Fairchild St (N),43.074641,-89.388217,MMT,CMAD,0,,3,90,1,State,201,N Fairchild
-890,0890,S Park & Beld (SB),This stop (#0890) is southbound on the 1398 block of Park St (S) nearside Beld St,43.051974,-89.395152,MMT,CMAD,0,,3,180,1,S Park,1398,Beld
-894,0894,E Rusk & N Rusk (WB),This stop (#0894) is westbound on the 398 block of Rusk Ave (E) nearside Rusk Ave (N),43.039161,-89.383916,MMT,TMAD,0,,3,270,1,E Rusk,398,N Rusk
-898,0898,State & W Johnson (WB),This stop (#0898) is westbound on the 298 block of State St nearside Johnson St (W),43.074883,-89.389575,MMT,CMAD,0,,3,270,1,State,298,W Johnson
-904,0904,Erin & S Park (WB),This stop (#0904) is westbound on the 900 block of Erin St farside Park St (S),43.059997,-89.401221,MMT,CMAD,0,,1,270,1,Erin,900,S Park
-906,0906,S Park & Buick (SB),This stop (#0906) is southbound on the 2200 block of Park St (S) farside Buick St,43.041491,-89.394255,MMT,CMAD,0,,1,180,1,S Park,2200,Buick
-915,0915,Fish Hatchery & Midland (NB),This stop (#0915) is northbound on the 1199 block of Fish Hatchery Rd farside Midland St,43.054527,-89.398878,MMT,CMAD,0,,1,0,1,Fish Hatchery,1199,Midland
-916,0916,N Breese & Regent (SB),This stop (#0916) is southbound on the 2 block of Breese Ter (N) nearside Regent St,43.067958,-89.414056,MMT,CMAD,0,,3,180,1,N Breese,2,Regent
-918,0918,W Gorham & N Carroll (WB),This stop (#0918) is westbound on the 98 block of Gorham St (W) nearside Carroll St (N),43.076853,-89.388944,MMT,CMAD,0,,3,270,0,W Gorham,98,N Carroll
-926,0926,N Lake & University (SB),This stop (#0926) is southbound on the 498 block of Lake St (N) nearside University Ave,43.073757,-89.397575,MMT,CMAD,0,,3,180,1,N Lake,498,University
-941,0941,W Johnson & N Frances (EB),This stop (#0941) is eastbound on the 599 block of Johnson St (W) farside Frances St (N),43.071894,-89.395489,MMT,CMAD,0,,1,90,1,W Johnson,599,N Frances
-956,0956,Koster & Bram (WB),This stop (#0956) is westbound on the 398 block of Koster St nearside Bram St,43.045572,-89.388639,MMT,CMAD,0,,3,270,1,Koster,398,Bram
-962,0962,Regent & N Park (WB),This stop (#0962) is westbound on the 900 block of Regent St farside Park St (N),43.067768,-89.40149,MMT,CMAD,0,,1,270,1,Regent,900,N Park
-965,0965,S Broom & W Washington (NB),This stop (#0965) is northbound on the 1 block of Broom St (S) nearside W Washington Ave,43.071346,-89.388663,MMT,CMAD,0,,3,0,1,S Broom,1,W Washington
-967,0967,W Washington & S Bedford (EB),This stop (#0967) is eastbound on the 599 block of W Washington Ave farside Bedford St (S),43.068957,-89.392096,MMT,CMAD,0,,1,90,1,W Washington,599,S Bedford
-969,0969,N Frances & W Johnson (NB),This stop (#0969) is northbound on the 301 block of Frances St (N) farside Johnson St (W),43.072279,-89.395723,MMT,CMAD,0,,1,0,1,N Frances,301,W Johnson
-971,0971,Regent & S Randall (EB),This stop (#0971) is eastbound on the 1401 block of Regent St nearside Randall Ave (S),43.067662,-89.409168,MMT,CMAD,0,,3,90,1,Regent,1401,S Randall
-989,0989,W Washington & S Broom (EB),This stop (#0989) is eastbound on the 399 block of W Washington Ave farside Broom St (S),43.07149,-89.388515,MMT,CMAD,0,,1,90,1,W Washington,399,S Broom
+5,5,W Dayton & N Orchard (EB),This stop (#0005) is eastbound on the 1299 block of Dayton St (W) farside Orchard St (N),43.070947,-89.406982,MMT,CMAD,0,,1,90,1,W Dayton,1299,N Orchard
+10,10,Langdon & N Park (WB),This stop (#0010) is westbound on the 898 block of Langdon St nearside Park St (N),43.075933,-89.400154,MMT,CMAD,0,,3,270,1,Langdon,898,N Park
+25,25,Langdon & N Lake (EB),This stop (#0025) is eastbound on the 699 block of Langdon St farside Lake St (N),43.075691,-89.396944,MMT,CMAD,0,,1,90,1,Langdon,699,N Lake
+39,39,N Lake & W Johnson (NB),This stop (#0039) is northbound on the 299 block of Lake St (N) nearside Johnson St (W),43.071895,-89.397341,MMT,CMAD,0,,3,0,1,N Lake,299,W Johnson
+45,45,Langdon & Wisconsin (EB),This stop (#0045) is eastbound on the 1 block of Langdon St nearside Wisconsin Ave,43.078482,-89.38982,MMT,CMAD,0,,3,90,1,Langdon,1,Wisconsin
+47,47,Babcock & Linden (NB),This stop (#0047) is northbound on the 499 block of Babcock Dr nearside Linden Dr,43.074636,-89.412598,MMT,UWIS,0,,3,0,1,Babcock,499,Linden
+49,49,N Lake & Langdon (NB),This stop (#0049) is northbound on the 599 block of Lake St (N) nearside Langdon St,43.075529,-89.397191,MMT,CMAD,0,,3,0,1,N Lake,599,Langdon
+50,50,Spring & N Brooks (WB),This stop (#0050) is westbound on the 998 block of Spring St nearside Brooks St (N),43.069442,-89.402267,MMT,CMAD,0,,3,270,1,Spring,998,N Brooks
+52,52,Observatory & N Charter (WB),This stop (#0052) is westbound on the 1198 block of Observatory Dr nearside Charter St (N),43.076131,-89.40566,MMT,UWIS,0,,3,270,1,Observatory,1198,N Charter
+53,53,Observatory & North Hall (EB),This stop (#0053) is eastbound on the 1099 block of Observatory Dr adjacent North Hall,43.075781,-89.403882,MMT,UWIS,0,,2,90,1,Observatory,1099,North Hall
+54,54,Spring & N Mills (WB),This stop (#0054) is westbound on the 1098 block of Spring St nearside Mills St (N),43.06947,-89.403872,MMT,CMAD,0,,3,270,1,Spring,1098,N Mills
+56,56,Observatory & Liz Waters (WB),This stop (#0056) is westbound on the 1300 block of Observatory Dr adjacent Elizabeth Waters Hall,43.07665,-89.407141,MMT,UWIS,0,,2,270,1,Observatory,1300,Liz Waters
+60,60,Observatory & Bascom (WB),This stop (#0060) is westbound on the 1100 block of Observatory Dr adjacent Bascom Hall,43.075996,-89.40366,MMT,UWIS,0,,2,270,1,Observatory,1100,Bascom
+61,61,W Dayton & N Mills (EB),This stop (#0061) is eastbound on the 1099 block of Dayton St (W) farside Mills St (N),43.070893,-89.403698,MMT,CMAD,0,,1,90,1,W Dayton,1099,N Mills
+68,68,N Lake & W Johnson (SB),This stop (#0068) is southbound on the 300 block of Lake St (N) nearside Johnson St (W),43.072172,-89.397625,MMT,CMAD,0,,3,180,1,N Lake,300,W Johnson
+70,70,N Park & Lathrop (SB),This stop (#0070) is southbound on the 500 block of Park St (N) nearside Lathrop Dr,43.07433,-89.400784,MMT,CMAD,0,,3,180,1,N Park,500,Lathrop
+75,75,W Dayton & N Park (EB),This stop (#0075) is eastbound on the 899 block of Dayton St (W) farside Park St (N),43.070839,-89.40002,MMT,CMAD,0,,1,90,1,W Dayton,899,N Park
+87,87,N Broom & W Gorham (NB),This stop (#0087) is northbound on the 399 block of Broom St (N) nearside Gorham St (W),43.07415,-89.392328,MMT,CMAD,0,,3,0,1,N Broom,399,W Gorham
+89,89,Langdon & N Henry (EB),This stop (#0089) is eastbound on the 199 block of Langdon St farside Henry St (N),43.076844,-89.392142,MMT,CMAD,0,,1,90,1,Langdon,199,N Henry
+96,96,Wisconsin & W Gorham (SB),This stop (#0096) is southbound on the 400 block of Wisconsin Ave nearside Gorham St (W),43.077515,-89.388055,MMT,CMAD,0,,3,180,0,Wisconsin,400,W Gorham
+99,99,Langdon & N Park (EB),This stop (#0099) is eastbound on the 899 block of Langdon St farside Park St (N),43.075745,-89.400179,MMT,CMAD,0,,1,90,1,Langdon,899,N Park
+100,100,University & N Park (WB),This stop (#0100) is westbound on the 900 block of University Ave farside Park St (N),43.073399,-89.401365,MMT,CMAD,0,,1,270,1,University,900,N Park
+104,104,N Mills & W Dayton (SB),This stop (#0104) is southbound on the 200 block of Mills St (N) nearside Dayton St (W),43.071144,-89.404229,MMT,CMAD,0,,3,180,1,N Mills,200,W Dayton
+107,107,S Park & W Olin (NB),This stop (#0107) is northbound on the 1117 block of Park St (S) farside Olin Ave (W),43.054383,-89.396533,MMT,CMAD,0,,1,0,1,S Park,1117,W Olin
+110,110,Gilson & Beld (WB),This stop (#0110) is westbound on the 1698 block of Gilson St nearside Beld St,43.049924,-89.392561,MMT,CMAD,0,,3,270,0,Gilson,1698,Beld
+113,113,W Washington & Brittingham (EB),This stop (#0113) is eastbound on the 801 block of W Washington Ave adjacent Brittingham Park,43.06501,-89.397603,MMT,CMAD,0,,2,90,1,W Washington,801,Brittingham
+115,115,N Park & Regent (NB),This stop (#0115) is northbound on the 21 block of Park St (N) farside Regent St,43.067983,-89.400724,MMT,CMAD,0,,1,0,1,N Park,21,Regent
+121,121,W Badger & Fiedler (EB),This stop (#0121) is eastbound on the 1099 block of Badger Rd (W) farside Fiedler Ln,43.038466,-89.401117,MMT,TMAD,0,,1,90,1,W Badger,1099,Fiedler
+124,124,S Park & Wingra (SB),This stop (#0124) is southbound on the 1700 block of Park St (S) farside Wingra Dr (W),43.048957,-89.394289,MMT,CMAD,0,,1,180,1,S Park,1700,Wingra
+133,133,University & N Breese (EB),This stop (#0133) is eastbound on the 1599 block of University Ave farside Breese Ter (N),43.073275,-89.413154,MMT,CMAD,0,,1,90,1,University,1599,N Breese
+146,146,Fish Hatchery & Midland (SB),This stop (#0146) is southbound on the 1200 block of Fish Hatchery Rd farside Midland St,43.053981,-89.399186,MMT,CMAD,0,,1,180,1,Fish Hatchery,1200,Midland
+147,147,W Olin & Hickory (EB),This stop (#0147) is eastbound on the 599 block of Olin Ave (W) farside Hickory St,43.053872,-89.391782,MMT,CMAD,0,,1,90,1,W Olin,599,Hickory
+150,150,N Rusk & Nygard (SB),This stop (#0150) is southbound on the 2198 block of Rusk Ave (N) nearside Nygard St,43.041193,-89.384359,MMT,CMAD,0,,3,180,1,N Rusk,2198,Nygard
+153,153,E Olin & Expo (EB),This stop (#0153) is eastbound on the 199 block of Olin Ave (E) farside Expo Pkwy,43.052132,-89.38075,MMT,TMAD,0,,1,90,1,E Olin,199,Expo
+158,158,S Mills & Vilas (SB),This stop (#0158) is southbound on the 400 block of Mills St (S) farside Vilas Ave,43.062871,-89.404194,MMT,CMAD,0,,1,180,1,S Mills,400,Vilas
+160,160,University & N Randall (WB),This stop (#0160) is westbound on the 1400 block of University Ave farside Randall Ave (N),43.073481,-89.409413,MMT,CMAD,0,,1,270,1,University,1400,N Randall
+161,161,S Broom & W Doty (NB),This stop (#0161) is northbound on the 199 block of Broom St (S) farside Doty St (W),43.070146,-89.387071,MMT,CMAD,0,,1,0,1,S Broom,199,W Doty
+162,162,S Park & Meriter (SB),This stop (#0162) is southbound on the 100 block of Park St (S) adjacent Meriter Hospital,43.065091,-89.400997,MMT,CMAD,0,,2,180,1,S Park,100,Meriter
+166,166,Rimrock & John Nolen (WB),This stop (#0166) is westbound on the 2000 block of Rimrock Rd farside John Nolen Dr,43.045854,-89.375546,MMT,TMAD,0,,1,270,1,Rimrock,2000,John Nolen
+167,167,S Mills & Mound (NB),This stop (#0167) is northbound on the 201 block of Mills St (S) nearside Mound St,43.065181,-89.403898,MMT,CMAD,0,,3,0,1,S Mills,201,Mound
+168,168,W Washington & N Henry (WB),This stop (#0168) is westbound on the 298 block of W Washington Ave nearside Henry St (N),43.072787,-89.38707,MMT,CMAD,0,,3,270,1,W Washington,298,N Henry
+170,170,Fish Hatchery & Catalpa (SB),This stop (#0170) is southbound on the 2198 block of Fish Hatchery Rd nearside Catalpa Rd,43.041645,-89.404114,MMT,CMAD,0,,3,180,1,Fish Hatchery,2198,Catalpa
+171,171,Fisher & Dane (NB),This stop (#0171) is northbound on the 2101 block of Fisher St nearside Dane St,43.042923,-89.39175,MMT,CMAD,0,,3,0,1,Fisher,2101,Dane
+173,173,W Badger & Cypress (EB),This stop (#0173) is eastbound on the 901 block of Badger Rd (W) nearside Cypress Way,43.03843,-89.397946,MMT,TMAD,0,,3,90,1,W Badger,901,Cypress
+174,174,S Park & Fish Hatchery (SB),This stop (#0174) is southbound on the 1000 block of Park St (S) farside Fish Hatchery Rd,43.056451,-89.398716,MMT,CMAD,0,,1,180,1,S Park,1000,Fish Hatchery
+178,178,University & N Orchard (WB),This stop (#0178) is westbound on the 1300 block of University Ave farside Orchard St (N),43.073427,-89.407056,MMT,CMAD,0,,1,270,1,University,1300,N Orchard
+180,180,N Park & W Dayton (SB),This stop (#0180) is southbound on the 200 block of Park St (N) nearside Dayton St (W),43.071098,-89.401081,MMT,CMAD,0,,3,180,1,N Park,200,W Dayton
+181,181,S Park & Beld (NB),This stop (#0181) is northbound on the 1399 block of Park St (S) farside Beld St,43.052252,-89.394806,MMT,CMAD,0,,1,0,1,S Park,1399,Beld
+184,184,Linden & Henry (WB),This stop (#0184) is westbound on the 1498 block of Linden Dr nearside Henry Mall,43.075254,-89.410413,MMT,UWIS,0,,3,270,1,Linden,1498,Henry
+190,190,N Mills & Regent (SB),This stop (#0190) is southbound on the 2 block of Mills St (N) nearside Regent St,43.067849,-89.404205,MMT,CMAD,0,,3,180,1,N Mills,2,Regent
+192,192,W Olin & Hickory (WB),This stop (#0192) is westbound on the 598 block of Olin Ave (W) nearside Hickory St,43.054087,-89.391967,MMT,CMAD,0,,3,270,1,W Olin,598,Hickory
+195,195,S Park & Park House (NB),This stop (#0195) is northbound on the 1801 block of Park St (S) adjacent Park House,43.04705,-89.393808,MMT,CMAD,0,,2,0,0,S Park,1801,Park House
+203,203,Rimrock & E Rusk (NB),This stop (#0203) is northbound on the 2199 block of Rimrock Rd farside Rusk Ave (E),43.043214,-89.376979,MMT,TMAD,0,,1,0,1,Rimrock,2199,E Rusk
+208,208,Regent & N Orchard (WB),This stop (#0208) is westbound on the 1298 block of Regent St nearside Orchard St (N),43.067849,-89.407131,MMT,CMAD,0,,3,270,1,Regent,1298,N Orchard
+217,217,S Park & W Washington (NB),This stop (#0217) is northbound on the 399 block of Park St (S) farside W Washington Ave,43.063668,-89.400528,MMT,CMAD,0,,1,0,1,S Park,399,W Washington
+222,222,Fisher & Bram (SB),This stop (#0222) is southbound on the 1900 block of Fisher St farside Bram St,43.045474,-89.391946,MMT,CMAD,0,,1,180,1,Fisher,1900,Bram
+225,225,W Washington & Park View (EB),This stop (#0225) is eastbound on the 749 block of W Washington Ave adjacent Park View,43.066066,-89.396121,MMT,CMAD,0,,2,90,1,W Washington,749,Park View
+226,226,Regent & E Campus (WB),This stop (#0226) is westbound on the 700 block of Regent St nearside East Campus Mall,43.067839,-89.397688,MMT,CMAD,0,,3,270,0,Regent,700,E Campus
+234,234,University & N Mills (WB),This stop (#0234) is westbound on the 1098 block of University Ave nearside Mills St (N),43.073427,-89.403883,MMT,CMAD,0,,3,270,1,University,1098,N Mills
+235,235,W Washington & S Henry (EB),This stop (#0235) is eastbound on the 301 block of W Washington Ave nearside Henry St (S),43.072456,-89.387144,MMT,CMAD,0,,3,90,1,W Washington,301,S Henry
+241,241,Monroe & S Breese (EB),This stop (#0241) is eastbound on the 1615 block of Monroe St opposite Breese Ter (S),43.066919,-89.413883,MMT,CMAD,0,,4,90,1,Monroe,1615,S Breese
+243,243,John Nolen & Rimrock (NB),This stop (#0243) is northbound on the 698 block of John Nolen Dr farside Rimrock Rd,43.047242,-89.374681,MMT,CMAD,0,,1,0,1,John Nolen,698,Rimrock
+245,245,N Randall & Engineering (NB),This stop (#0245) is northbound on the 299 block of Randall Ave (N) nearside Engineering Dr,43.072093,-89.40887,MMT,CMAD,0,,3,0,1,N Randall,299,Engineering
+248,248,W Wilson & S Carroll (WB),This stop (#0248) is westbound on the 98 block of Wilson St (W) nearside Carroll St (S),43.071891,-89.382453,MMT,CMAD,0,,3,270,1,W Wilson,98,S Carroll
+251,251,S Park & Erin (NB),This stop (#0251) is northbound on the 699 block of Park St (S) farside Erin St,43.060167,-89.40053,MMT,CMAD,0,,1,0,1,S Park,699,Erin
+252,252,State & W Gorham (WB),This stop (#0252) is westbound on the 398 block of State St nearside Gorham St (W),43.07491,-89.391303,MMT,CMAD,0,,3,270,1,State,398,W Gorham
+256,256,N Mills & University (SB),This stop (#0256) is southbound on the 398 block of Mills St (N) farside University Ave,43.073051,-89.404241,MMT,CMAD,0,,1,180,1,N Mills,398,University
+265,265,State & N Lake (EB),This stop (#0265) is eastbound on the 699 block of State St farside Lake St (N),43.074786,-89.396908,MMT,CMAD,0,,1,90,1,State,699,N Lake
+266,266,Fish Hatchery & S Park (SB),This stop (#0266) is southbound on the 1000 block of Fish Hatchery Rd farside Park St (S),43.056496,-89.399124,MMT,CMAD,0,,1,180,1,Fish Hatchery,1000,S Park
+271,271,Regent & S Park (EB),This stop (#0271) is eastbound on the 899 block of Regent St farside Park St (S),43.067544,-89.40049,MMT,CMAD,0,,1,90,0,Regent,899,S Park
+273,273,Regent & E Campus (EB),This stop (#0273) is eastbound on the 701 block of Regent St farside East Campus Mall,43.067427,-89.397231,MMT,CMAD,0,,1,90,0,Regent,701,E Campus
+274,274,W Washington & N Broom (WB),This stop (#0274) is westbound on the 400 block of W Washington Ave farside Broom St (N),43.071248,-89.389243,MMT,CMAD,0,,1,270,1,W Washington,400,N Broom
+288,288,S Park & Erin (SB),This stop (#0288) is southbound on the 700 block of Park St (S) farside Erin St,43.059621,-89.400999,MMT,CMAD,0,,1,180,1,S Park,700,Erin
+289,289,W Olin & Gilson (EB),This stop (#0289) is eastbound on the 499 block of Olin Ave (W) farside Gilson St,43.053844,-89.389869,MMT,CMAD,0,,1,90,0,W Olin,499,Gilson
+294,294,N Rusk & E Rusk (SB),This stop (#0294) is southbound on the 2398 block of Rusk Ave (N) nearside Rusk Ave (E),43.039304,-89.38436,MMT,TMAD,0,,3,180,0,N Rusk,2398,E Rusk
+298,298,Babcock & Linden (SB),This stop (#0298) is southbound on the 500 block of Babcock Dr nearside Linden Dr,43.07529,-89.412894,MMT,UWIS,0,,3,180,1,Babcock,500,Linden
+300,300,Erin & S Mills (WB),This stop (#0300) is westbound on the 1098 block of Erin St nearside Mills St (S),43.059989,-89.40385,MMT,CMAD,0,,3,270,1,Erin,1098,S Mills
+313,313,W Wilson & S Bassett (EB),This stop (#0313) is eastbound on the 451 block of Wilson St (W) farside Bassett St (S),43.068418,-89.386949,MMT,CMAD,0,,1,90,1,W Wilson,451,S Bassett
+320,320,Fisher & Dane (SB),This stop (#0320) is southbound on the 2098 block of Fisher St nearside Dane St,43.04312,-89.392033,MMT,CMAD,0,,3,180,1,Fisher,2098,Dane
+327,327,Regent & S Mills (EB),This stop (#0327) is eastbound on the 1099 block of Regent St farside Mills St (S),43.067598,-89.403675,MMT,CMAD,0,,1,90,1,Regent,1099,S Mills
+336,336,N Randall & Engineering (SB),This stop (#0336) is southbound on the 298 block of Randall Ave (N) farside Engineering Dr,43.072028,-89.409136,MMT,CMAD,0,,1,180,1,N Randall,298,Engineering
+341,341,N Park & University (NB),This stop (#0341) is northbound on the 399 block of Park St (N) nearside University Ave,43.07314,-89.400414,MMT,CMAD,0,,3,0,1,N Park,399,University
+346,346,W Olin & Lake (WB),This stop (#0346) is westbound on the 300 block of Olin Ave (W) farside Lake Ct,43.053996,-89.387437,MMT,CMAD,0,,1,270,1,W Olin,300,Lake
+349,349,N Breese & Regent (NB),This stop (#0349) is northbound on the 1 block of Breese Ter (N) farside Regent St,43.068092,-89.413759,MMT,CMAD,0,,1,0,1,N Breese,1,Regent
+353,353,W Badger & Fish Hatchery (EB),This stop (#0353) is eastbound on the 1121 block of Badger Rd (W) farside Fish Hatchery Rd,43.038494,-89.403362,MMT,CMAD,0,,1,90,1,W Badger,1121,Fish Hatchery
+357,357,Gilson & W Olin (NB),This stop (#0357) is northbound on the 1201 block of Gilson St nearside Olin Ave (W),43.053826,-89.390103,MMT,CMAD,0,,3,0,0,Gilson,1201,W Olin
+360,360,S Park & W Olin (SB),This stop (#0360) is southbound on the 1116 block of Park St (S) nearside Olin Ave (W),43.054589,-89.397212,MMT,CMAD,0,,3,180,1,S Park,1116,W Olin
+367,367,W Olin & Lake (EB),This stop (#0367) is eastbound on the 299 block of Olin Ave (W) farside Lake Ct,43.053682,-89.386709,MMT,CMAD,0,,1,90,1,W Olin,299,Lake
+375,375,S Mills & Vilas (NB),This stop (#0375) is northbound on the 399 block of Mills St (S) farside Vilas Ave,43.063417,-89.403898,MMT,CMAD,0,,1,0,1,S Mills,399,Vilas
+379,379,John Nolen & E Olin (NB),This stop (#0379) is northbound on the 499 block of John Nolen Dr farside Olin Ave (E),43.051603,-89.377887,MMT,CMAD,0,,1,0,1,John Nolen,499,E Olin
+388,388,N Park & Spring (SB),This stop (#0388) is southbound on the 100 block of Park St (N) nearside Spring St,43.069451,-89.401168,MMT,CMAD,0,,3,180,1,N Park,100,Spring
+391,391,Fish Hatchery & Carver (NB),This stop (#0391) is northbound on the 2001 block of Fish Hatchery Rd nearside Carver St,43.044438,-89.403805,MMT,CMAD,0,,3,0,1,Fish Hatchery,2001,Carver
+392,392,N Mills & Spring (SB),This stop (#0392) is southbound on the 100 block of Mills St (N) nearside Spring St,43.069711,-89.40423,MMT,CMAD,0,,3,180,0,N Mills,100,Spring
+398,398,Regent & N Randall (WB),This stop (#0398) is westbound on the 1400 block of Regent St farside Randall Ave (N),43.067877,-89.409353,MMT,CMAD,0,,1,270,1,Regent,1400,N Randall
+405,405,Fish Hatchery & Catalpa (NB),This stop (#0405) is northbound on the 2199 block of Fish Hatchery Rd farside Catalpa Rd,43.041851,-89.403818,MMT,CMAD,0,,1,0,1,Fish Hatchery,2199,Catalpa
+406,406,Regent & N Breese (WB),This stop (#0406) is westbound on the 1600 block of Regent St farside Breese Ter (N),43.067931,-89.414278,MMT,CMAD,0,,1,270,1,Regent,1600,N Breese
+410,410,Rimrock & E Rusk (SB),This stop (#0410) is southbound on the 2198 block of Rimrock Rd nearside Rusk Ave (E),43.042874,-89.377547,MMT,TMAD,0,,3,180,0,Rimrock,2198,E Rusk
+418,418,W Washington & N Bedford (WB),This stop (#0418) is westbound on the 598 block of W Washington Ave nearside Bedford St (N),43.069002,-89.392429,MMT,CMAD,0,,3,270,1,W Washington,598,N Bedford
+424,424,E Olin & Colby (WB),This stop (#0424) is westbound on the 100 block of Olin Ave (E) nearside Colby St,43.053153,-89.38376,MMT,CMAD,0,,3,270,1,E Olin,100,Colby
+433,433,Beld & Gilson (NB),This stop (#0433) is northbound on the 1601 block of Beld St nearside Gilson St,43.049727,-89.392573,MMT,CMAD,0,,3,0,0,Beld,1601,Gilson
+435,435,W Johnson & N Lake (EB),This stop (#0435) is eastbound on the 699 block of Johnson St (W) farside Lake St (N),43.071921,-89.397094,MMT,CMAD,0,,1,90,1,W Johnson,699,N Lake
+438,438,Linden & N Charter (EB),This stop (#0438) is eastbound on the 498 block of Linden Dr nearside Charter St (N),43.074985,-89.406401,MMT,UWIS,0,,3,90,1,Linden,498,N Charter
+441,441,N Mills & W Johnson (NB),This stop (#0441) is northbound on the 299 block of Mills St (N) nearside Johnson St (W),43.072003,-89.403945,MMT,CMAD,0,,3,0,1,N Mills,299,W Johnson
+445,445,N Mills & Spring (NB),This stop (#0445) is northbound on the 101 block of Mills St (N) farside Spring St,43.069899,-89.403921,MMT,CMAD,0,,1,0,1,N Mills,101,Spring
+454,454,N Breese & Hoyt (SB),This stop (#0454) is southbound on the 124 block of Breese Ter (N) nearside Hoyt St,43.070438,-89.414055,MMT,CMAD,0,,3,180,1,N Breese,124,Hoyt
+455,455,W Johnson & N Park (EB),This stop (#0455) is eastbound on the 899 block of Johnson St (W) farside Park St (N),43.071967,-89.400106,MMT,CMAD,0,,1,90,1,W Johnson,899,N Park
+456,456,Fish Hatchery & Carver (SB),This stop (#0456) is southbound on the 2000 block of Fish Hatchery Rd farside Carver St,43.044304,-89.404113,MMT,TMAD,0,,1,180,1,Fish Hatchery,2000,Carver
+459,459,Erin & S Mills (EB),This stop (#0459) is eastbound on the 1099 block of Erin St farside Mills St (S),43.059774,-89.403665,MMT,CMAD,0,,1,90,1,Erin,1099,S Mills
+465,465,W Olin & Colby (EB),This stop (#0465) is eastbound on the 101 block of Olin Ave (W) nearside Colby St,43.053055,-89.384217,MMT,CMAD,0,,3,90,1,W Olin,101,Colby
+469,469,W Washington & Southwest (EB),This stop (#0469) is eastbound on the 651 block of W Washington Ave adjacent Southwest Path,43.067543,-89.394121,MMT,CMAD,0,,2,90,1,W Washington,651,Southwest
+470,470,N Bassett & W Dayton (SB),This stop (#0470) is southbound on the 200 block of Bassett St (N) nearside Dayton St (W),43.071625,-89.39286,MMT,CMAD,0,,3,180,1,N Bassett,200,W Dayton
+473,473,W Washington & S Bassett (EB),This stop (#0473) is eastbound on the 499 block of W Washington Ave farside Bassett St (S),43.070228,-89.390293,MMT,CMAD,0,,1,90,1,W Washington,499,S Bassett
+475,475,S Park & Buick (NB),This stop (#0475) is northbound on the 2201 block of Park St (S) nearside Buick St,43.041625,-89.393786,MMT,CMAD,0,,3,0,1,S Park,2201,Buick
+480,480,W Gorham & N Henry (WB),This stop (#0480) is westbound on the 200 block of Gorham St (W) farside Henry St (N),43.075322,-89.391155,MMT,CMAD,0,,1,270,1,W Gorham,200,N Henry
+483,483,N Park & Spring (NB),This stop (#0483) is northbound on the 99 block of Park St (N) nearside Spring St,43.069254,-89.400712,MMT,CMAD,0,,3,0,1,N Park,99,Spring
+488,488,Linden & N Charter (WB),This stop (#0488) is westbound on the 1200 block of Linden Dr farside Charter St (N),43.0752,-89.407339,MMT,UWIS,0,,1,270,1,Linden,1200,N Charter
+490,490,N Charter & W Johnson (SB),This stop (#0490) is southbound on the 300 block of Charter St (N) nearside Johnson St (W),43.072299,-89.405883,MMT,CMAD,0,,3,180,1,N Charter,300,W Johnson
+492,492,John Nolen & Lakeside (SB),This stop (#0492) is southbound on the 300 block of John Nolen Dr farside Lakeside St (E),43.055713,-89.381932,MMT,CMAD,0,,1,180,1,John Nolen,300,Lakeside
+496,496,Koster & Ardmore (WB),This stop (#0496) is westbound on the 198 block of Koster St nearside Ardmore Dr,43.044148,-89.385493,MMT,CMAD,0,,3,270,1,Koster,198,Ardmore
+499,499,Fish Hatchery & W Badger (NB),This stop (#0499) is northbound on the 2499 block of Fish Hatchery Rd farside Badger Rd (W),43.038914,-89.403757,MMT,CMAD,0,,1,0,1,Fish Hatchery,2499,W Badger
+505,505,State & W Gilman (EB),This stop (#0505) is eastbound on the 501 block of State St nearside Gilman St (W),43.074732,-89.393723,MMT,CMAD,0,,3,90,1,State,501,W Gilman
+506,506,State & N Frances (WB),This stop (#0506) is westbound on the 600 block of State St farside Frances St (N),43.074974,-89.3955,MMT,CMAD,0,,1,270,1,State,600,N Frances
+512,512,W Washington & N Bassett (WB),This stop (#0512) is westbound on the 500 block of W Washington Ave farside Bassett St (N),43.069986,-89.391021,MMT,CMAD,0,,1,270,1,W Washington,500,N Bassett
+516,516,W Washington & Regent (WB),This stop (#0516) is westbound on the 700 block of W Washington Ave farside Regent St,43.066711,-89.395874,MMT,CMAD,0,,1,270,1,W Washington,700,Regent
+519,519,S Park & Fish Hatchery (NB),This stop (#0519) is northbound on the 999 block of Park St (S) farside Fish Hatchery Rd,43.057212,-89.398803,MMT,CMAD,0,,1,0,1,S Park,999,Fish Hatchery
+520,520,S Bassett & W Doty (SB),This stop (#0520) is southbound on the 198 block of Bassett St (S) nearside Doty St (W),43.068634,-89.388936,MMT,CMAD,0,,3,180,1,S Bassett,198,W Doty
+522,522,E Olin & Expo (WB),This stop (#0522) is westbound on the 200 block of Olin Ave (E) farside Expo Pkwy,43.052562,-89.381527,MMT,CMAD,0,,1,270,1,E Olin,200,Expo
+530,530,Fish Hatchery & Appleton (SB),This stop (#0530) is southbound on the 1336 block of Fish Hatchery Rd nearside Appleton Rd,43.051913,-89.399261,MMT,CMAD,0,,3,180,0,Fish Hatchery,1336,Appleton
+532,532,Linden & Babcock (WB),This stop (#0532) is westbound on the 1598 block of Linden Dr nearside Babcock Dr,43.075254,-89.412549,MMT,UWIS,0,,3,270,1,Linden,1598,Babcock
+533,533,Regent & N Breese (EB),This stop (#0533) is eastbound on the 1599 block of Regent St farside Breese Ter (N),43.067725,-89.413451,MMT,CMAD,0,,1,90,1,Regent,1599,N Breese
+536,536,Fish Hatchery & Wingra (SB),This stop (#0536) is southbound on the 1398 block of Fish Hatchery Rd nearside Wingra Dr (N),43.05048,-89.399953,MMT,CMAD,0,,3,180,1,Fish Hatchery,1398,Wingra
+538,538,N Park & University (SB),This stop (#0538) is southbound on the 398 block of Park St (N) farside University Ave,43.072701,-89.400846,MMT,CMAD,0,,1,180,1,N Park,398,University
+542,542,N Breese & University (SB),This stop (#0542) is southbound on the 398 block of Breese Ter (N) farside University Ave,43.073132,-89.414055,MMT,CMAD,0,,1,180,1,N Breese,398,University
+544,544,S Broom & W Wilson (SB),This stop (#0544) is southbound on the 298 block of Broom St (S) nearside Wilson St (W),43.069233,-89.386269,MMT,CMAD,0,,3,180,0,S Broom,298,W Wilson
+546,546,S Park & Regent (SB),This stop (#0546) is southbound on the 2 block of Park St (S) farside Regent St,43.067392,-89.401194,MMT,CMAD,0,,1,180,1,S Park,2,Regent
+548,548,Regent & N Mills (WB),This stop (#0548) is westbound on the 1100 block of Regent St farside Mills St (N),43.067822,-89.404428,MMT,CMAD,0,,1,270,1,Regent,1100,N Mills
+549,549,State & W Gorham (EB),This stop (#0549) is eastbound on the 401 block of State St nearside Gorham St (W),43.074705,-89.392056,MMT,CMAD,0,,3,90,1,State,401,W Gorham
+558,558,N Bedford & W Mifflin (SB),This stop (#0558) is southbound on the 100 block of Bedford St (N) nearside Mifflin St (W),43.0697,-89.393799,MMT,CMAD,0,,3,180,1,N Bedford,100,W Mifflin
+561,561,N Park & W Dayton (NB),This stop (#0561) is northbound on the 199 block of Park St (N) nearside Dayton St (W),43.070821,-89.400637,MMT,CMAD,0,,3,0,1,N Park,199,W Dayton
+564,564,W Wilson & S Hamilton (WB),This stop (#0564) is westbound on the 298 block of Wilson St (W) nearside Hamilton St (S),43.070692,-89.384195,MMT,CMAD,0,,3,270,1,W Wilson,298,S Hamilton
+565,565,N Rusk & Nygard (NB),This stop (#0565) is northbound on the 2199 block of Rusk Ave (N) farside Nygard St,43.041336,-89.384063,MMT,TMAD,0,,1,0,1,N Rusk,2199,Nygard
+567,567,W Johnson & N Carroll (EB),This stop (#0567) is eastbound on the 101 block of Johnson St (W) nearside Carroll St (N),43.075876,-89.388191,MMT,CMAD,0,,3,90,1,W Johnson,101,N Carroll
+568,568,University & N Frances (WB),This stop (#0568) is westbound on the 600 block of University Ave farside Frances St (N),43.073309,-89.396192,MMT,CMAD,0,,1,270,1,University,600,N Frances
+570,570,Gilson & Cedar (SB),This stop (#0570) is southbound on the 1398 block of Gilson St nearside Cedar St,43.052054,-89.390943,MMT,CMAD,0,,3,180,0,Gilson,1398,Cedar
+573,573,Linden & Henry (EB),This stop (#0573) is eastbound on the 1499 block of Linden Dr nearside Henry Mall,43.07503,-89.410339,MMT,UWIS,0,,3,90,1,Linden,1499,Henry
+581,581,W Johnson & N Charter (EB),This stop (#0581) is eastbound on the 1201 block of Johnson St (W) nearside Charter St (N),43.072057,-89.40592,MMT,CMAD,0,,3,90,1,W Johnson,1201,N Charter
+582,582,S Park & Park House (SB),This stop (#0582) is southbound on the 1800 block of Park St (S) opposite Park House,43.046916,-89.394302,MMT,CMAD,0,,4,180,0,S Park,1800,Park House
+583,583,Regent & S Orchard (EB),This stop (#0583) is eastbound on the 1301 block of Regent St nearside Orchard St (S),43.067644,-89.407514,MMT,CMAD,0,,3,90,0,Regent,1301,S Orchard
+590,590,W Badger & Cypress (WB),This stop (#0590) is westbound on the 900 block of Badger Rd (W) farside Cypress Way,43.038645,-89.397699,MMT,CMAD,0,,1,270,1,W Badger,900,Cypress
+593,593,N Broom & W Dayton (NB),This stop (#0593) is northbound on the 201 block of Broom St (N) farside Dayton St (W),43.073129,-89.391032,MMT,CMAD,0,,1,0,1,N Broom,201,W Dayton
+597,597,E Johnson & N Pinckney (EB),This stop (#0597) is eastbound on the 99 block of Johnson St (E) nearside Pinckney St (N),43.077496,-89.38587,MMT,CMAD,0,,3,90,0,E Johnson,99,N Pinckney
+602,602,W Olin & Gilson (WB),This stop (#0602) is westbound on the 500 block of Olin Ave (W) farside Gilson St,43.054059,-89.390177,MMT,CMAD,0,,1,270,0,W Olin,500,Gilson
+608,608,Regent & N Park (WB),This stop (#0608) is westbound on the 898 block of Regent St nearside Park St (N),43.067759,-89.400675,MMT,CMAD,0,,3,270,1,Regent,898,N Park
+614,614,W Olin & Lowell (WB),This stop (#0614) is westbound on the 800 block of Olin Ave (W) farside Lowell St,43.054141,-89.39562,MMT,CMAD,0,,1,270,1,W Olin,800,Lowell
+619,619,E Rusk & Rimrock (EB),This stop (#0619) is eastbound on the 399 block of Rusk Ave (E) nearside Rimrock Rd,43.042614,-89.378263,MMT,TMAD,0,,3,90,0,E Rusk,399,Rimrock
+621,621,John Nolen & Lakeside (NB),This stop (#0621) is northbound on the 299 block of John Nolen Dr farside Lakeside St (E),43.056322,-89.381932,MMT,CMAD,0,,1,0,1,John Nolen,299,Lakeside
+624,624,S Mills & Mound (SB),This stop (#0624) is southbound on the 198 block of Mills St (S) nearside Mound St,43.065459,-89.404206,MMT,CMAD,0,,3,180,1,S Mills,198,Mound
+633,633,W Washington & S Park (EB),This stop (#0633) is eastbound on the 899 block of W Washington Ave farside Park St (S),43.063327,-89.399985,MMT,CMAD,0,,1,90,1,W Washington,899,S Park
+643,643,Fisher & Bram (NB),This stop (#0643) is northbound on the 1901 block of Fisher St nearside Bram St,43.045608,-89.39165,MMT,CMAD,0,,3,0,1,Fisher,1901,Bram
+650,650,John Nolen & Rimrock (SB),This stop (#0650) is southbound on the 701 block of John Nolen Dr farside Rimrock Rd,43.046328,-89.373966,MMT,CMAD,0,,1,180,1,John Nolen,701,Rimrock
+668,668,W Doty & S Henry (WB),This stop (#0668) is westbound on the 300 block of Doty St (W) farside Henry St (S),43.071005,-89.385503,MMT,CMAD,0,,1,270,0,W Doty,300,S Henry
+670,670,University & N Lake (WB),This stop (#0670) is westbound on the 700 block of University Ave farside Lake St (N),43.073336,-89.397994,MMT,CMAD,0,,1,270,1,University,700,N Lake
+674,674,E Olin & John Nolen (WB),This stop (#0674) is westbound on the 298 block of Olin Ave (E) farside John Nolen Dr,43.051836,-89.37959,MMT,CMAD,0,,1,270,1,E Olin,298,John Nolen
+688,688,State & W Gilman (WB),This stop (#0688) is westbound on the 498 block of State St nearside Gilman St (W),43.074929,-89.392969,MMT,CMAD,0,,3,270,1,State,498,W Gilman
+692,692,University & N Breese (WB),This stop (#0692) is westbound on the 1600 block of University Ave farside Breese Ter (N),43.073517,-89.414277,MMT,CMAD,0,,1,270,1,University,1600,N Breese
+694,694,Gilson & W Olin (SB),This stop (#0694) is southbound on the 1200 block of Gilson St farside Olin Ave (W),43.053692,-89.390399,MMT,CMAD,0,,1,180,0,Gilson,1200,W Olin
+706,706,N Charter & University (SB),This stop (#0706) is southbound on the 400 block of Charter St (N) nearside University Ave,43.073767,-89.406352,MMT,UWIS,0,,3,180,1,N Charter,400,University
+709,709,S Park & Burr Oak (NB),This stop (#0709) is northbound on the 1999 block of Park St (S) farside Burr Oak Ln,43.044427,-89.39381,MMT,CMAD,0,,1,0,1,S Park,1999,Burr Oak
+710,710,S Bassett & W Washington (SB),This stop (#0710) is southbound on the 2 block of Bassett St (S) farside W Washington Ave,43.069834,-89.390515,MMT,CMAD,0,,1,180,1,S Bassett,2,W Washington
+715,715,S Park & Meriter (NB),This stop (#0715) is northbound on the 101 block of Park St (S) opposite Meriter Hospital,43.065378,-89.400515,MMT,CMAD,0,,4,0,1,S Park,101,Meriter
+730,730,S Park & Burr Oak (SB),This stop (#0730) is southbound on the 1998 block of Park St (S) nearside Burr Oak Ln,43.044293,-89.394303,MMT,CMAD,0,,3,180,1,S Park,1998,Burr Oak
+739,739,N Mills & College (NB),This stop (#0739) is northbound on the 17 block of Mills St (N) farside College Ct,43.068538,-89.403921,MMT,CMAD,0,,1,0,0,N Mills,17,College
+741,741,W Johnson & N Mills (EB),This stop (#0741) is eastbound on the 1101 block of Johnson St (W) nearside Mills St (N),43.072039,-89.404278,MMT,CMAD,0,,3,90,1,W Johnson,1101,N Mills
+749,749,S Park & Wingra (NB),This stop (#0749) is northbound on the 1701 block of Park St (S) nearside Wingra Dr (W),43.049074,-89.393808,MMT,CMAD,0,,3,0,1,S Park,1701,Wingra
+751,751,N Breese & Hoyt (NB),This stop (#0751) is northbound on the 119 block of Breese Ter (N) nearside Hoyt St,43.070241,-89.413759,MMT,CMAD,0,,3,0,1,N Breese,119,Hoyt
+757,757,N Charter & University (NB),This stop (#0757) is northbound on the 401 block of Charter St (N) farside University Ave,43.07417,-89.406055,MMT,UWIS,0,,1,0,1,N Charter,401,University
+758,758,E Gorham & N Pinckney (WB),This stop (#0758) is westbound on the 100 block of Gorham St (E) nearside Pinckney St (N),43.078463,-89.386659,MMT,CMAD,0,,3,270,0,E Gorham,100,N Pinckney
+765,765,N Lake & University (NB),This stop (#0765) is northbound on the 399 block of Lake St (N) nearside University Ave,43.073076,-89.397291,MMT,CMAD,0,,3,0,1,N Lake,399,University
+768,768,W Washington & Southwest (WB),This stop (#0768) is westbound on the 650 block of W Washington Ave adjacent Southwest Path,43.067928,-89.393972,MMT,CMAD,0,,2,270,1,W Washington,650,Southwest
+770,770,W Washington & Brittingham (WB),This stop (#0770) is westbound on the 750 block of W Washington Ave adjacent Brittingham Park,43.065055,-89.39822,MMT,CMAD,0,,2,270,1,W Washington,750,Brittingham
+773,773,N Mills & University (NB),This stop (#0773) is northbound on the 399 block of Mills St (N) nearside University Ave,43.073185,-89.403945,MMT,CMAD,0,,3,0,1,N Mills,399,University
+782,782,W Badger & Fiedler (WB),This stop (#0782) is westbound on the 1100 block of Badger Rd (W) farside Fiedler Ln,43.03869,-89.401869,MMT,CMAD,0,,1,270,1,W Badger,1100,Fiedler
+791,791,W Wilson & S Hamilton (EB),This stop (#0791) is eastbound on the 301 block of Wilson St (W) nearside Hamilton St (S),43.070262,-89.384331,MMT,CMAD,0,,3,90,0,W Wilson,301,S Hamilton
+795,795,N Park & State (NB),This stop (#0795) is northbound on the 499 block of Park St (N) adjacent State St Mall,43.074599,-89.400488,MMT,CMAD,0,,2,0,1,N Park,499,State
+803,803,State & W Johnson (EB),This stop (#0803) is eastbound on the 301 block of State St nearside Johnson St (W),43.074677,-89.390328,MMT,CMAD,0,,3,90,1,State,301,W Johnson
+809,809,Campus & Babcock (EB),This stop (#0809) is eastbound on the 1501 block of Campus Dr nearside Babcock Dr,43.073177,-89.410858,MMT,CMAD,0,,3,90,1,Campus,1501,Babcock
+816,816,Fish Hatchery & W Badger (SB),This stop (#0816) is southbound on the 2500 block of Fish Hatchery Rd farside Badger Rd (W),43.038377,-89.404275,MMT,CMAD,0,,1,180,1,Fish Hatchery,2500,W Badger
+819,819,Koster & Ardmore (EB),This stop (#0819) is eastbound on the 199 block of Koster St farside Ardmore Dr,43.043888,-89.385444,MMT,CMAD,0,,1,90,1,Koster,199,Ardmore
+821,821,Gilson & Cedar (NB),This stop (#0821) is northbound on the 1401 block of Gilson St nearside Cedar St,43.051723,-89.390808,MMT,CMAD,0,,3,0,0,Gilson,1401,Cedar
+828,828,E Rusk & Rimrock (WB),This stop (#0828) is westbound on the 398 block of Rusk Ave (E) farside Rimrock Rd,43.042838,-89.378645,MMT,TMAD,0,,1,270,1,E Rusk,398,Rimrock
+837,837,N Mills & W Dayton (NB),This stop (#0837) is northbound on the 199 block of Mills St (N) nearside Dayton St (W),43.070866,-89.403933,MMT,CMAD,0,,3,0,1,N Mills,199,W Dayton
+839,839,W Johnson & N Broom (EB),This stop (#0839) is eastbound on the 399 block of Johnson St (W) farside Broom St (N),43.073639,-89.391365,MMT,CMAD,0,,1,90,1,W Johnson,399,N Broom
+840,840,S Park & W Washington (SB),This stop (#0840) is southbound on the 400 block of Park St (S) farside W Washington Ave,43.06288,-89.401022,MMT,CMAD,0,,1,180,1,S Park,400,W Washington
+841,841,S Mills & Regent (NB),This stop (#0841) is northbound on the 1 block of Mills St (S) nearside Regent St,43.06758,-89.403909,MMT,CMAD,0,,3,0,1,S Mills,1,Regent
+843,843,Fish Hatchery & Appleton (NB),This stop (#0843) is northbound on the 1347 block of Fish Hatchery Rd nearside Appleton Rd,43.051698,-89.399002,MMT,CMAD,0,,3,0,1,Fish Hatchery,1347,Appleton
+845,845,Fish Hatchery & Plaenert (NB),This stop (#0845) is northbound on the 1701 block of Fish Hatchery Rd nearside Plaenert Dr,43.049317,-89.400521,MMT,CMAD,0,,3,0,1,Fish Hatchery,1701,Plaenert
+853,853,W Dayton & Marion (EB),This stop (#0853) is eastbound on the 545 block of Dayton St (W) nearside Marion St,43.070748,-89.394922,MMT,CMAD,0,,3,90,1,W Dayton,545,Marion
+862,862,John Nolen & E Olin (SB),This stop (#0862) is southbound on the 501 block of John Nolen Dr farside Olin Ave (E),43.05034,-89.3779,MMT,TMAD,0,,1,180,1,John Nolen,501,E Olin
+871,871,Koster & Bram (EB),This stop (#0871) is eastbound on the 399 block of Koster St farside Bram St,43.045294,-89.388565,MMT,CMAD,0,,1,90,1,Koster,399,Bram
+877,877,W Olin & Lowell (EB),This stop (#0877) is eastbound on the 801 block of Olin Ave (W) nearside Lowell St,43.053926,-89.395435,MMT,CMAD,0,,3,90,0,W Olin,801,Lowell
+883,883,State & N Fairchild (EB),This stop (#0883) is eastbound on the 201 block of State St nearside Fairchild St (N),43.074641,-89.388217,MMT,CMAD,0,,3,90,1,State,201,N Fairchild
+890,890,S Park & Beld (SB),This stop (#0890) is southbound on the 1398 block of Park St (S) nearside Beld St,43.051974,-89.395152,MMT,CMAD,0,,3,180,1,S Park,1398,Beld
+894,894,E Rusk & N Rusk (WB),This stop (#0894) is westbound on the 398 block of Rusk Ave (E) nearside Rusk Ave (N),43.039161,-89.383916,MMT,TMAD,0,,3,270,1,E Rusk,398,N Rusk
+898,898,State & W Johnson (WB),This stop (#0898) is westbound on the 298 block of State St nearside Johnson St (W),43.074883,-89.389575,MMT,CMAD,0,,3,270,1,State,298,W Johnson
+904,904,Erin & S Park (WB),This stop (#0904) is westbound on the 900 block of Erin St farside Park St (S),43.059997,-89.401221,MMT,CMAD,0,,1,270,1,Erin,900,S Park
+906,906,S Park & Buick (SB),This stop (#0906) is southbound on the 2200 block of Park St (S) farside Buick St,43.041491,-89.394255,MMT,CMAD,0,,1,180,1,S Park,2200,Buick
+915,915,Fish Hatchery & Midland (NB),This stop (#0915) is northbound on the 1199 block of Fish Hatchery Rd farside Midland St,43.054527,-89.398878,MMT,CMAD,0,,1,0,1,Fish Hatchery,1199,Midland
+916,916,N Breese & Regent (SB),This stop (#0916) is southbound on the 2 block of Breese Ter (N) nearside Regent St,43.067958,-89.414056,MMT,CMAD,0,,3,180,1,N Breese,2,Regent
+918,918,W Gorham & N Carroll (WB),This stop (#0918) is westbound on the 98 block of Gorham St (W) nearside Carroll St (N),43.076853,-89.388944,MMT,CMAD,0,,3,270,0,W Gorham,98,N Carroll
+926,926,N Lake & University (SB),This stop (#0926) is southbound on the 498 block of Lake St (N) nearside University Ave,43.073757,-89.397575,MMT,CMAD,0,,3,180,1,N Lake,498,University
+941,941,W Johnson & N Frances (EB),This stop (#0941) is eastbound on the 599 block of Johnson St (W) farside Frances St (N),43.071894,-89.395489,MMT,CMAD,0,,1,90,1,W Johnson,599,N Frances
+956,956,Koster & Bram (WB),This stop (#0956) is westbound on the 398 block of Koster St nearside Bram St,43.045572,-89.388639,MMT,CMAD,0,,3,270,1,Koster,398,Bram
+962,962,Regent & N Park (WB),This stop (#0962) is westbound on the 900 block of Regent St farside Park St (N),43.067768,-89.40149,MMT,CMAD,0,,1,270,1,Regent,900,N Park
+965,965,S Broom & W Washington (NB),This stop (#0965) is northbound on the 1 block of Broom St (S) nearside W Washington Ave,43.071346,-89.388663,MMT,CMAD,0,,3,0,1,S Broom,1,W Washington
+967,967,W Washington & S Bedford (EB),This stop (#0967) is eastbound on the 599 block of W Washington Ave farside Bedford St (S),43.068957,-89.392096,MMT,CMAD,0,,1,90,1,W Washington,599,S Bedford
+969,969,N Frances & W Johnson (NB),This stop (#0969) is northbound on the 301 block of Frances St (N) farside Johnson St (W),43.072279,-89.395723,MMT,CMAD,0,,1,0,1,N Frances,301,W Johnson
+971,971,Regent & S Randall (EB),This stop (#0971) is eastbound on the 1401 block of Regent St nearside Randall Ave (S),43.067662,-89.409168,MMT,CMAD,0,,3,90,1,Regent,1401,S Randall
+989,989,W Washington & S Broom (EB),This stop (#0989) is eastbound on the 399 block of W Washington Ave farside Broom St (S),43.07149,-89.388515,MMT,CMAD,0,,1,90,1,W Washington,399,S Broom
 1100,1100,E Mifflin & N Pinckney (WB),This stop (#1100) is westbound on the 98 block of Mifflin St (E) farside Pinckney St (N),43.076028,-89.384661,MMT,CMAD,0,,1,270,1,E Mifflin,98,N Pinckney
 1101,1101,W Main & S Carroll (EB),This stop (#1101) is eastbound on the 99 block of Main St (W) farside Carroll St (S),43.073297,-89.383773,MMT,CMAD,0,,1,90,1,W Main,99,S Carroll
 1105,1105,Milwaukee & Walter (EB),This stop (#1105) is eastbound on the 3509 block of Milwaukee St farside Walter St,43.098067,-89.326187,MMT,CMAD,0,,1,90,1,Milwaukee,3509,Walter
 1107,1107,E Washington & S Second (EB),This stop (#1107) is eastbound on the 1999 block of E Washington Ave nearside Second St (S),43.09369,-89.35699,MMT,CMAD,0,,3,90,1,E Washington,1999,S Second
+1110,1110,E Dayton & Wisconsin (WB),This EVENT/DETOUR ONLY stop (#1110) is westbound on the 2 block of Dayton St (E) nearside of Wisconsin Ave,43.076428,-89.38592,MMT,CMAD,0,,3,270,1,E Dayton,2,Wisconsin
+1111,1111,W Doty & M L K Junior (EB),This EVENT/DETOUR ONLY stop (#1111) is eastbound on the 1 block of Doty St (W) nearside of Martin Luther King Jr Blvd,43.072938,-89.382354,MMT,CMAD,0,,3,90,1,W Doty,1,M L K Junior
 1112,1112,E Washington & Milwaukee (WB),This stop (#1112) is westbound on the 2598 block of E Washington Ave farside Milwaukee St,43.10023,-89.34913,MMT,CMAD,0,,1,270,1,E Washington,2598,Milwaukee
 1115,1115,Commercial & Oak (EB),This stop (#1115) is eastbound on the 2899 block of Commercial Ave nearside Oak St,43.106655,-89.34317,MMT,CMAD,0,,3,90,1,Commercial,2899,Oak
 1116,1116,Fordem & Lakewood (SB),This stop (#1116) is southbound on the 1898 block of Fordem Ave farside Lakewood Garden Ln,43.096657,-89.363804,MMT,CMAD,0,,1,180,1,Fordem,1898,Lakewood
 1117,1117,Commercial & Kedzie (EB),This stop (#1117) is eastbound on the 2699 block of Commercial Ave nearside Kedzie St,43.106703,-89.347665,MMT,CMAD,0,,3,90,1,Commercial,2699,Kedzie
 1121,1121,E Johnson & N Livingston (EB),This stop (#1121) is eastbound on the 799 block of Johnson St (E) nearside Livingston St (N),43.082937,-89.378175,MMT,CMAD,0,,3,90,1,E Johnson,799,N Livingston
 1122,1122,N Sherman & Oxford (SB),This stop (#1122) is southbound on the 1000 block of Sherman Ave (N) nearside Oxford Pl,43.11014,-89.363978,MMT,CMAD,0,,3,180,1,N Sherman,1000,Oxford
+1124,1124,S Fairchild & W Main (SB),This EVENT/DETOUR ONLY stop (#1124) is southbound on the 98 block of Fairchild St (S) nearside of Main St (W),43.072467,-89.385273,MMT,CMAD,0,,3,180,1,S Fairchild,98,W Main
 1125,1125,S First & E Main (NB),This stop (#1125) is northbound on the 101 block of First St (S) nearside Main St (E),43.091497,-89.358067,MMT,CMAD,0,,3,0,0,S First,101,E Main
 1127,1127,Atwood & S Marquette (EB),This stop (#1127) is eastbound on the 2899 block of Atwood Ave nearside Marquette St (S),43.093753,-89.342271,MMT,CMAD,0,,3,90,0,Atwood,2899,S Marquette
 1131,1131,E Johnson & N Third (EB),This stop (#1131) is eastbound on the 2101 block of Johnson St (E) farside Third St (N),43.097012,-89.358407,MMT,CMAD,0,,1,90,1,E Johnson,2101,N Third
 1133,1133,Milwaukee & Waubesa (EB),This stop (#1133) is eastbound on the 2735 block of Milwaukee St nearside Waubesa St,43.099878,-89.344116,MMT,CMAD,0,,3,90,0,Milwaukee,2735,Waubesa
+1135,1135,N Webster & E Mifflin (NB),This EVENT/DETOUR ONLY stop (#1135) is northbound on the 101 block of Webster St (N) farside of Mifflin St (E),43.077272,-89.383413,MMT,CMAD,0,,1,0,1,N Webster,101,E Mifflin
 1138,1138,E Gorham & N Blair (WB),This stop (#1138) is westbound on the 600 block of Gorham St (E) nearside Blair St (N),43.081488,-89.382374,MMT,CMAD,0,,3,270,1,E Gorham,600,N Blair
+1140,1140,E Washington & N Webster (WB),This EVENT/DETOUR ONLY stop (#1140) is westbound on the 200 block of E Washington Ave nearside of Webster St (N),43.07639,-89.38193,MMT,CMAD,0,,3,270,1,E Washington,200,N Webster
 1141,1141,E Washington & N Fourth (EB),This stop (#1141) is eastbound on the 2199 block of E Washington Ave nearside Fourth St (N),43.095891,-89.354074,MMT,CMAD,0,,3,90,1,E Washington,2199,N Fourth
+1146,1146,N Fairchild & W Washington (SB),This EVENT/DETOUR ONLY stop (#1146) is southbound on the 50 block of Fairchild St (N) nearside of W Washington Ave,43.073504,-89.386724,MMT,CMAD,0,,3,180,1,N Fairchild,50,W Washington
 1150,1150,E Wilson & S Franklin (WB),This stop (#1150) is westbound on the 500 block of Wilson St (E) nearside Franklin St (S),43.075891,-89.376784,MMT,CMAD,0,,3,270,1,E Wilson,500,S Franklin
 1151,1151,E Johnson & N Paterson (EB),This stop (#1151) is eastbound on the 901 block of Johnson St (E) farside Paterson St (N),43.084548,-89.37584,MMT,CMAD,0,,1,90,1,E Johnson,901,N Paterson
 1153,1153,Walter & Dawes (NB),This stop (#1153) is northbound on the 101 block of Walter St nearside Dawes St,43.095569,-89.326524,MMT,CMAD,0,,3,0,1,Walter,101,Dawes
+1155,1155,S Webster & E Main (NB),This EVENT/DETOUR ONLY stop (#1155) is northbound on the 99 block of Webster St (S) farside of Main St (E),43.075579,-89.381192,MMT,CMAD,0,,1,0,1,S Webster,99,E Main
 1156,1156,N Sherman & Commercial (SB),This stop (#1156) is southbound on the 600 block of Sherman Ave (N) nearside Commercial Ave,43.106953,-89.364055,MMT,VMAP,0,,3,180,1,N Sherman,600,Commercial
 1157,1157,N Baldwin & Sherman (NB),This stop (#1157) is northbound on the 499 block of Baldwin St (N) nearside Sherman Ave,43.091942,-89.372674,MMT,CMAD,0,,3,0,1,N Baldwin,499,Sherman
 1160,1160,E Johnson & N Fourth (WB),This stop (#1160) is westbound on the 2198 block of Johnson St (E) farside Fourth St (N),43.098059,-89.357418,MMT,CMAD,0,,1,270,1,E Johnson,2198,N Fourth
@@ -261,8 +249,10 @@
 1164,1164,E Washington & Aberg (WB),This stop (#1164) is westbound on the 3098 block of E Washington Ave farside Aberg Ave,43.106465,-89.340021,MMT,CMAD,0,,1,270,1,E Washington,3098,Aberg
 1167,1167,Jenifer & S Livingston (EB),This stop (#1167) is eastbound on the 801 block of Jenifer St farside Livingston St (S),43.077867,-89.369993,MMT,CMAD,0,,1,90,1,Jenifer,801,S Livingston
 1169,1169,Atwood & Walter (NB),This stop (#1169) is northbound on the 3498 block of Atwood Ave farside Walter St,43.089707,-89.329817,MMT,CMAD,0,,1,0,1,Atwood,3498,Walter
+1174,1174,W Dayton & State (WB),This EVENT/DETOUR ONLY stop (#1174) is westbound on the 198 block of Dayton St (W) nearside of State St,43.07512,-89.387855,MMT,CMAD,0,,3,270,1,W Dayton,198,State
 1177,1177,Fordem & Lakewood (NB),This stop (#1177) is northbound on the 1899 block of Fordem Ave nearside Lakewood Garden Ln,43.096916,-89.363631,MMT,CMAD,0,,3,0,1,Fordem,1899,Lakewood
 1188,1188,Winnebago & Atwood (SB),This stop (#1188) is southbound on the 1998 block of Winnebago St farside Atwood Ave,43.091791,-89.355523,MMT,CMAD,0,,1,180,1,Winnebago,1998,Atwood
+1189,1189,E Doty & S Pinckney (EB),This EVENT/DETOUR ONLY stop (#1189) is eastbound on the 101 block of Doty St (E) nearside of Pinckney St (S),43.074111,-89.380724,MMT,CMAD,0,,3,90,1,E Doty,101,S Pinckney
 1190,1190,Jenifer & S Brearly (WB),This stop (#1190) is westbound on the 1000 block of Jenifer St nearside Brearly St (S),43.080238,-89.367028,MMT,CMAD,0,,3,270,1,Jenifer,1000,S Brearly
 1191,1191,Oakridge & Miller (EB),This stop (#1191) is eastbound on the 2799 block of Oakridge Ave nearside Miller Ave,43.090665,-89.343855,MMT,CMAD,0,,3,90,1,Oakridge,2799,Miller
 1194,1194,Jenifer & S Livingston (WB),This stop (#1194) is westbound on the 800 block of Jenifer St nearside Livingston St (S),43.077751,-89.370536,MMT,CMAD,0,,3,270,1,Jenifer,800,S Livingston
@@ -850,7 +840,9 @@
 3962,3962,Deer Valley & Ski (SB),This stop (#3962) is southbound on the 298 block of Deer Valley Rd nearside Ski Ln,43.033504,-89.388238,MMT,TMAD,0,,3,180,1,Deer Valley,298,Ski
 3968,3968,Rimrock & Kent (SB),This stop (#3968) is southbound on the 2900 block of Rimrock Rd nearside Kent Ln,43.033484,-89.38086,MMT,TMAD,0,,3,180,1,Rimrock,2900,Kent
 3980,3980,South Towne & Industrial (SB),This stop (#3980) is southbound on the 5600 block of South Towne Dr farside Industrial Dr,43.039892,-89.354747,MMT,CMON,0,,1,180,1,South Towne,5600,Industrial
+4000,SoTP,South Transfer Point,The South Transfer Point station is located at 2430 Park St (S) - just north of Badger Rd (W),43.038957,-89.394651,MMT,MTSM,1,,5,,1,South Transfer Point,2430,S Park
 4085,4085,Helene & Britta (NB),This stop (#4085) is northbound on the 1801 block of Helene Pkwy nearside Britta Pkwy,43.034893,-89.452715,MMT,CMAD,0,,3,0,0,Helene,1801,Britta
+4100,4100,South Transfer Point,This stop (#4100) is on the pedestrian island at the South Transfer Point station,43.038895,-89.394824,MMT,MTSM,0,4000,5,,1,South Transfer Point,2430,S Park
 4108,4108,Beltline N & Culvers (WB),This stop (#4108) is westbound on the 2102 block of Beltline Frontage (N) adjacent Culvers Driveway,43.035576,-89.416009,MMT,CMAD,0,,2,270,0,Beltline N,2102,Culvers
 4120,4120,E Cheryl & Lacy (WB),This stop (#4120) is westbound on the 5100 block of E Cheryl Pkwy farside Lacy Rd,43.00672,-89.391581,MMT,CFIT,0,,1,270,0,E Cheryl,5100,Lacy
 4121,4121,Crawford & Whenona (EB),This stop (#4121) is eastbound on the 4301 block of Crawford Dr nearside Whenona Dr,43.032101,-89.448753,MMT,CMAD,0,,3,90,1,Crawford,4301,Whenona
@@ -1055,6 +1047,8 @@
 4990,4990,Crescent & Allied (WB),This stop (#4990) is westbound on the 4898 block of Crescent Rd nearside Allied Dr,43.024883,-89.459372,MMT,CMAD,0,,3,270,0,Crescent,4898,Allied
 4993,4993,King James & Anton (NB),This stop (#4993) is northbound on the 2999 block of King James Way farside Anton Dr,43.019435,-89.4739,MMT,CFIT,0,,1,0,1,King James,2999,Anton
 4999,4999,Brendan & Mickelson (EB),This stop (#4999) is eastbound on the 5301 block of Brendan Ave nearside Mickelson Pkwy,43.014029,-89.428408,MMT,CFIT,0,,3,90,0,Brendan,5301,Mickelson
+5000,NoTP,North Transfer Point,The North Transfer Point station is located at 1213 Huxley St - just south of Aberg Av,43.112918,-89.358526,MMT,MTSM,1,,5,,1,North Transfer Point,1213,Huxley
+5100,5100,North Transfer Point,This stop (#5100) is on the pedestrian island at the North Transfer Point station,43.113253,-89.35854,MMT,MTSM,0,5000,5,,1,North Transfer Point,1213,Huxley
 5105,5105,Northland & Mandrake (EB),This stop (#5105) is eastbound on the 1099 block of Northland Dr nearside Mandrake Rd,43.14502,-89.378184,MMT,CMAD,0,,3,90,1,Northland,1099,Mandrake
 5107,5107,Burning Wood & Arapahoe (EB),This stop (#5107) is eastbound on the 1209 block of Burning Wood Way nearside Arapahoe Ln,43.155137,-89.374741,MMT,CMAD,0,,3,90,0,Burning Wood,1209,Arapahoe
 5109,5109,Northport & Dryden (EB),This stop (#5109) is eastbound on the 1901 block of Northport Dr farside Dryden Dr,43.12877,-89.358748,MMT,CMAD,0,,1,90,1,Northport,1901,Dryden
@@ -1151,6 +1145,8 @@
 5950,5950,Troy & Harper (WB),This stop (#5950) is westbound on the 400 block of Troy Dr nearside Harper Rd,43.133895,-89.393067,MMT,CMAD,0,,3,270,1,Troy,400,Harper
 5982,5982,Wheeler & Ilene (WB),This stop (#5982) is westbound on the 1000 block of Wheeler Rd farside Ilene Ln,43.148459,-89.37964,MMT,CMAD,0,,1,270,0,Wheeler,1000,Ilene
 5993,5993,Tennyson & Eliot (EB),This stop (#5993) is eastbound on the 1899 block of Tennyson Ln nearside Eliot Ln,43.134707,-89.360744,MMT,CMAD,0,,3,90,0,Tennyson,1899,Eliot
+6000,WeTP,West Transfer Point,The West Transfer Point station is located at 5700 Tokay Blvd - just west of Whitney Way,43.053863,-89.475454,MMT,MTSM,1,,5,,1,West Transfer Point,5700,Tokay
+6100,6100,West Transfer Point,This stop (#6100) is on the pedestrian island at the West Transfer Point station,43.053883,-89.475098,MMT,MTSM,0,6000,5,,1,West Transfer Point,5700,Tokay
 6105,6105,Watts & S High Point (EB),This stop (#6105) is eastbound on the 7799 block of Watts Rd farside High Point Rd (S),43.051863,-89.517401,MMT,CMAD,0,,1,90,1,Watts,7799,S High Point
 6106,6106,Allen & Mendota (SB),This stop (#6106) is southbound on the 2198 block of Allen Blvd farside Mendota Ave,43.095966,-89.486157,MMT,CMID,0,,1,180,1,Allen,2198,Mendota
 6109,6109,Fortune & Sweeney (EB),This stop (#6109) is eastbound on the 7099 block of Fortune Dr farside Sweeney Dr,43.087853,-89.504115,MMT,CMID,0,,1,90,1,Fortune,7099,Sweeney
@@ -1491,6 +1487,8 @@
 6984,6984,Mineral Point & Randolph (WB),This stop (#6984) is westbound on the 7500 block of Mineral Point Rd farside Randolph Dr,43.060765,-89.513093,MMT,CMAD,0,,1,270,1,Mineral Point,7500,Randolph
 6987,6987,Mineral Point & S Junction (EB),This stop (#6987) is eastbound on the 8299 block of Mineral Point Rd farside Junction Rd (S),43.060235,-89.527039,MMT,CMAD,0,,1,90,1,Mineral Point,8299,S Junction
 6997,6997,Island & Mineral Point (NB),This stop (#6997) is northbound on the 399 block of Island Dr farside Mineral Point Rd,43.061148,-89.486359,MMT,CMAD,0,,1,0,1,Island,399,Mineral Point
+7000,EaTP,East Transfer Point,The East Transfer Point station is located at 102 Corporate Dr (W) - just north of Milwaukee St,43.098624,-89.322251,MMT,MTSM,1,,5,,1,East Transfer Point,102,W Corporate
+7100,7100,East Transfer Point,This stop (#7100) is on the pedestrian island at the East Transfer Point station,43.098619,-89.322148,MMT,MTSM,0,7000,5,,1,East Transfer Point,102,W Corporate
 7107,7107,Turner & Pflaum (NB),This stop (#7107) is northbound on the 5299 block of Turner Ave farside Pflaum Rd,43.062496,-89.314067,MMT,CMAD,0,,1,0,1,Turner,5299,Pflaum
 7114,7114,Monona & Buckeye (SB),This stop (#7114) is southbound on the 4101 block of Monona Dr farside Buckeye Rd,43.079604,-89.324201,MMT,CMON,0,,1,180,1,Monona,4101,Buckeye
 7115,7115,Turner & Allis (NB),This stop (#7115) is northbound on the 4801 block of Turner Ave nearside Allis Ave,43.071118,-89.314004,MMT,CMAD,0,,3,0,1,Turner,4801,Allis
@@ -1915,6 +1913,7 @@
 8958,8958,Raymond & Canterbury (WB),This stop (#8958) is westbound on the 7000 block of Raymond Rd farside Canterbury Rd,43.031784,-89.50205,MMT,CMAD,0,,1,270,1,Raymond,7000,Canterbury
 8960,8960,Piping Rock & Hathaway (SB),This stop (#8960) is southbound on the 6299 block of Piping Rock Rd farside Hathaway Dr,43.041755,-89.488365,MMT,CMAD,0,,1,180,0,Piping Rock,6299,Hathaway
 8985,8985,Mckenna & Pilgrim (NB),This stop (#8985) is northbound on the 2501 block of Mckenna Blvd nearside Pilgrim Rd,43.026989,-89.496851,MMT,CMAD,0,,3,0,1,Mckenna,2501,Pilgrim
+9000,9800,East Towne Mall,The East Towne Mall station is located eastbound at 89 E Towne Mall - just southeast of E Towne Blvd and Independence Ln,43.126161,-89.307135,MMT,PRIV,1,,5,90,1,East Towne Mall,89,E Towne
 9001,9001,Cremer & Park And Ride (NB),This stop (#9001) is northbound on the 1705 block of Cremer Dr adjacent Park And Ride Lot,43.156799,-89.266988,MMT,PRIV,0,,2,0,1,Cremer,1705,Park And Ride
 9100,9100,Wright & Madison College (SB),This stop (#9100) is southbound on the 1700 block of Wright St opposite Madison College,43.121241,-89.33054,MMT,CMAD,0,,4,180,1,Wright,1700,Madison College
 9101,9101,Wright & Madison College (NB),This stop (#9101) is northbound on the 1701 block of Wright St adjacent Madison College,43.121026,-89.330256,MMT,CMAD,0,,2,0,1,Wright,1701,Madison College
@@ -2113,6 +2112,7 @@
 9790,9790,International & American (SB),This stop (#9790) is southbound on the 2698 block of International Ln farside American Ln,43.125256,-89.350239,MMT,CMAD,0,,1,180,1,International,2698,American
 9797,9797,Kinsman & Bartillon (EB),This stop (#9797) is eastbound on the 3701 block of Kinsman Blvd nearside Bartillon Dr,43.125507,-89.323307,MMT,CMAD,0,,3,90,1,Kinsman,3701,Bartillon
 9799,9799,City View & Burke (NB),This stop (#9799) is northbound on the 3101 block of City View Dr farside Burke Rd,43.136103,-89.287743,MMT,CMAD,0,,1,0,1,City View,3101,Burke
+9800,9800,E Towne Mall & Shelter (EB),This stop (#9800) is eastbound on the pedestrian island at East Towne Mall,43.126576,-89.306961,MMT,PRIV,0,9000,5,90,1,East Towne Mall,89,E Towne
 9802,9802,N Fair Oaks & Lexington (SB),This stop (#9802) is southbound on the 900 block of Fair Oaks Ave (N) nearside Lexington Ave,43.110801,-89.330678,MMT,CMAD,0,,3,180,0,N Fair Oaks,900,Lexington
 9803,9803,American & Tancho (NB),This stop (#9803) is northbound on the 5599 block of American Pkwy nearside Tancho Dr,43.154599,-89.285272,MMT,CMAD,0,,3,0,0,American,5599,Tancho
 9810,9810,E Washington & Eagan (WB),This stop (#9810) is westbound on the 4298 block of E Washington Ave farside Eagan Rd,43.126428,-89.31089,MMT,CMAD,0,,1,270,1,E Washington,4298,Eagan

@@ -1,5 +1,6 @@
 package com.samramakrishnan.campusbustracker;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -22,9 +23,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.google.common.collect.SortedSetMultimap;
-import com.google.common.collect.TreeMultimap;
-import com.samramakrishnan.campusbustracker.models.Position;
 import com.samramakrishnan.campusbustracker.models.ResponseTripUpdate;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
 import com.samramakrishnan.campusbustracker.models.Route;
@@ -40,22 +38,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import java.util.NavigableSet;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import io.reactivex.Scheduler;
-import io.reactivex.Single;
-import io.reactivex.android.plugins.RxAndroidPlugins;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
@@ -74,6 +67,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private int spinnerPosition;
     private String spinnerSelection;
+    private String prevSelection = "default"; // tracks previous selection to decide if we need a progress dialog
 
     // Match route name to id from routes raw file
     private Multimap<String, String> matchRouteNameToId = ArrayListMultimap.create();
@@ -92,6 +86,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ArrayList<Marker> listStopMarkers = new ArrayList<>();
     private ArrayList<Marker> listBusMarkers = new ArrayList<>();
     private ArrayList<Stop>   listAllStops = new ArrayList<>();
+    
+    private long lastUpdate = -1;
+    private ProgressDialog mProgressDialog;
+    private boolean isFirst = true;
 
 
     @Override
@@ -105,8 +103,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        intializeProgressDialog();
 
 
+    }
+
+    private void intializeProgressDialog() {
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage(getString(R.string.loading));
+        mProgressDialog.setCancelable(false);
     }
 
 
@@ -155,6 +160,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Initialize the  endpoint
         APICalls mAPICalls = new RetrofitHelper().getAPICalls();
+//        if(isFirst){
+//            if(!mProgressDialog.isShowing())
+//                mProgressDialog.show();
+//
+//            isFirst = false;
+//        }
 
         mCompositeDisposable.add(mAPICalls.getVehiclePositions()
                 .subscribeOn(Schedulers.io()) // "work" on io thread
@@ -168,10 +179,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }).doOnSubscribe(new Consumer<Disposable>() {
                     @Override
                     public void accept(Disposable disposable) throws Exception {
-//                        mProgressDialog = new ProgressDialog(MainActivity.this);
-//                        mProgressDialog.setMessage("Loading...Please wait..");
-//                        mProgressDialog.show();
-//                        mProgressDialog.setCancelable(false);
+
+                        //Show a progress dialog when first loading and after that whenever a new route is selected and loaded
+
+
                     }
                 })
                 .doAfterSuccess(new Consumer<ResponseVehiclePosition>() {
@@ -184,20 +195,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }).doOnError(new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
+//                        if(mProgressDialog.isShowing()){
+//                            mProgressDialog.dismiss();
+//                        }
                         Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
                         listTrips = new ArrayList<TripEntity>();
 
-//                        if (eventListFragment == null) {
-//                            eventListFragment = new EventListFragment();
-//                        }
-//                        currFragment = R.id.event_list_fragment;
-//                        loadFragment(eventListFragment, F_TAG_LIST);
 
                     }
                 })
                 .subscribe(new Consumer<ResponseVehiclePosition>() {
                     @Override
                     public void accept(ResponseVehiclePosition responseVehiclePosition) throws Exception {
+
 
                         Log.d("consumee", responseVehiclePosition.toString());
                             listTrips = responseVehiclePosition.getEntity();
@@ -235,21 +245,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .doAfterSuccess(new Consumer<ResponseTripUpdate>() {
                             @Override
                             public void accept(ResponseTripUpdate responseTripUpdate) throws Exception {
-//                        if(mProgressDialog.isShowing()) {
-//                            mProgressDialog.dismiss();
-//                        }
+//                                if(mProgressDialog.isShowing()){
+//                                    mProgressDialog.dismiss();
+//                                }
                             }
                         }).doOnError(new Consumer<Throwable>() {
                             @Override
                             public void accept(Throwable throwable) throws Exception {
                                 Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
-                                //listUpdate = new ArrayList<UpdateEntity>();
-
-//                        if (eventListFragment == null) {
-//                            eventListFragment = new EventListFragment();
-//                        }
-//                        currFragment = R.id.event_list_fragment;
-//                        loadFragment(eventListFragment, F_TAG_LIST);
+//                                if(mProgressDialog.isShowing()){
+//                                    mProgressDialog.dismiss();
+//                                }
 
                             }
                         })
@@ -257,238 +263,243 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             @Override
                             public void accept(ResponseTripUpdate responseTripUpdate) throws Exception {
 
+
+
                                 Log.d("consumee", responseTripUpdate.toString());
                                 listUpdate = responseTripUpdate.getEntity();
 
-                                addVehicleMarkers();
+                                addVehicleMarkers(false);
 
                             }
                         })
         );
     }
 
-    private void addVehicleMarkers() {
-        mMap.clear();
+    //We need to display progress dialog if from spinnerselection vs. automatic background refresh
+    private void addVehicleMarkers(boolean isFromSpinnerSelection) {
+
+
         if(spinnerPosition==0){
             tvInform.setElevation(getResources().getDimension(R.dimen.elevation));
             tvInform.setText(getResources().getString(R.string.inform_no_route));
             return;
         }
 
-        // Load the route id pertaining to the selected route
-        Collection<String> selectedRoute = matchRouteNameToId.get(spinnerSelection);
 
-        if(Utils.IS_TEST_VERSION){
-            Log.d("selectedroute",selectedRoute.toString());
-        }
+        CompositeDisposable mCompositeDisposable = new CompositeDisposable();
+// OBSERVABLE
 
-        listBus.clear();
-        for(int i=0; i<listTrips.size(); i++){
-            if(selectedRoute.contains(listTrips.get(i).getVehicle().getTrip().getRoute_id())){ // If bus's route and selected route matches, add bus
-                listBus.add(listTrips.get(i));                                                 //for display on map
-            }
-        }
-        Log.d("bastd",listBus.toString());
-        if(listBus.size()==0){
-            tvInform.setText(getResources().getString(R.string.inform_no_bus));
-            return;
-        }
-        else{
-            tvInform.setText("");
-        }
-        stopTimeEstimates.clear();
-        ArrayList<Marker> tmpBusMarkers = new ArrayList<>();
-        //Unfinished. Plan is to check if the bus already mapped to stops. If not, then perform mapping
-        for(int mainCounter=0; mainCounter<listBus.size(); mainCounter++){
-            Collection<Stop> busStopsCollection = matchBusToStops.get(listBus.get(mainCounter).getVehicle().getVehicle().getLabel());
-            ArrayList<Stop> listBusStops = new ArrayList<>(busStopsCollection);
-             if(listBusStops.size()==0){
+        Observable.create(new ObservableOnSubscribe<Boolean>() {
+            // Consider this as block similar to doInbackground of AsyncTask
+            // provided subscription (observor subscribes to observable)
+            // happens on background thread for eg Schedulers.io()
+            @Override public void subscribe(ObservableEmitter<Boolean>
+                                                    emitter) throws Exception {
 
-                 //assignStopsToBus(); // get all the stops of the bus
-             }
-
-             //Plot markers of the Bus Stops of this bus
-            busStopsCollection = matchBusToStops.get(listBus.get(mainCounter).getVehicle().getVehicle().getLabel());
-            listBusStops = new ArrayList<>(busStopsCollection);
-            Log.d("bustopp",listBusStops.toString());
-            LatLng stopPosition;
-             ArrayList<Marker> tmpStopMarkers = new ArrayList<>();
-
-             ArrayList<StopTimeUpdate> timeEstimateForBus = findTimeEstimateForBus(listBus.get(mainCounter));
-             Log.d("timeee", timeEstimateForBus.toString());
-//            for(int j=0; j<listBusStops.size(); j++){
-//                stopPosition = new LatLng(listBusStops.get(j).getLat(),listBusStops.get(j).getLongi());
-//
-//                Marker stopMarker = mMap.addMarker(new MarkerOptions().position(stopPosition)
-//                        .icon(BitmapDescriptorFactory
-//                                .fromResource(R.drawable.stopsmall)).visible(false));
-//
-//
-//                stopMarker.setTag(listBusStops.get(j));
-//                if(!tmpStopMarkers.contains(stopMarker))
-//                tmpStopMarkers.add(stopMarker);
-//                stopTimeEstimates.clear();
-//                for(int k=0; k<timeEstimateForBus.size(); k++){
-//
-//                    if(timeEstimateForBus.get(k).getStop_id().equals(listBusStops.get(j).getId())){
-//                        if(timeEstimateForBus.get(k).getArrival()!=null) {
-//                                stopTimeEstimates.put(listBusStops.get(j).getId(), timeEstimateForBus.get(k).getArrival());
-//                                Log.d("inns", listBusStops.get(j).getId() + "inns" + timeEstimateForBus.get(k).getStop_id());
-//                                //s.remove(k);
-//                                break;
-//
-//                        }
-//                        if(timeEstimateForBus.get(k).getDeparture()!=null){
-//                            stopTimeEstimates.put(listBusStops.get(j).getId(), timeEstimateForBus.get(k).getDeparture());
-//                            Log.d("inns", listBusStops.get(j).getId()+"inns"+timeEstimateForBus.get(k).getStop_id());
-//                            //s.remove(k);
-//                            break;
-//                        }
-//                    }
-//                }
-//                if(Utils.IS_TEST_VERSION){
-//
-//                    Log.d("stoppt" + i, j+" "+stopTimeEstimates.toString());
-//                }
-//            }
+                // Load the route id pertaining to the selected route
 
 
+                //Unfinished. Plan is to check if the bus already mapped to stops. If not, then perform mapping
+                for(int mainCounter=0; mainCounter<listBus.size(); mainCounter++) {
+                    Collection<Stop> busStopsCollection = matchBusToStops.get(listBus.get(mainCounter).getVehicle().getVehicle().getLabel());
+                    ArrayList<Stop> listBusStops = new ArrayList<>(busStopsCollection);
+                    if (listBusStops.size() == 0) {
 
-
-            for(int k=0; k<timeEstimateForBus.size(); k++){
-                int begin =0;
-                int end = listAllStops.size()-1;
-                int j = 0; //mid
-                while(begin<=end){
-                    j = (begin + end)/2;
-                    if(Integer.parseInt(timeEstimateForBus.get(k).getStop_id().trim())>Integer.parseInt((listAllStops.get(j).getId().trim()))){
-                        begin = j + 1;
+                        //assignStopsToBus(); // get all the stops of the bus
                     }
-                    else if (Integer.parseInt(timeEstimateForBus.get(k).getStop_id().trim())<Integer.parseInt((listAllStops.get(j).getId().trim()))){
-                        end = j - 1;
-                    }
-                    else {
-                        if(timeEstimateForBus.get(k).getArrival()!=null) {
-                                stopTimeEstimates.put(listAllStops.get(j), timeEstimateForBus.get(k).getArrival());
-                                Log.d("inns" + mainCounter, listAllStops.get(j).getId() + "inns" + timeEstimateForBus.get(k).getStop_id());
-                            Log.d("estinna" + mainCounter, stopTimeEstimates.toString());
-                                //s.remove(k);
-                                break;
 
+                    //Plot markers of the Bus Stops of this bus
+                    busStopsCollection = matchBusToStops.get(listBus.get(mainCounter).getVehicle().getVehicle().getLabel());
+                    listBusStops = new ArrayList<>(busStopsCollection);
+                    Log.d("bustopp", listBusStops.toString());
+
+
+                    ArrayList<StopTimeUpdate> timeEstimateForBus = findTimeEstimateForBus(listBus.get(mainCounter));
+                    Log.d("timeee", timeEstimateForBus.toString());
+
+
+                    for (int k = 0; k < timeEstimateForBus.size(); k++) {
+                        int begin = 0;
+                        int end = listAllStops.size() - 1;
+                        int j = 0; //mid
+                        while (begin <= end) {
+                            j = (begin + end) / 2;
+                            if (Integer.parseInt(timeEstimateForBus.get(k).getStop_id().trim()) > Integer.parseInt((listAllStops.get(j).getId().trim()))) {
+                                begin = j + 1;
+                            } else if (Integer.parseInt(timeEstimateForBus.get(k).getStop_id().trim()) < Integer.parseInt((listAllStops.get(j).getId().trim()))) {
+                                end = j - 1;
+                            } else {
+                                if (timeEstimateForBus.get(k).getArrival() != null) {
+                                    stopTimeEstimates.put(listAllStops.get(j), timeEstimateForBus.get(k).getArrival());
+                                    Log.d("inns" + mainCounter, listAllStops.get(j).getId() + "inns" + timeEstimateForBus.get(k).getStop_id());
+                                    Log.d("estinna" + mainCounter, stopTimeEstimates.toString());
+                                    //s.remove(k);
+                                    break;
+
+                                }
+                                if (timeEstimateForBus.get(k).getDeparture() != null) {
+                                    stopTimeEstimates.put(listAllStops.get(j), timeEstimateForBus.get(k).getDeparture());
+                                    Log.d("inns" + mainCounter, listAllStops.get(j).getId() + "inns" + timeEstimateForBus.get(k).getStop_id());
+                                    Log.d("estinnd" + mainCounter, stopTimeEstimates.toString());
+                                    ;
+                                    //s.remove(k);
+                                    break;
+                                }
+                            }
                         }
-                        if(timeEstimateForBus.get(k).getDeparture()!=null){
-                            stopTimeEstimates.put(listAllStops.get(j), timeEstimateForBus.get(k).getDeparture());
-                            Log.d("inns" + mainCounter, listAllStops.get(j).getId()+"inns"+timeEstimateForBus.get(k).getStop_id());
-                            Log.d("estinnd" + mainCounter, stopTimeEstimates.toString());;
-                            //s.remove(k);
-                            break;
+                        if (Utils.IS_TEST_VERSION) {
+
+                            Log.d("stoppt" + mainCounter, j + " " + stopTimeEstimates.toString());
                         }
                     }
+                    Log.d("estt" + mainCounter, stopTimeEstimates.toString());
                 }
-                if(Utils.IS_TEST_VERSION){
-
-                    Log.d("stoppt" + mainCounter, j+" "+stopTimeEstimates.toString());
+                if(!emitter.isDisposed()) {
+                    emitter.onNext(true);
                 }
             }
-            Log.d("estt" + mainCounter, stopTimeEstimates.toString());
-            Iterator<Stop> ite = stopTimeEstimates.keySet().iterator();
-            while(ite.hasNext()){
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+// As we observe on AndroidSchedulers.mainThread() Observor below
+// observes on main thread, so onNext called below acts as
+// onPostExecute of AsyncTask
+                .subscribe(new Observer<Boolean>() { // OBSERVOR
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
-                Stop stop = ite.next();
-                Log.d("nxt", stop.toString());
+                        if(isFromSpinnerSelection){
+                            if(!mProgressDialog.isShowing()){
+                                mProgressDialog.show();
+                            }
+                        }
 
-                stopPosition = new LatLng(stop.getLat(),stop.getLongi());
+                        // This is called when Subscription happens, before
+                        // subscribe of Observable gets called
+                        Collection<String> selectedRoute = matchRouteNameToId.get(spinnerSelection);
 
-                Marker stopMarker = mMap.addMarker(new MarkerOptions().position(stopPosition)
-                        .icon(BitmapDescriptorFactory
-                                .fromResource(R.drawable.stopsmall)));
+                        if(Utils.IS_TEST_VERSION){
+                            Log.d("selectedroute",selectedRoute.toString());
+                        }
 
-
-                stopMarker.setTag(stop);
-
-
-
-                Iterator<TimeEstimate> estimateIterator = stopTimeEstimates.get(stop).iterator();
-
-                TimeEstimate tmp = null;
-                while (estimateIterator.hasNext()){
-                    TimeEstimate nxt = estimateIterator.next();
-                    if(nxt.getTime()*1000>=System.currentTimeMillis()){// Get the earliest estimated time from busses who are yet to make a stop
-                        tmp = nxt;
-                        break;
+                        listBus.clear();
+                        for(int i=0; i<listTrips.size(); i++){
+                            if(selectedRoute.contains(listTrips.get(i).getVehicle().getTrip().getRoute_id())){ // If bus's route and selected route matches, add bus
+                                listBus.add(listTrips.get(i));                                                 //for display on map
+                            }
+                        }
+                        Log.d("bastd",listBus.toString());
+                        if(listBus.size()==0){
+                            tvInform.setText(getResources().getString(R.string.inform_no_bus));
+                            return;
+                        }
+                        else{
+                            tvInform.setText("");
+                        }
+                        stopTimeEstimates.clear();
                     }
-                }
-                String eta;
-                if(tmp == null){
-                    eta = "Not Available";
-                }
-                else{
-                    eta = Utils.formatTime(tmp.getTime());
-                }
-                stopMarker.setTitle(stop.getName());
-                stopMarker.setSnippet("ETA for next bus: " + eta);
-                stopMarker.setVisible(true);
 
-                if(!tmpStopMarkers.contains(stopMarker))
-                    tmpStopMarkers.add(stopMarker);
+                    @Override
+                    public void onNext(Boolean aBoolean) {
+                        // Update your view status as per value received from
+                        // Observable
+                        //mAirplaneModeView.setText(getFormattedString(mode));
 
-                if(Utils.IS_TEST_VERSION){
-                    Log.d("markerr" + mainCounter, "");
-                }
+                        mMap.clear();
+                        LatLng stopPosition;
+                        ArrayList<Marker> tmpStopMarkers = new ArrayList<>();
+                        ArrayList<Marker> tmpBusMarkers = new ArrayList<>();
+                        for(int mainCounter=0; mainCounter<listBus.size(); mainCounter++) {
 
-            }
+                            Iterator<Stop> ite = stopTimeEstimates.keySet().iterator();
+                            while(ite.hasNext()){
 
-                listStopMarkers = tmpStopMarkers;
+                                Stop stop = ite.next();
+                                Log.d("nxt", stop.toString());
 
-//            for(int j=0; j<listStopMarkers.size(); j++){
-//                Stop curr = (Stop) listStopMarkers.get(j).getTag();
-//                String curr_id = curr.getId().trim();
-//                Log.d("currr", curr_id);
-//                Log.d("currrStopTime", stopTimeEstimates.toString());
-//
-//                if(stopTimeEstimates.get(curr_id).isEmpty()){
-//                    listStopMarkers.get(j).remove();
-//                    continue;
-//                }
-//                Iterator<TimeEstimate> estimateIterator = stopTimeEstimates.get(curr_id).descendingIterator();
-//                TimeEstimate tmp = stopTimeEstimates.get(curr_id).first();
-////                while (estimateIterator.hasNext()){
-////                    TimeEstimate nxt = estimateIterator.next();
-////                    if(nxt.getTime()*1000<=System.currentTimeMillis()){// Get the earliest estimated time from busses who are yet to make a stop
-////                        tmp = nxt;
-////                        break;
-////                    }
-////                }
-//                String eta;
-//                if(tmp.equals(null)){
-//                    eta = "Not Available";
-//                }
-//                else{
-//                    eta = Utils.formatTime(tmp.getTime());
-//                }
-//                listStopMarkers.get(j).setTitle(curr.getName());
-//                listStopMarkers.get(j).setSnippet("ETA for next bus: " + eta);
-//                listStopMarkers.get(j).setVisible(true);
-//
-//
-//                if(Utils.IS_TEST_VERSION){
-//                    Log.d("markerr" + i, j+" ");
-//                }
-//            }
+                                stopPosition = new LatLng(stop.getLat(), stop.getLongi());
+
+                                Marker stopMarker = mMap.addMarker(new MarkerOptions().position(stopPosition)
+                                        .icon(BitmapDescriptorFactory
+                                                .fromResource(R.drawable.stopsmall)));
+
+
+                                stopMarker.setTag(stop);
 
 
 
+                                Iterator<TimeEstimate> estimateIterator = stopTimeEstimates.get(stop).iterator();
 
-            //Plot markers of the bus
-            double lat = listBus.get(mainCounter).getVehicle().getPosition().getLatitude();
-            double longi = listBus.get(mainCounter).getVehicle().getPosition().getLongitude();
-            LatLng busPosition = new LatLng(lat,longi);
-            Marker m = mMap.addMarker(new MarkerOptions().position(busPosition).icon(BitmapDescriptorFactory
-                    .fromResource(R.drawable.bus3)).title(listBus.get(mainCounter).getVehicle().getTimestamp()+""));
-            tmpBusMarkers.add(m);
+                                TimeEstimate tmp = null;
+                                while (estimateIterator.hasNext()){
+                                    TimeEstimate nxt = estimateIterator.next();
+                                    if(nxt.getTime()*1000>=System.currentTimeMillis()-60000){// Get the earliest estimated time from busses who are yet to make a stop
+                                        tmp = nxt;
+                                        break;
+                                    }
+                                }
+                                String eta;
+                                if(tmp == null){
+                                    eta = "Not Available";
+                                }
+                                else{
+                                    eta = Utils.formatTime(tmp.getTime());
+                                }
+                                stopMarker.setTitle(stop.getName());
+                                stopMarker.setSnippet("ETA for next bus: " + eta);
+                                stopMarker.setVisible(true);
+
+                                if(!tmpStopMarkers.contains(stopMarker))
+                                    tmpStopMarkers.add(stopMarker);
+
+                                if(Utils.IS_TEST_VERSION){
+                                    Log.d("markerr" + mainCounter, "");
+                                }
+
+                            }
+
+                            listStopMarkers = tmpStopMarkers;
 
 
-        }
+
+                            //Plot markers of the bus
+                            double lat = listBus.get(mainCounter).getVehicle().getPosition().getLatitude();
+                            double longi = listBus.get(mainCounter).getVehicle().getPosition().getLongitude();
+                            LatLng busPosition = new LatLng(lat,longi);
+                            Marker m = mMap.addMarker(new MarkerOptions().position(busPosition).icon(BitmapDescriptorFactory
+                                    .fromResource(R.drawable.bus3)).title(listBus.get(mainCounter).getVehicle().getTimestamp()+""));
+                            tmpBusMarkers.add(m);
+
+                        }
+
+                        if(mProgressDialog.isShowing()){
+                            mProgressDialog.dismiss();
+                        }
+
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                        if(mProgressDialog.isShowing()){
+                            mProgressDialog.dismiss();
+                        }
+                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -631,8 +642,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 spinnerPosition = position;
+                prevSelection = spinnerSelection;
                 spinnerSelection = listAdapter.get(position);
-                addVehicleMarkers();
+                addVehicleMarkers(true);
             }
 
             @Override
