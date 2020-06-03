@@ -1,6 +1,7 @@
 package com.samramakrishnan.campusbustracker.restapi;
 
 
+import com.samramakrishnan.campusbustracker.models.ResponseTripUpdate;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
 
 import io.reactivex.Single;
@@ -20,5 +21,8 @@ public interface APICalls {
 
     @GET("Vehicle/VehiclePositions.json")
     Single<ResponseVehiclePosition> getVehiclePositions();
+
+    @GET("TripUpdate/TripUpdates.json")
+    Single<ResponseTripUpdate> getTripUpdates();
 
 }

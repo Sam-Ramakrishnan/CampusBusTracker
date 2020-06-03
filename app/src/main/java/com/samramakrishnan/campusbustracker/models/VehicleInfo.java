@@ -4,8 +4,15 @@ public class VehicleInfo {
     private String id;
     private String label;
 
+    @Override
+    public String toString() {
+        return "VehicleInfo{" +
+                "id='" + id + '\'' +
+                ", label='" + label + '\'' +
+                '}';
+    }
 
-    // Getter Methods
+// Getter Methods
 
     public String getId() {
         return id;

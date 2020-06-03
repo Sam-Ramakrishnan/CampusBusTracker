@@ -1,6 +1,6 @@
 package com.samramakrishnan.campusbustracker.models;
 
-public class Stop {
+public class Stop implements Comparable {
     String id, name;
     double lat, longi;
 
@@ -51,5 +51,10 @@ public class Stop {
                 ", lat=" + lat +
                 ", longi=" + longi +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
     }
 }

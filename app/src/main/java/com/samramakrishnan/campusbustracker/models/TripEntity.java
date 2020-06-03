@@ -6,8 +6,17 @@ public class TripEntity {
     private String trip_update = null;
     Vehicle vehicle;
 
+    @Override
+    public String toString() {
+        return "TripEntity{" +
+                "alert='" + alert + '\'' +
+                ", id='" + id + '\'' +
+                ", trip_update='" + trip_update + '\'' +
+                ", vehicle=" + vehicle +
+                '}';
+    }
 
-    // Getter Methods
+// Getter Methods
 
     public String getAlert() {
         return alert;

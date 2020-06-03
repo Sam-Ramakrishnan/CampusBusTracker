@@ -6,8 +6,17 @@ public class Trip {
     private String start_date;
     private String trip_id;
 
+    @Override
+    public String toString() {
+        return "Trip{" +
+                "route_id='" + route_id + '\'' +
+                ", schedule_relationship=" + schedule_relationship +
+                ", start_date='" + start_date + '\'' +
+                ", trip_id='" + trip_id + '\'' +
+                '}';
+    }
 
-    // Getter Methods
+// Getter Methods
 
     public String getRoute_id() {
         return route_id;

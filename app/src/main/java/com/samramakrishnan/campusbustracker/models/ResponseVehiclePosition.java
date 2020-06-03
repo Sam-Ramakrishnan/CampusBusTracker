@@ -6,8 +6,15 @@ public class ResponseVehiclePosition {
     ArrayList< TripEntity > entity = new ArrayList < TripEntity >  ();
     Header header;
 
+    @Override
+    public String toString() {
+        return "ResponseVehiclePosition{" +
+                "entity=" + entity +
+                ", header=" + header +
+                '}';
+    }
 
-    // Getter Methods
+// Getter Methods
 
     public ArrayList<TripEntity> getEntity() {
         return entity;
@@ -28,28 +35,4 @@ public class ResponseVehiclePosition {
         this.header = headerObject;
     }
 }
- class Header {
-    private float incrementality;
-    private float timestamp;
 
-
-    // Getter Methods
-
-    public float getIncrementality() {
-        return incrementality;
-    }
-
-    public float getTimestamp() {
-        return timestamp;
-    }
-
-    // Setter Methods
-
-    public void setIncrementality(float incrementality) {
-        this.incrementality = incrementality;
-    }
-
-    public void setTimestamp(float timestamp) {
-        this.timestamp = timestamp;
-    }
-}
