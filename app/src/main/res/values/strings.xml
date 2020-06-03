@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">Campus Bus Tracker</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="app_name">Madison Bus Tracker</string>
+    <string name="title_activity_maps">Mad Bus Tracker</string>
     <string name="okay">Okay</string>
     <string name="server_down">We\'re currently experiencing technical difficulties. Please, try again later.</string>
     <string name="inform_no_route">No Route Selected</string>
-    <string name="inform_no_bus">There are no buses on this route right now</string>
+    <string name="inform_no_bus">No Bus on This Route</string>
     <string name="loading">Loading..</string>
+    <string name="title_location_permission">Enable Location Services</string>
+    <string name="text_location_permission">For the best experience using the Bus Tracker, please grant permssion to access your location.</string>
+    <string name="ok">Okay</string>
 </resources>

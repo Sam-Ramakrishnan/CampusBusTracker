@@ -1,6 +1,10 @@
 package com.samramakrishnan.campusbustracker;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -39,9 +45,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.TimeZone;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -90,6 +98,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private long lastUpdate = -1;
     private ProgressDialog mProgressDialog;
     private boolean isFirst = true;
+
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+
 
 
     @Override
@@ -144,6 +155,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(Utils.IS_TEST_VERSION) {
             mMap.getUiSettings().setZoomControlsEnabled(true);
         }
+
+        checkLocationPermission();
 
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(mapCamera), 1, null);
 
@@ -268,6 +281,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 Log.d("consumee", responseTripUpdate.toString());
                                 listUpdate = responseTripUpdate.getEntity();
 
+                                lastUpdate = Utils.getCurrentCSTinMillis();
                                 addVehicleMarkers(false);
 
                             }
@@ -389,12 +403,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             }
                         }
                         Log.d("bastd",listBus.toString());
+                        String lastUpdateText = Utils.formatTimeWithSeconds(lastUpdate);
                         if(listBus.size()==0){
-                            tvInform.setText(getResources().getString(R.string.inform_no_bus));
+                            tvInform.setText("Last Updated at " + lastUpdateText + "\n" + getResources().getString(R.string.inform_no_bus));
                             return;
                         }
                         else{
-                            tvInform.setText("");
+                            tvInform.setText(lastUpdateText);
                         }
                         stopTimeEstimates.clear();
                     }
@@ -433,7 +448,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 TimeEstimate tmp = null;
                                 while (estimateIterator.hasNext()){
                                     TimeEstimate nxt = estimateIterator.next();
-                                    if(nxt.getTime()*1000>=System.currentTimeMillis()-60000){// Get the earliest estimated time from busses who are yet to make a stop
+                                    //if(nxt.getTime()*1000>=System.currentTimeMillis()-60000)
+                                    if(nxt.getTime()*1000>=Utils.getCurrentCSTinMillis()-60000){// Get the earliest estimated time from busses who are yet to make a stop
                                         tmp = nxt;
                                         break;
                                     }
@@ -675,6 +691,78 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         @Override
         public void run() {
             getVehiclePositions();
+        }
+    }
+
+    public boolean checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
+            } else {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.title_location_permission)
+                        .setMessage(R.string.text_location_permission)
+                        .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Prompt the user once explanation has been shown
+                                ActivityCompat.requestPermissions(MapsActivity.this,
+                                        new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                                        MY_PERMISSIONS_REQUEST_LOCATION);
+                            }
+                        })
+                        .create()
+                        .show();
+
+
+            }
+            return false;
+        } else {
+            mMap.setMyLocationEnabled(true);
+            return true;
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay! Do the
+                    // location-related task you need to do.
+                    if (ContextCompat.checkSelfPermission(this,
+                            Manifest.permission.ACCESS_FINE_LOCATION)
+                            == PackageManager.PERMISSION_GRANTED) {
+
+                        //Request location updates:
+                        mMap.setMyLocationEnabled(true);
+                    }
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+
+                }
+                return;
+            }
+
         }
     }
 }
