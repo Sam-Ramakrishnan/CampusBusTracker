@@ -6,4 +6,5 @@
     <dimen name="elevation">2dp</dimen>
     <dimen name="inform_overlay_width">100dp</dimen>
     <dimen name="overlay_txt_size">12sp</dimen>
+    <dimen name="elevation_zero">0dp</dimen>
 </resources>
