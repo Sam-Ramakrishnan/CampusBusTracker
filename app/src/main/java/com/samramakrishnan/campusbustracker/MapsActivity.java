@@ -15,7 +15,6 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.annotation.Dimension;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -33,7 +32,6 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.samramakrishnan.campusbustracker.models.ResponseTripUpdate;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
-import com.samramakrishnan.campusbustracker.models.Route;
 import com.samramakrishnan.campusbustracker.models.Stop;
 import com.samramakrishnan.campusbustracker.models.StopTimeUpdate;
 import com.samramakrishnan.campusbustracker.models.TimeEstimate;
@@ -47,11 +45,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.TimeZone;
+import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -100,7 +97,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ProgressDialog mProgressDialog;
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-
+    private ScheduledThreadPoolExecutor exec;
+    private ScheduledFuture<?> refreshSchedule;
+    private RefreshTask refreshTask;
 
 
     @Override
@@ -113,9 +112,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
-        intializeProgressDialog();
-        progressBarRefresh = findViewById(R.id.progressbar_refresh);
+
+
 
 
     }
@@ -129,20 +127,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onPause() {
         super.onPause();
+        Log.d("consumee", "pause");
+        exec.remove(refreshTask);
+        refreshSchedule.cancel(true);
+
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        intializeProgressDialog();
+        progressBarRefresh = findViewById(R.id.progressbar_refresh);
+        Log.d("consumee", "resume");
+        //Added:
+        if (mMap == null) {
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        } else {
+            Log.d("consumee", "resume");
+            long delay = Utils.MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
 
-//        //Added:
-//        if (mMap == null) {
-//            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                    .findFragmentById(R.id.map);
-//            mapFragment.getMapAsync(this);
-//        } else {
-//            //doSomeSeriousWork();
-//        }
+            if(exec.getActiveCount()==0){
+                Log.d("consumee", "start task inside resume");
+            refreshSchedule = exec.scheduleWithFixedDelay(refreshTask, 0, delay, TimeUnit.SECONDS);}
+
+        }
     }
 
     /**
@@ -157,7 +168,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
+        Log.d("consumee", "mapReady");
 //        // Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
@@ -179,11 +190,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(mapCamera), 1, null);
 
-        ScheduledThreadPoolExecutor exec = new ScheduledThreadPoolExecutor(1);
-//        long period = Utils.MAP_REFRESH_RATE; // the period between successive executions
-//        exec.scheduleAtFixedRate(new MyTask(), 0, period, TimeUnit.MICROSECONDS);
+        exec = new ScheduledThreadPoolExecutor(1);
+
+        exec.setRemoveOnCancelPolicy(true);
         long delay = Utils.MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
-        exec.scheduleWithFixedDelay(new RefreshTask(), 0, delay, TimeUnit.SECONDS);
+        refreshTask = new RefreshTask();
+        if(exec.getActiveCount()==0){
+            Log.d("consumee", "start task inside mapReady");
+            refreshSchedule = exec.scheduleWithFixedDelay(refreshTask, 0, delay, TimeUnit.SECONDS);
+
+    }
     }
 
     private void getVehiclePositions() {
@@ -315,11 +331,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(spinnerPosition==0){
             tvInform.setElevation(getResources().getDimension(R.dimen.elevation));
             tvInform.setText(getResources().getString(R.string.inform_no_route));
+            mMap.clear();
             return;
         }
 
-
-        CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 // OBSERVABLE
 
         Observable.create(new ObservableOnSubscribe<Boolean>() {
@@ -334,18 +349,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 //Unfinished. Plan is to check if the bus already mapped to stops. If not, then perform mapping
                 for(int mainCounter=0; mainCounter<listBus.size(); mainCounter++) {
-//                    Collection<Stop> busStopsCollection = matchBusToStops.get(listBus.get(mainCounter).getVehicle().getVehicle().getLabel());
-//                    ArrayList<Stop> listBusStops = new ArrayList<>(busStopsCollection);
-//                    if (listBusStops.size() == 0) {
-//
-//                        //assignStopsToBus(); // get all the stops of the bus
-//                    }
-//                    //Plot markers of the Bus Stops of this bus
-//                    busStopsCollection = matchBusToStops.get(listBus.get(mainCounter).getVehicle().getVehicle().getLabel());
-//                    listBusStops = new ArrayList<>(busStopsCollection);
-//                    Log.d("bustopp", listBusStops.toString());
-
-
                     ArrayList<StopTimeUpdate> timeEstimateForBus = findTimeEstimateForBus(listBus.get(mainCounter));
                     Log.d("timeee", timeEstimateForBus.toString());
 
@@ -427,6 +430,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         String lastUpdateText = Utils.formatTimeWithSeconds(lastUpdate);
                         if(listBus.size()==0){
                             tvInform.setText("Last Updated at " + lastUpdateText + "\n" + getResources().getString(R.string.inform_no_bus));
+
+                            listStopMarkers.clear();
                             return;
                         }
                         else{
@@ -447,52 +452,52 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         ArrayList<Marker> tmpBusMarkers = new ArrayList<>();
 
                         Iterator<Stop> ite = stopTimeEstimates.keySet().iterator();
-                        while(ite.hasNext()){
 
-                            Stop stop = ite.next();
-                            Log.d("nxt", stop.toString());
+                        if (listBus.size() != 0){
+                            while (ite.hasNext()) {
 
-                            stopPosition = new LatLng(stop.getLat(), stop.getLongi());
+                                Stop stop = ite.next();
+                                Log.d("nxt", stop.toString());
 
-                            Marker stopMarker = mMap.addMarker(new MarkerOptions().position(stopPosition)
-                                    .icon(BitmapDescriptorFactory
-                                            .fromResource(R.drawable.stopsmall)));
+                                stopPosition = new LatLng(stop.getLat(), stop.getLongi());
 
-
-                            stopMarker.setTag(stop);
-
+                                Marker stopMarker = mMap.addMarker(new MarkerOptions().position(stopPosition)
+                                        .icon(BitmapDescriptorFactory
+                                                .fromResource(R.drawable.stopsmall)));
 
 
-                            Iterator<TimeEstimate> estimateIterator = stopTimeEstimates.get(stop).iterator();
+                                stopMarker.setTag(stop);
 
-                            TimeEstimate tmp = null;
-                            while (estimateIterator.hasNext()){
-                                TimeEstimate nxt = estimateIterator.next();
-                                //if(nxt.getTime()*1000>=System.currentTimeMillis()-60000)
-                                if(nxt.getTime()*1000>=Utils.getCurrentCSTinMillis()-60000){// Get the earliest estimated time from busses who are yet to make a stop
-                                    tmp = nxt;
-                                    break;
+
+                                Iterator<TimeEstimate> estimateIterator = stopTimeEstimates.get(stop).iterator();
+
+                                TimeEstimate tmp = null;
+                                while (estimateIterator.hasNext()) {
+                                    TimeEstimate nxt = estimateIterator.next();
+                                    //if(nxt.getTime()*1000>=System.currentTimeMillis()-60000)
+                                    if (nxt.getTime() * 1000 >= Utils.getCurrentCSTinMillis() - 60000) {// Get the earliest estimated time from busses who are yet to make a stop
+                                        tmp = nxt;
+                                        break;
+                                    }
                                 }
+                                String eta;
+                                if (tmp == null) {
+                                    eta = "Not Available";
+                                } else {
+                                    eta = Utils.formatTime(tmp.getTime());
+                                }
+                                stopMarker.setTitle(stop.getName());
+                                stopMarker.setSnippet("ETA for next bus: " + eta);
+                                stopMarker.setVisible(true);
+
+                                if (!tmpStopMarkers.contains(stopMarker))
+                                    tmpStopMarkers.add(stopMarker);
+
+
                             }
-                            String eta;
-                            if(tmp == null){
-                                eta = "Not Available";
-                            }
-                            else{
-                                eta = Utils.formatTime(tmp.getTime());
-                            }
-                            stopMarker.setTitle(stop.getName());
-                            stopMarker.setSnippet("ETA for next bus: " + eta);
-                            stopMarker.setVisible(true);
-
-                            if(!tmpStopMarkers.contains(stopMarker))
-                                tmpStopMarkers.add(stopMarker);
-
-
-
-                        }
 
                         listStopMarkers = tmpStopMarkers;
+                    }
 
                         for(int mainCounter=0; mainCounter<listBus.size(); mainCounter++) {
 
