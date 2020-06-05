@@ -40,6 +40,7 @@ public class RetrofitHelper {
         httpClient.addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
+
                 final Request original = chain.request();
                 final HttpUrl originalHttpUrl = original.url();
 

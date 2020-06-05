@@ -9,4 +9,7 @@
     <string name="title_location_permission">Enable Location Services</string>
     <string name="text_location_permission">For the best experience using the Bus Tracker, please grant permssion to access your location.</string>
     <string name="ok">Okay</string>
+    <string name="internet_settings">This app requires internet connectivity. Please, go to settings to enable your connection.</string>
+    <string name="go_to_settings">Go To Settings</string>
+    <string name="exit_app">Exit</string>
 </resources>

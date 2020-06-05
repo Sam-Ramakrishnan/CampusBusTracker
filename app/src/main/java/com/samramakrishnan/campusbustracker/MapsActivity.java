@@ -129,6 +129,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onPause();
         Log.d("consumee", "pause");
         exec.remove(refreshTask);
+
+        if(refreshSchedule!=null)
         refreshSchedule.cancel(true);
 
 
@@ -151,7 +153,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             if(exec.getActiveCount()==0){
                 Log.d("consumee", "start task inside resume");
-            refreshSchedule = exec.scheduleWithFixedDelay(refreshTask, 0, delay, TimeUnit.SECONDS);}
+            refreshSchedule = exec.schedule(refreshTask, delay, TimeUnit.SECONDS);
+            }
 
         }
     }
@@ -197,7 +200,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         refreshTask = new RefreshTask();
         if(exec.getActiveCount()==0){
             Log.d("consumee", "start task inside mapReady");
-            refreshSchedule = exec.scheduleWithFixedDelay(refreshTask, 0, delay, TimeUnit.SECONDS);
+            refreshSchedule = exec.schedule(refreshTask, delay, TimeUnit.SECONDS);
 
     }
     }
@@ -243,11 +246,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }).doOnError(new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-//                        if(mProgressDialog.isShowing()){
-//                            mProgressDialog.dismiss();
-//                        }
-                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
+                        if(mProgressDialog.isShowing()){
+                            mProgressDialog.dismiss();
+                        }
+//                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
                         listTrips = new ArrayList<TripEntity>();
+                        refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
 
 
                     }
@@ -300,10 +304,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }).doOnError(new Consumer<Throwable>() {
                             @Override
                             public void accept(Throwable throwable) throws Exception {
-                                Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
-//                                if(mProgressDialog.isShowing()){
-//                                    mProgressDialog.dismiss();
-//                                }
+                                //Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
+                                if(mProgressDialog.isShowing()){
+                                    mProgressDialog.dismiss();
+                                }
+                                refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
 
                             }
                         })
@@ -312,11 +317,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             public void accept(ResponseTripUpdate responseTripUpdate) throws Exception {
 
 
-
                                 Log.d("consumee", responseTripUpdate.toString());
                                 listUpdate = responseTripUpdate.getEntity();
 
-                                lastUpdate = Utils.getCurrentCSTinMillis();
+
+
                                 addVehicleMarkers(false);
 
                             }
@@ -351,7 +356,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 for(int mainCounter=0; mainCounter<listBus.size(); mainCounter++) {
                     ArrayList<StopTimeUpdate> timeEstimateForBus = findTimeEstimateForBus(listBus.get(mainCounter));
                     Log.d("timeee", timeEstimateForBus.toString());
-
+                    String vehicleLabel = listBus.get(mainCounter).getVehicle().getVehicle().getLabel();
 
                     for (int k = 0; k < timeEstimateForBus.size(); k++) {
                         int begin = 0;
@@ -428,7 +433,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
                         Log.d("bastd",listBus.toString());
                         String lastUpdateText = Utils.formatTimeWithSeconds(lastUpdate);
-                        if(listBus.size()==0){
+
+                        if(lastUpdate==-1){
+                            tvInform.setText("");
+                        }
+                        else if(listBus.size()==0){
                             tvInform.setText("Last Updated at " + lastUpdateText + "\n" + getResources().getString(R.string.inform_no_bus));
 
                             listStopMarkers.clear();
@@ -516,13 +525,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
                         progressBarRefresh.setVisibility(View.GONE);
 
+
+                            lastUpdate = Utils.getCurrentCSTinMillis();
+
+
+                        refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
+
                     }
                     @Override
                     public void onError(Throwable e) {
                         if(mProgressDialog.isShowing()){
                             mProgressDialog.dismiss();
                         }
-                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
+                        progressBarRefresh.setVisibility(View.GONE);
+//                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
+                        refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
                     }
 
                     @Override
@@ -711,7 +728,38 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         @Override
         public void run() {
-            getVehiclePositions();
+            try {
+                if(Utils.isInternetAvailable(null)) {
+                    getVehiclePositions();
+                }
+                else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d("consumeexp", "else");
+                            String informText = tvInform.getText().toString();
+
+                            if(!informText.contains("internet"))
+                                tvInform.setText(informText+"\n Unable to fetch Bus data. Please, check your internet connection.");
+                        }
+                    });
+
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d("consumeexp", e.toString());
+                        String informText = tvInform.getText().toString();
+
+                        if(!informText.contains("internet"))
+                            tvInform.setText(informText+"\n Unable to fetch Bus data. Please, check your internet connection.");
+                    }
+                });
+
+            }
         }
     }
 
