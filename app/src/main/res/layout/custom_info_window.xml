@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimary"
     android:padding="@dimen/padding">
 
@@ -12,28 +12,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/padding"
-        android:text="Stop"
+        android:text="Stop Nameeeeeeee"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/btn_see_on_map"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="204dp"
-        android:minWidth="0dp"
+
+        android:layout_marginLeft="8dp"
+        android:minWidth="100dp"
         android:minHeight="0dp"
         android:text="See Bus on Map"
         android:textSize="8sp"
-        android:textStyle="bold"
 
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintLeft_toRightOf="@id/guideline2"
+
         app:layout_constraintTop_toBottomOf="@+id/tv_stop_name"
         app:layout_constraintVertical_bias="1.0" />
 
@@ -41,16 +43,30 @@
         android:id="@+id/tv_eta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="8dp"
+
         android:text="See Bus on Map"
-
         android:textColor="@android:color/white"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="@+id/btn_see_on_map"
+        app:layout_constraintRight_toLeftOf="@id/guideline2"
 
+        app:layout_constraintTop_toBottomOf="@+id/tv_stop_name"
+        app:layout_constraintVertical_bias="0.578" />
 
-        app:layout_constraintRight_toLeftOf="@+id/btn_see_on_map"
-        app:layout_constraintTop_toBottomOf="@+id/tv_stop_name" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
