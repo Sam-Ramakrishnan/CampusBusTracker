@@ -4,11 +4,16 @@ public class TimeEstimate implements Comparable {
    private float delay;
    private long time;
    private String busLabel;
+   private String eta;
 
     public TimeEstimate(TimeEstimate te, String busLabel) {
         this.busLabel = busLabel;
         this.delay = te.delay;
         this.time = te.time;
+    }
+
+    public TimeEstimate() {
+
     }
 
     @Override
@@ -32,7 +37,12 @@ public class TimeEstimate implements Comparable {
     public String getBusLabel() {
         return busLabel;
     }
-// Setter Methods
+
+    public String getEta() {
+        return eta;
+    }
+
+    // Setter Methods
 
    public void setDelay(float delay) {
        this.delay = delay;
@@ -44,6 +54,11 @@ public class TimeEstimate implements Comparable {
 
     public void setBusLabel(String busLabel) {
         this.busLabel = busLabel;
+    }
+
+
+    public void setEta(String eta) {
+        this.eta = eta;
     }
 
     @Override

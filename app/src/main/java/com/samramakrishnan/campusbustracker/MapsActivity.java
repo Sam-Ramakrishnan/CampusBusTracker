@@ -19,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -31,6 +30,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import com.samramakrishnan.campusbustracker.models.MarkerData;
 import com.samramakrishnan.campusbustracker.models.ResponseTripUpdate;
 import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
 import com.samramakrishnan.campusbustracker.models.Stop;
@@ -172,6 +172,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(this));
         Log.d("consumee", "mapReady");
 //        // Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
@@ -183,16 +184,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onInfoWindowClick(Marker marker) {
                 Log.d("marky","mark");
                 Object obj = marker.getTag();
-                if(obj instanceof TimeEstimate){
+                if(obj instanceof MarkerData){
                     Log.d("marky","mark1");
-                    for(int i = 0; i<listBusMarkers.size(); i++){
-                        Log.d("marky","mark2");
-                        TripEntity bus = (TripEntity) listBusMarkers.get(i).getTag();
-                        if(((TimeEstimate) obj).getBusLabel().equals(bus.getVehicle().getVehicle().getLabel())){
-                            Log.d("marky","mark3");
+                    if(!((MarkerData) obj).getTimeEstimate().getEta().equals("ETA Not Available")) {
+                        for (int i = 0; i < listBusMarkers.size(); i++) {
+                            Log.d("marky", "mark2");
+                            TripEntity bus = (TripEntity) listBusMarkers.get(i).getTag();
+                            if (((MarkerData) obj).getTimeEstimate().getBusLabel().equals(bus.getVehicle().getVehicle().getLabel())) {
+                                Log.d("marky", "mark3");
 
-                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(bus.getVehicle().getPosition().getLatitude(), bus.getVehicle().getPosition().getLongitude()), 19.0f));
+                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(bus.getVehicle().getPosition().getLatitude(), bus.getVehicle().getPosition().getLongitude()), 19.0f));
 
+                            }
                         }
                     }
                 }
@@ -514,13 +517,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 }
                                 String eta;
                                 if (tmp == null) {
-                                    eta = "Not Available";
+                                    tmp = new TimeEstimate();
+                                    eta = "ETA Not Available";
                                 } else {
-                                    eta = Utils.formatTime(tmp.getTime());
+                                    eta = "Next bus at "  + Utils.formatTime(tmp.getTime());
                                 }
-                                stopMarker.setTitle(stop.getName());
-                                stopMarker.setSnippet("Next bus at " + eta +"\nClick to see bus");
-                                stopMarker.setTag(tmp);
+//                                stopMarker.setTitle(stop.getName());
+//                                stopMarker.setSnippet("Next bus at " + eta +"\nClick to see bus");
+                                tmp.setEta(eta);
+                                MarkerData md = new MarkerData(stop, tmp);
+                                stopMarker.setTag(md);
                                 stopMarker.setVisible(true);
 
                                 if (!tmpStopMarkers.contains(stopMarker))
