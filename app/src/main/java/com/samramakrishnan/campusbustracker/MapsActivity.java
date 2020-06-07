@@ -19,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -177,6 +178,26 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(Utils.START_MAP_POSITION));
 //
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Log.d("marky","mark");
+                Object obj = marker.getTag();
+                if(obj instanceof TimeEstimate){
+                    Log.d("marky","mark1");
+                    for(int i = 0; i<listBusMarkers.size(); i++){
+                        Log.d("marky","mark2");
+                        TripEntity bus = (TripEntity) listBusMarkers.get(i).getTag();
+                        if(((TimeEstimate) obj).getBusLabel().equals(bus.getVehicle().getVehicle().getLabel())){
+                            Log.d("marky","mark3");
+
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(bus.getVehicle().getPosition().getLatitude(), bus.getVehicle().getPosition().getLongitude()), 19.0f));
+
+                        }
+                    }
+                }
+            }
+        });
 
         CameraPosition mapCamera;
 
@@ -370,7 +391,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 end = j - 1;
                             } else {
                                 if (timeEstimateForBus.get(k).getArrival() != null) {
-                                    stopTimeEstimates.put(listAllStops.get(j), timeEstimateForBus.get(k).getArrival());
+                                    TimeEstimate tmp = new TimeEstimate(timeEstimateForBus.get(k).getArrival(), vehicleLabel);
+                                    stopTimeEstimates.put(listAllStops.get(j), tmp);
                                     Log.d("inns" + mainCounter, listAllStops.get(j).getId() + "inns" + timeEstimateForBus.get(k).getStop_id());
                                     Log.d("estinna" + mainCounter, stopTimeEstimates.toString());
                                     //s.remove(k);
@@ -378,7 +400,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                                 }
                                 if (timeEstimateForBus.get(k).getDeparture() != null) {
-                                    stopTimeEstimates.put(listAllStops.get(j), timeEstimateForBus.get(k).getDeparture());
+                                    TimeEstimate tmp = new TimeEstimate(timeEstimateForBus.get(k).getDeparture(), vehicleLabel);
+                                    stopTimeEstimates.put(listAllStops.get(j), tmp);
                                     Log.d("inns" + mainCounter, listAllStops.get(j).getId() + "inns" + timeEstimateForBus.get(k).getStop_id());
                                     Log.d("estinnd" + mainCounter, stopTimeEstimates.toString());
                                     ;
@@ -475,7 +498,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                                 .fromResource(R.drawable.stopsmall)));
 
 
-                                stopMarker.setTag(stop);
+
 
 
                                 Iterator<TimeEstimate> estimateIterator = stopTimeEstimates.get(stop).iterator();
@@ -496,7 +519,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     eta = Utils.formatTime(tmp.getTime());
                                 }
                                 stopMarker.setTitle(stop.getName());
-                                stopMarker.setSnippet("ETA for next bus: " + eta);
+                                stopMarker.setSnippet("Next bus at " + eta +"\nClick to see bus");
+                                stopMarker.setTag(tmp);
                                 stopMarker.setVisible(true);
 
                                 if (!tmpStopMarkers.contains(stopMarker))
@@ -516,9 +540,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             LatLng busPosition = new LatLng(lat,longi);
                             Marker m = mMap.addMarker(new MarkerOptions().position(busPosition).icon(BitmapDescriptorFactory
                                     .fromResource(R.drawable.bus3)).title(listBus.get(mainCounter).getVehicle().getTimestamp()+""));
+                            m.setTag(listBus.get(mainCounter));
                             tmpBusMarkers.add(m);
 
                         }
+                        listBusMarkers = tmpBusMarkers;
 
                         if(mProgressDialog.isShowing()){
                             mProgressDialog.dismiss();

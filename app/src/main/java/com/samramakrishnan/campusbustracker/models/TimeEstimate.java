@@ -3,6 +3,13 @@ package com.samramakrishnan.campusbustracker.models;
 public class TimeEstimate implements Comparable {
    private float delay;
    private long time;
+   private String busLabel;
+
+    public TimeEstimate(TimeEstimate te, String busLabel) {
+        this.busLabel = busLabel;
+        this.delay = te.delay;
+        this.time = te.time;
+    }
 
     @Override
     public String toString() {
@@ -22,7 +29,10 @@ public class TimeEstimate implements Comparable {
        return time;
    }
 
-   // Setter Methods
+    public String getBusLabel() {
+        return busLabel;
+    }
+// Setter Methods
 
    public void setDelay(float delay) {
        this.delay = delay;
@@ -32,7 +42,9 @@ public class TimeEstimate implements Comparable {
        this.time = time;
    }
 
-
+    public void setBusLabel(String busLabel) {
+        this.busLabel = busLabel;
+    }
 
     @Override
     public int compareTo(Object o) {

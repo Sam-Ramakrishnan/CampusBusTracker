@@ -63,7 +63,7 @@ public class Utils {
     public static String formatTime(long time) {
 
         // Creating date format
-        DateFormat simple = new SimpleDateFormat("H : mm a");
+        DateFormat simple = new SimpleDateFormat("h : mm a");
 
         // Creating date from milliseconds
         // using Date() constructor
