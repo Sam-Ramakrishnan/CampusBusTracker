@@ -47,8 +47,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -66,6 +70,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    private static final float MAP_BUS_ZOOM = 15.0f;
+    public static LatLng START_MAP_POSITION = new LatLng(43.071108, -89.399063);
+    public static int START_MAP_ZOOM = 11;
+    public static int MAP_REFRESH_RATE = 24; // Refresh every x seconds
     private GoogleMap mMap;
     private ArrayList<TripEntity> listTrips = new ArrayList<>();
     private ArrayList<TripEntity> listBus = new ArrayList<>();
@@ -98,9 +106,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ProgressDialog mProgressDialog;
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    private ScheduledThreadPoolExecutor exec;
-    private ScheduledFuture<?> refreshSchedule;
-    private RefreshTask refreshTask;
+//    private ScheduledThreadPoolExecutor exec;
+//    private ScheduledFuture<?> refreshSchedule;
+    private RefreshTimerTask refreshTask;
+    private Timer timer;
 
 
     @Override
@@ -129,12 +138,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onPause() {
         super.onPause();
         Log.d("consumee", "pause");
-        exec.remove(refreshTask);
 
-        if(refreshSchedule!=null)
-        refreshSchedule.cancel(true);
-
-
+        if(timer!=null) {
+            timer.cancel();
+        }
+        if(refreshTask!=null) {
+            refreshTask.cancel();
+            refreshTask = null;
+        }
     }
 
     @Override
@@ -149,16 +160,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     .findFragmentById(R.id.map);
             mapFragment.getMapAsync(this);
         } else {
-            Log.d("consumee", "resume");
-            long delay = Utils.MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
-
-            if(exec.getActiveCount()==0){
-                Log.d("consumee", "start task inside resume");
-            refreshSchedule = exec.schedule(refreshTask, delay, TimeUnit.SECONDS);
+            if(refreshTask==null) {
+                Log.d("consumee", "resumerefesh");
+                long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
+                if(timer!=null){
+                    timer.cancel();
+                }
+                timer = new Timer();
+                refreshTask = new RefreshTimerTask();
+                timer.schedule(refreshTask, 0 * 1000);
+            }
             }
 
         }
-    }
+
 
     /**
      * Manipulates the map once available.
@@ -178,7 +193,17 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 //        LatLng sydney = new LatLng(-34, 151);
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(Utils.START_MAP_POSITION));
-//
+
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                if(marker.getTag() instanceof TripEntity) // Don't show info window for buses
+                    return true;
+
+                return false;
+            }
+        });
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
@@ -193,7 +218,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             if (((MarkerData) obj).getTimeEstimate().getBusLabel().equals(bus.getVehicle().getVehicle().getLabel())) {
                                 Log.d("marky", "mark3");
 
-                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(bus.getVehicle().getPosition().getLatitude(), bus.getVehicle().getPosition().getLongitude()), 19.0f));
+                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(bus.getVehicle().getPosition().getLatitude(), bus.getVehicle().getPosition().getLongitude()), MAP_BUS_ZOOM));
 
                             }
                         }
@@ -205,8 +230,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         CameraPosition mapCamera;
 
         mapCamera = CameraPosition.builder()
-                    .target(Utils.START_MAP_POSITION)
-                    .zoom(Utils.START_MAP_ZOOM)
+                    .target(START_MAP_POSITION)
+                    .zoom(START_MAP_ZOOM)
                     .build();
 
         if(Utils.IS_TEST_VERSION) {
@@ -217,20 +242,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(mapCamera), 1, null);
 
-        exec = new ScheduledThreadPoolExecutor(1);
 
-        exec.setRemoveOnCancelPolicy(true);
-        long delay = Utils.MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
-        refreshTask = new RefreshTask();
-        if(exec.getActiveCount()==0){
-            Log.d("consumee", "start task inside mapReady");
-            refreshSchedule = exec.schedule(refreshTask, delay, TimeUnit.SECONDS);
+        if(refreshTask==null) {
+            Log.d("consumee", "resumerefesh");
+            long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
+            if(timer!=null){
+                timer.cancel();
+            }
+            timer = new Timer();
+            refreshTask = new RefreshTimerTask();
+            timer.schedule(refreshTask, 0 * 1000);
+        }
 
-    }
+
     }
 
     private void getVehiclePositions() {
-
         CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
         // Initialize the  endpoint
@@ -275,7 +302,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
 //                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
                         listTrips = new ArrayList<TripEntity>();
-                        refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
+                        long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
+                        if(timer!=null){
+                            timer.cancel();
+                        }
+                        timer = new Timer();
+                        refreshTask = new RefreshTimerTask();
+                        timer.schedule(refreshTask, delay*1000);
 
 
                     }
@@ -332,7 +365,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 if(mProgressDialog.isShowing()){
                                     mProgressDialog.dismiss();
                                 }
-                                refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
+                                long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
+
+                                if(timer!=null){
+                                    timer.cancel();
+                                }
+                                timer = new Timer();
+                                refreshTask = new RefreshTimerTask();
+                                timer.schedule(refreshTask, delay*1000);
 
                             }
                         })
@@ -361,6 +401,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             tvInform.setElevation(getResources().getDimension(R.dimen.elevation));
             tvInform.setText(getResources().getString(R.string.inform_no_route));
             mMap.clear();
+            long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
+
+            if(timer!=null){
+                timer.cancel();
+            }
+            timer = new Timer();
+            refreshTask = new RefreshTimerTask();
+            timer.schedule(refreshTask, delay * 1000);
+
             return;
         }
 
@@ -559,9 +608,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
                             lastUpdate = Utils.getCurrentCSTinMillis();
+                            if(isFromSpinnerSelection&&listBusMarkers.size()>0){// Move camera to the first bus if it exists
+                                TripEntity bus = listBus.get(0);
+                                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(bus.getVehicle().getPosition().getLatitude(), bus.getVehicle().getPosition().getLongitude()), MAP_BUS_ZOOM));
+                            }
+                        if(!isFromSpinnerSelection) {
+                            long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
 
+                            if(timer!=null){
+                                timer.cancel();
+                            }
+                            timer = new Timer();
+                            refreshTask = new RefreshTimerTask();
+                            timer.schedule(refreshTask, delay * 1000);
+                        }
 
-                        refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
 
                     }
                     @Override
@@ -571,7 +632,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }
                         progressBarRefresh.setVisibility(View.GONE);
 //                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
-                        refreshSchedule = exec.schedule(refreshTask, Utils.MAP_REFRESH_RATE, TimeUnit.SECONDS);
+                        if(!isFromSpinnerSelection) {
+                            long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
+
+                            if(timer!=null){
+                                timer.cancel();
+                            }
+                            timer = new Timer();
+                            refreshTask = new RefreshTimerTask();
+                            timer.schedule(refreshTask, delay * 1000);
+                        }
                     }
 
                     @Override
@@ -719,6 +789,15 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         MenuItem item = menu.findItem(R.id.spinner);
         Spinner spinner = (Spinner) item.getActionView();
         listAdapter = new ArrayList<String>(matchRouteNameToId.keySet());
+        Collections.sort(listAdapter, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                if(o1.compareTo(o2)>0)
+                    return 1;
+
+                return -1;
+            }
+        });
         RouteAdapter routeAdapter = new RouteAdapter(this, listAdapter);
         routeAdapter.setDropDownViewResource(R.layout.dropdown);
 
@@ -794,6 +873,52 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         }
     }
+
+    public class RefreshTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+            try {
+                if(Utils.isInternetAvailable(null)) {
+                    getVehiclePositions();
+                }
+                else {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Log.d("consumeexp", "else");
+                            String informText = tvInform.getText().toString();
+
+                            if(!informText.contains("internet"))
+                                tvInform.setText(informText+"\n Unable to fetch Bus data. Please, check your internet connection.");
+                        }
+                    });
+
+                }
+            }
+            catch (Exception e){
+                e.printStackTrace();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d("consumeexp", e.toString());
+                        String informText = tvInform.getText().toString();
+
+                        if(!informText.contains("internet"))
+                            tvInform.setText(informText+"\n Unable to fetch Bus data. Please, check your internet connection.");
+                    }
+                });
+
+            }
+
+
+        }
+
+
+        }
+
+
+
 
     public boolean checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this,

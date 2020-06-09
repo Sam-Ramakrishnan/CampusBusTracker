@@ -1,4 +1,3 @@
-route_id,service_id,agency_id,route_short_name,route_long_name,route_service_name,route_desc,route_type,route_url,route_color,route_text_color,bikes_allowed
 8703,90,MMT,01,,OLD UNIV:CAP SQR,Weekday schedule trips suspended until further notice.,3,http://www.cityofmadison.com/metro/routes-schedules/route-1,E3D23E,000000,1
 8704,90,MMT,02,,WEST TP:NORTH TP,Daily schedule trips operate regularly every 30 minutes.,3,http://www.cityofmadison.com/metro/routes-schedules/route-2,981F66,FFFFFF,1
 8705,90,MMT,03,,WEST TP:EAST TP,Weekday schedule trips suspended until further notice.,3,http://www.cityofmadison.com/metro/routes-schedules/route-3,CD8382,000000,1

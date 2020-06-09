@@ -24,9 +24,6 @@ import java.util.TimeZone;
 public class Utils {
     public static boolean IS_TEST_VERSION = true;
     public static final String BASE_URL = "http://transitdata.cityofmadison.com/";
-    public static LatLng START_MAP_POSITION = new LatLng(43.071108, -89.399063);
-    public static int START_MAP_ZOOM = 17;
-    public static int MAP_REFRESH_RATE = 9; // Refresh every x seconds
 
     public static void displayErrorDialog(Context ctx, String errMsg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(ctx);
