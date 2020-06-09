@@ -1,4 +1,4 @@
-package com.samramakrishnan.campusbustracker.restapi;
+package com.samramakrishnan.madisonbustracker.restapi;
 
 
 
@@ -14,7 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.samramakrishnan.campusbustracker.Utils.BASE_URL;
+import static com.samramakrishnan.madisonbustracker.Utils.BASE_URL;
 
 
 public class RetrofitHelper {

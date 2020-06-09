@@ -1,4 +1,4 @@
-package com.samramakrishnan.campusbustracker.models;
+package com.samramakrishnan.madisonbustracker.models;
 
 public class Header {
     private float incrementality;

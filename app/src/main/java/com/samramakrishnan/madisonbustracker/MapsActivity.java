@@ -1,4 +1,4 @@
-package com.samramakrishnan.campusbustracker;
+package com.samramakrishnan.madisonbustracker;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -30,16 +30,16 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import com.samramakrishnan.campusbustracker.models.MarkerData;
-import com.samramakrishnan.campusbustracker.models.ResponseTripUpdate;
-import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
-import com.samramakrishnan.campusbustracker.models.Stop;
-import com.samramakrishnan.campusbustracker.models.StopTimeUpdate;
-import com.samramakrishnan.campusbustracker.models.TimeEstimate;
-import com.samramakrishnan.campusbustracker.models.TripEntity;
-import com.samramakrishnan.campusbustracker.models.UpdateEntity;
-import com.samramakrishnan.campusbustracker.restapi.APICalls;
-import com.samramakrishnan.campusbustracker.restapi.RetrofitHelper;
+import com.samramakrishnan.madisonbustracker.models.MarkerData;
+import com.samramakrishnan.madisonbustracker.models.ResponseTripUpdate;
+import com.samramakrishnan.madisonbustracker.models.ResponseVehiclePosition;
+import com.samramakrishnan.madisonbustracker.models.Stop;
+import com.samramakrishnan.madisonbustracker.models.StopTimeUpdate;
+import com.samramakrishnan.madisonbustracker.models.TimeEstimate;
+import com.samramakrishnan.madisonbustracker.models.TripEntity;
+import com.samramakrishnan.madisonbustracker.models.UpdateEntity;
+import com.samramakrishnan.madisonbustracker.restapi.APICalls;
+import com.samramakrishnan.madisonbustracker.restapi.RetrofitHelper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,9 +53,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -122,6 +119,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+        this.setTitle("MBT");
 
 
 

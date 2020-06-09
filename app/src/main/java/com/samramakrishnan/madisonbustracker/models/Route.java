@@ -1,4 +1,4 @@
-package com.samramakrishnan.campusbustracker.models;
+package com.samramakrishnan.madisonbustracker.models;
 
 public class Route {
     private int serviceId, type, textColor, isBike;

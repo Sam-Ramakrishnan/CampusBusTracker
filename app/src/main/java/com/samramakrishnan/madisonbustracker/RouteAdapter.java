@@ -1,4 +1,4 @@
-package com.samramakrishnan.campusbustracker;
+package com.samramakrishnan.madisonbustracker;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.samramakrishnan.campusbustracker.models.Route;
 
 import java.util.ArrayList;
 import java.util.List;

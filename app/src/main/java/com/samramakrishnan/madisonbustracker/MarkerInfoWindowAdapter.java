@@ -1,6 +1,5 @@
-package com.samramakrishnan.campusbustracker;
+package com.samramakrishnan.madisonbustracker;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
-import com.samramakrishnan.campusbustracker.models.MarkerData;
+import com.samramakrishnan.madisonbustracker.models.MarkerData;
 
 public class MarkerInfoWindowAdapter implements GoogleMap.InfoWindowAdapter {
 

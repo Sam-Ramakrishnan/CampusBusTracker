@@ -1,19 +1,12 @@
-package com.samramakrishnan.campusbustracker;
+package com.samramakrishnan.madisonbustracker;
 
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.provider.Settings;
 
-import com.google.android.gms.maps.model.LatLng;
-
 import java.net.InetAddress;
-import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,7 +15,7 @@ import java.util.TimeZone;
 
 
 public class Utils {
-    public static boolean IS_TEST_VERSION = true;
+    public static boolean IS_TEST_VERSION = false;
     public static final String BASE_URL = "http://transitdata.cityofmadison.com/";
 
     public static void displayErrorDialog(Context ctx, String errMsg) {

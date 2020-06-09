@@ -1,4 +1,4 @@
-package com.samramakrishnan.campusbustracker;
+package com.samramakrishnan.madisonbustracker;
 
 import android.content.Context;
 

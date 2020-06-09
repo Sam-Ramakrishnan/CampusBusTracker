@@ -1,12 +1,11 @@
-package com.samramakrishnan.campusbustracker.restapi;
+package com.samramakrishnan.madisonbustracker.restapi;
 
 
-import com.samramakrishnan.campusbustracker.models.ResponseTripUpdate;
-import com.samramakrishnan.campusbustracker.models.ResponseVehiclePosition;
+import com.samramakrishnan.madisonbustracker.models.ResponseTripUpdate;
+import com.samramakrishnan.madisonbustracker.models.ResponseVehiclePosition;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public interface APICalls {
 
