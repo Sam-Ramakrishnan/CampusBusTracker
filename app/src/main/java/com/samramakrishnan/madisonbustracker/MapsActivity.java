@@ -70,12 +70,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final float MAP_BUS_ZOOM = 15.0f;
     public static LatLng START_MAP_POSITION = new LatLng(43.071108, -89.399063);
     public static int START_MAP_ZOOM = 11;
-    public static int MAP_REFRESH_RATE = 24; // Refresh every x seconds
+    public static int MAP_REFRESH_RATE = 20; // Refresh every x seconds
     private GoogleMap mMap;
     private ArrayList<TripEntity> listTrips = new ArrayList<>();
     private ArrayList<TripEntity> listBus = new ArrayList<>();
 
-    //private ArrayList<Route> listRoutes = new ArrayList<>();
+
 
     private int spinnerPosition;
     private String spinnerSelection;
@@ -83,8 +83,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     // Match route name to id from routes raw file
     private Multimap<String, String> matchRouteNameToId = ArrayListMultimap.create();
 
-//    // Match Bus to Stops using stoptimes raw file
-//    private Multimap<String, Stop> matchBusToStops = ArrayListMultimap.create();
 
     // Match stop id to stops from stops raw file
     private HashMap<String, Stop> matchStopIdToStops = new HashMap<>();
@@ -103,8 +101,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ProgressDialog mProgressDialog;
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-//    private ScheduledThreadPoolExecutor exec;
-//    private ScheduledFuture<?> refreshSchedule;
+
     private RefreshTimerTask refreshTask;
     private Timer timer;
 
@@ -186,12 +183,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setInfoWindowAdapter(new MarkerInfoWindowAdapter(this));
-        Log.d("consumee", "mapReady");
-//        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(Utils.START_MAP_POSITION));
-
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -260,12 +251,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Initialize the  endpoint
         APICalls mAPICalls = new RetrofitHelper().getAPICalls();
-//        if(isFirst){
-//            if(!mProgressDialog.isShowing())
-//                mProgressDialog.show();
-//
-//            isFirst = false;
-//        }
 
         mCompositeDisposable.add(mAPICalls.getVehiclePositions()
                 .subscribeOn(Schedulers.io()) // "work" on io thread
@@ -288,9 +273,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .doAfterSuccess(new Consumer<ResponseVehiclePosition>() {
                     @Override
                     public void accept(ResponseVehiclePosition responseVehiclePosition) throws Exception {
-//                        if(mProgressDialog.isShowing()) {
-//                            mProgressDialog.dismiss();
-//                        }
+
                     }
                 }).doOnError(new Consumer<Throwable>() {
                     @Override
@@ -298,7 +281,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         if(mProgressDialog.isShowing()){
                             mProgressDialog.dismiss();
                         }
-//                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
+
                         listTrips = new ArrayList<TripEntity>();
                         long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
                         if(timer!=null){
@@ -343,18 +326,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         }).doOnSubscribe(new Consumer<Disposable>() {
                             @Override
                             public void accept(Disposable disposable) throws Exception {
-//                        mProgressDialog = new ProgressDialog(MainActivity.this);
-//                        mProgressDialog.setMessage("Loading...Please wait..");
-//                        mProgressDialog.show();
-//                        mProgressDialog.setCancelable(false);
+
                             }
                         })
                         .doAfterSuccess(new Consumer<ResponseTripUpdate>() {
                             @Override
                             public void accept(ResponseTripUpdate responseTripUpdate) throws Exception {
-//                                if(mProgressDialog.isShowing()){
-//                                    mProgressDialog.dismiss();
-//                                }
+
                             }
                         }).doOnError(new Consumer<Throwable>() {
                             @Override
@@ -526,7 +504,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onNext(Boolean aBoolean) {
                         // Update your view status as per value received from
                         // Observable
-                        //mAirplaneModeView.setText(getFormattedString(mode));
+
 
                         mMap.clear();
                         LatLng stopPosition;
@@ -556,7 +534,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 TimeEstimate tmp = null;
                                 while (estimateIterator.hasNext()) {
                                     TimeEstimate nxt = estimateIterator.next();
-                                    //if(nxt.getTime()*1000>=System.currentTimeMillis()-60000)
+
                                     if (nxt.getTime() * 1000 >= Utils.getCurrentCSTinMillis() - 60000) {// Get the earliest estimated time from busses who are yet to make a stop
                                         tmp = nxt;
                                         break;
@@ -569,8 +547,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 } else {
                                     eta = "Next bus at "  + Utils.formatTime(tmp.getTime());
                                 }
-//                                stopMarker.setTitle(stop.getName());
-//                                stopMarker.setSnippet("Next bus at " + eta +"\nClick to see bus");
+
                                 tmp.setEta(eta);
                                 MarkerData md = new MarkerData(stop, tmp);
                                 stopMarker.setTag(md);
@@ -629,7 +606,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             mProgressDialog.dismiss();
                         }
                         progressBarRefresh.setVisibility(View.GONE);
-//                        Utils.displayErrorDialog(MapsActivity.this, getResources().getString(R.string.server_down));
+
                         if(!isFromSpinnerSelection) {
                             long delay = MAP_REFRESH_RATE; //the delay between the termination of one execution and the commencement of the next
 
@@ -669,41 +646,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return null;
     }
 
-
-//    private void assignStopsToBus() {
-//        InputStream is = getResources().openRawResource(
-//                getResources().getIdentifier("stop_times",
-//                        "raw", getPackageName()));
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-//        try {
-//            String line;
-//            while ((line = reader.readLine()) != null) {
-//                String[] rowData = line.split(",");
-//
-//                // Find stops for all buses because if the first bus on a route doesen't have a stop, other buses don't as well
-//                for(int i=0; i<listBus.size(); i++){
-//                    if(listBus.get(i).getVehicle().getTrip().getTrip_id().equals(rowData[0])){
-//                        Stop stop = matchStopIdToStops.get(rowData[2]);
-//                       matchBusToStops.put(listBus.get(i).getVehicle().getVehicle().getLabel(), stop);
-//                    }
-//                }
-//
-//
-//
-//            }
-//        }
-//        catch (IOException ex) {
-//            // handle exception
-//        }
-//        finally {
-//            try {
-//                is.close();
-//            }
-//            catch (IOException e) {
-//                // handle exception
-//            }
-//        }
-//    }
 
     // Parse the csv file to map route ids to route names
     private void parseCSV(){
@@ -753,8 +695,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             while ((line = reader.readLine()) != null) {
                 String[] rowData = line.split(",");
                 matchRouteNameToId.put(rowData[3] + " - " + rowData[5], rowData[0]);
-                //listRoutes.add(new Route(rowData[0], rowData[3], rowData[5]));
-                //Route route = new Route(Integer.parseInt(rowData[0]), rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0], rowData[0]);
 
 
             }
@@ -799,7 +739,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         RouteAdapter routeAdapter = new RouteAdapter(this, listAdapter);
         routeAdapter.setDropDownViewResource(R.layout.dropdown);
 
-//        routeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
         spinner.setAdapter(routeAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -821,9 +761,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
-//            case R.id.btn_menu_account:
-//////                finish();
-////                return(true);
 
 
         }
@@ -833,44 +770,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
-    class RefreshTask implements Runnable {
-
-        @Override
-        public void run() {
-            try {
-                if(Utils.isInternetAvailable(null)) {
-                    getVehiclePositions();
-                }
-                else {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Log.d("consumeexp", "else");
-                            String informText = tvInform.getText().toString();
-
-                            if(!informText.contains("internet"))
-                                tvInform.setText(informText+"\n Unable to fetch Bus data. Please, check your internet connection.");
-                        }
-                    });
-
-                }
-            }
-            catch (Exception e){
-                e.printStackTrace();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d("consumeexp", e.toString());
-                        String informText = tvInform.getText().toString();
-
-                        if(!informText.contains("internet"))
-                            tvInform.setText(informText+"\n Unable to fetch Bus data. Please, check your internet connection.");
-                    }
-                });
-
-            }
-        }
-    }
 
     public class RefreshTimerTask extends TimerTask {
 
