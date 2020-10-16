@@ -118,10 +118,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map);
         this.setTitle("MBT");
 
-
-
-
     }
+
 
     private void intializeProgressDialog() {
         mProgressDialog = new ProgressDialog(this);
@@ -369,7 +367,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         );
     }
 
-    //We need to display progress dialog if from spinnerselection vs. automatic background refresh
+    //We need to display progress dialog if from spinner selection vs. automatic background refresh
     private void addVehicleMarkers(boolean isFromSpinnerSelection) {
 
 
@@ -390,18 +388,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
 // OBSERVABLE
-
         Observable.create(new ObservableOnSubscribe<Boolean>() {
-            // Consider this as block similar to doInbackground of AsyncTask
-            // provided subscription (observor subscribes to observable)
-            // happens on background thread for eg Schedulers.io()
             @Override public void subscribe(ObservableEmitter<Boolean>
                                                     emitter) throws Exception {
 
                 // Load the route id pertaining to the selected route
-
-
-                //Unfinished. Plan is to check if the bus already mapped to stops. If not, then perform mapping
                 for(int mainCounter=0; mainCounter<listBus.size(); mainCounter++) {
                     ArrayList<StopTimeUpdate> timeEstimateForBus = findTimeEstimateForBus(listBus.get(mainCounter));
                     Log.d("timeee", timeEstimateForBus.toString());
@@ -411,6 +402,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         int begin = 0;
                         int end = listAllStops.size() - 1;
                         int j = 0; //mid
+
+                        //Perform Binary Search
                         while (begin <= end) {
                             j = (begin + end) / 2;
                             if (Integer.parseInt(timeEstimateForBus.get(k).getStop_id().trim()) > Integer.parseInt((listAllStops.get(j).getId().trim()))) {
@@ -452,9 +445,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-// As we observe on AndroidSchedulers.mainThread() Observor below
-// observes on main thread, so onNext called below acts as
-// onPostExecute of AsyncTask
                 .subscribe(new Observer<Boolean>() { // OBSERVOR
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -473,7 +463,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                         Collection<String> selectedRoute = matchRouteNameToId.get(spinnerSelection);
 
                         if(Utils.IS_TEST_VERSION){
-                            Log.d("selectedroute",selectedRoute.toString());
+                            Log.d("consumselectedroute",selectedRoute.toString());
                         }
 
                         listBus.clear();
@@ -489,6 +479,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             tvInform.setText("");
                         }
                         else if(listBus.size()==0){
+                            Log.d("consumno","no bus");
                             tvInform.setText("Last Updated at " + lastUpdateText + "\n" + getResources().getString(R.string.inform_no_bus));
 
                             listStopMarkers.clear();
@@ -513,6 +504,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                         Iterator<Stop> ite = stopTimeEstimates.keySet().iterator();
 
+                        // Plot the stops if there are buses on the route
                         if (listBus.size() != 0){
                             while (ite.hasNext()) {
 
@@ -525,17 +517,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                         .icon(BitmapDescriptorFactory
                                                 .fromResource(R.drawable.stopsmall)));
 
-
-
-
-
                                 Iterator<TimeEstimate> estimateIterator = stopTimeEstimates.get(stop).iterator();
 
                                 TimeEstimate tmp = null;
                                 while (estimateIterator.hasNext()) {
                                     TimeEstimate nxt = estimateIterator.next();
 
-                                    if (nxt.getTime() * 1000 >= Utils.getCurrentCSTinMillis() - 60000) {// Get the earliest estimated time from busses who are yet to make a stop
+                                    if (nxt.getTime() * 1000 >= Utils.getCurrentCSTinMillis() - 60000) {// Get the earliest estimated time from buses who are yet to make a stop
                                         tmp = nxt;
                                         break;
                                     }
@@ -574,6 +562,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             tmpBusMarkers.add(m);
 
                         }
+
                         listBusMarkers = tmpBusMarkers;
 
                         if(mProgressDialog.isShowing()){
@@ -626,15 +615,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 });
 
 
-
-
-
-
-
-
-
-
-
     }
 
     private ArrayList<StopTimeUpdate> findTimeEstimateForBus(TripEntity tripEntity) {
@@ -673,14 +653,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         }
         catch (IOException ex) {
-            // handle exception
+            // Will never be an exception in production build because parsing local file bundled with app which is already tested
         }
         finally {
             try {
                 is.close();
             }
             catch (IOException e) {
-                // handle exception
+                // Will never be an exception in production build because parsing local file bundled with app which is already tested
             }
         }
     }
@@ -700,14 +680,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         }
         catch (IOException ex) {
-            // handle exception
+            // Will never be an exception in production build because parsing local file bundled with app which is already tested
         }
         finally {
             try {
                 is.close();
             }
             catch (IOException e) {
-                // handle exception
+                // Will never be an exception in production build because parsing local file bundled with app which is already tested
             }
         }
     }
@@ -730,7 +710,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         Collections.sort(listAdapter, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                if(o1.compareTo(o2)>0)
+                if(o1.compareTo(o2)<0)
                     return 1;
 
                 return -1;
@@ -744,6 +724,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                displayTrackingError();
                 spinnerPosition = position;
 
                 spinnerSelection = listAdapter.get(position);

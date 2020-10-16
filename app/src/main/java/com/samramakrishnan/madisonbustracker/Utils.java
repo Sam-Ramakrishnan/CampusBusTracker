@@ -15,7 +15,7 @@ import java.util.TimeZone;
 
 
 public class Utils {
-    public static boolean IS_TEST_VERSION = false;
+    public static boolean IS_TEST_VERSION = true;
     public static final String BASE_URL = "http://transitdata.cityofmadison.com/";
 
     public static void displayErrorDialog(Context ctx, String errMsg) {

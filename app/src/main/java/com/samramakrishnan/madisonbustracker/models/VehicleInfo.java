@@ -3,6 +3,8 @@ package com.samramakrishnan.madisonbustracker.models;
 public class VehicleInfo {
     private String id;
     private String label;
+    private String license_plate;
+
 
     @Override
     public String toString() {

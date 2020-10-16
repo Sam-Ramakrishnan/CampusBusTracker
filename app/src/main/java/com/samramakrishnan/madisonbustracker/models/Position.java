@@ -3,6 +3,9 @@ package com.samramakrishnan.madisonbustracker.models;
 public class Position {
     private float latitude;
     private float longitude;
+    private float bearing;
+    private float odometer;
+    private float speed;
 
 
     // Getter Methods
